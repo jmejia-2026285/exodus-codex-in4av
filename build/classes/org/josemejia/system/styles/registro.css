@@ -1,0 +1,132 @@
+.login-container {
+    -fx-background-color: #ece9e2;
+}
+
+.tarjeta-elevada {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 22, 0, 0, 8);
+}
+
+.scroll-formulario {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-formulario > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-formulario .scroll-bar:vertical,
+.scroll-formulario .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+/* Panel izquierdo de marca */
+.panel-marca {
+    -fx-background-color: #12224a;
+    -fx-background-radius: 14 0 0 14;
+    -fx-padding: 40 24 40 24;
+}
+
+.panel-marca-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+
+.panel-marca-subtitulo {
+    -fx-text-fill: #c9a227;
+    -fx-font-size: 12px;
+}
+
+.regla-dorada-panel {
+    -fx-background-color: #c9a227;
+    -fx-pref-width: 40;
+    -fx-pref-height: 2;
+    -fx-max-height: 2;
+}
+
+/* Regla dorada del formulario (la que ya tenías) */
+.regla-dorada {
+    -fx-background-color: #c9a227;
+    -fx-pref-width: 40;
+    -fx-pref-height: 2;
+    -fx-max-height: 2;
+}
+
+.eyebrow {
+    -fx-text-fill: #c9a227;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+}
+
+.marca-titulo {
+    -fx-text-fill: #12224a;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.marca-subtitulo {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 12px;
+}
+
+.campo-etiqueta {
+    -fx-text-fill: #12224a;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.5px;
+}
+
+.campo-texto {
+    -fx-background-color: #f7f6f2;
+    -fx-border-color: #d9d6cd;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8 10 8 10;
+    -fx-font-size: 13px;
+}
+
+.campo-texto:focused {
+    -fx-border-color: #c9a227;
+    -fx-background-color: white;
+}
+
+.mensaje-error {
+    -fx-text-fill: #b3261e;
+    -fx-font-size: 12px;
+}
+
+/* Botón primario (Registrar cuenta) */
+.boton-primario {
+    -fx-background-color: #12224a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.boton-primario:hover {
+    -fx-background-color: #1a2f63;
+}
+
+/* Botón secundario (Cancelar) */
+.boton-secundario {
+    -fx-background-color: white;
+    -fx-text-fill: #12224a;
+    -fx-border-color: #d9d6cd;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: #f7f6f2;
+}
