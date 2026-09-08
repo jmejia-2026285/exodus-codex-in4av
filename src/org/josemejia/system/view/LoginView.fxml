@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="560.0" prefWidth="900.0">
          <children>
@@ -20,7 +20,7 @@
                   <Insets bottom="52.0" left="44.0" right="44.0" top="52.0" />
                </padding>
                <children>
-                  <VBox alignment="CENTER_LEFT" prefWidth="420" spacing="22" styleClass="panel-marca">
+                  <VBox alignment="CENTER_LEFT" prefHeight="514.0" prefWidth="418.0" spacing="22" styleClass="panel-marca">
                      <padding>
                         <Insets bottom="52" left="44" right="44" top="52" />
                      </padding>
@@ -35,21 +35,21 @@
                         <Label styleClass="panel-marca-titulo" text="Sistema de gestión bibliotecaria" wrapText="true" />
                         <Label styleClass="panel-marca-texto" text="Catálogo, préstamos y usuarios de la librería universitaria en un solo lugar." wrapText="true" />
                         <Region VBox.vgrow="ALWAYS" />
-                        <Label styleClass="panel-marca-cita" text="“Un libro prestado es conocimiento en movimiento.”" wrapText="true" />
+                        <Label styleClass="panel-marca-cita" text="“Un libro es la llave del conocimiento.”" wrapText="true" />
                      </children>
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" spacing="6.0" styleClass="panel-acceso" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" spacing="6.0" styleClass="panel-acceso" stylesheets="@../resources/styles/styles.css" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="52.0" left="60.0" right="60.0" top="52.0" />
                </padding>
                <children>
                   <VBox maxWidth="340.0" spacing="6.0">
                      <children>
-                        <Label styleClass="eyebrow" text="ACCESO AL SISTEMA" />
+                        <Label styleClass="eyebrow" text="ACCESO A LA BIBLIOTECA" />
                         <Label styleClass="marca-titulo" text="Iniciar sesión" />
-                        <Label text="Ingresa con tus credenciales institucionales." />
+                        <Label text="Ingresa con tus datos institucionales." />
                      </children>
                   </VBox>
                   <VBox maxWidth="340.0" spacing="12.0" styleClass="login-form">
@@ -76,8 +76,8 @@
                                  </children>
                               </VBox>
                               <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
-                              <Button fx:id="btnLogin" maxWidth="Infinity" onAction="#handleLogin" styleClass="boton-primario" text="Entrar al sistema" />
-                              <Label styleClass="marca-subtitulo" text="Exodus Codex · v1.0" />
+                              <Button fx:id="btnLogin" maxWidth="Infinity" onAction="#handleLogin" styleClass="boton-primario" text="Entrar a la biblioteca" />
+                              <Label styleClass="marca-subtitulo" text="Exodus Codex KINAL.edu" />
                            </children>
                         </VBox>
                      </children>
