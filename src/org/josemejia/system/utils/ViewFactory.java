@@ -22,7 +22,7 @@ import org.josemejia.system.MainClass;
 
 public class ViewFactory {
 
-    private static final String PATH_VIEWS = "/org/josemejia/sgb/view/";
+    private static final String PATH_VIEWS = "/org/josemejia/system/view/";
 
     // Enum para centralizar la configuración de cada vista (Principio Abierto/Cerrado)
     private enum ViewConfig {

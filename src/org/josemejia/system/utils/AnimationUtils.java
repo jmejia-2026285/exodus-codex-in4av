@@ -40,7 +40,7 @@ public class AnimationUtils {
         public String getClaseEstilo() { return estilo; }
     }
 
-    private static final String RUTA_CSS = "/org/josemejia/sgb/resources/styles/AlertStyles.css";
+    private static final String RUTA_CSS = "/org/josemejia/system/resources/styles/AlertStyles.css";
     private AnimationUtils() {}
 
     public static void mostrarAlertaPersonalizada(String titulo, String mensaje) {
