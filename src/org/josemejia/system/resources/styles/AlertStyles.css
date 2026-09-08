@@ -1,0 +1,53 @@
+/* Diálogos y alertas — mismo lenguaje visual navy + dorado */
+
+.dialog-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E3DFD5;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-padding: 16 20 16 20;
+}
+
+.alerta-exito .header-panel {
+    -fx-background-color: linear-gradient(to right, #24805699, #2E9E6B);
+}
+
+.alerta-error .header-panel {
+    -fx-background-color: linear-gradient(to right, #A83535, #D64545);
+}
+
+.alerta-advertencia .header-panel {
+    -fx-background-color: linear-gradient(to right, #B8935A, #D9A441);
+}
+
+.alerta-info .header-panel {
+    -fx-background-color: linear-gradient(to right, #21467F, #3B6FD1);
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .content.label {
+    -fx-text-fill: #1B2433;
+    -fx-font-size: 13px;
+    -fx-padding: 18 20 8 20;
+}
+
+.dialog-pane .button {
+    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 20 9 20;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #B8935A;
+}
