@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Informatica/AppData/José%20Aangel%20Mejia%20Lima%202026285%20bimestre%204%20IN4AV/Semana%202/exodus-codex-in4av-f3/src/org/josemejia/system/MainClass.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/model/Libro.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/config/ConexionDB.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/service/UsuarioService.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/repository/UsuarioInterface.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/model/Usuario.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/repository/UsuarioRepository.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/config/Enviroment.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/MainClass.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/repository/LibroInterface.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/service/AuthService.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/repository/LibroRepository.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/exodus-codex-in4av/src/org/josemejia/system/service/LibroService.java</file>
         </group>
     </open-files>
 </project-private>
