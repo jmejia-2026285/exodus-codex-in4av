@@ -2,15 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package org.josemejia.system.utils;
 
 /**
  *
  * @author informatica
  */
-
-
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.URL;
@@ -57,7 +54,7 @@ public class ViewFactory {
     public Scene loadFileFXML(String nameFile, int width, int height) {
         String pathOfFile = PATH_VIEWS + nameFile;
         URL urlFile = MainClass.class.getResource(pathOfFile);
-        
+
         if (urlFile == null) {
             throw new IllegalArgumentException("No se encontró el archivo FXML en la ruta: " + pathOfFile);
         }
@@ -76,15 +73,15 @@ public class ViewFactory {
         try {
             ViewConfig config = ViewConfig.fromString(viewName);
             Stage stage = SceneManager.getInstanciaSceneManager().getStagePrincipal();
-            
+
             // Configurar el escenario una sola vez
             stage.setTitle(config.title);
             stage.setResizable(config.resizable);
-            
+
             // Cargar y cambiar la escena
             Scene scene = loadFileFXML(config.fxmlFile, config.width, config.height);
             SceneManager.getInstanciaSceneManager().changeScene(scene);
-            
+
         } catch (RuntimeException e) {
             System.err.println("Error al cargar la vista '" + viewName + "': " + e.getMessage());
             e.printStackTrace();
@@ -92,8 +89,19 @@ public class ViewFactory {
     }
 
     // Se mantienen estos métodos para garantizar compatibilidad y NO modificar otras clases
-    public void viewLogin() { loadScene("login"); }
-    public void viewRegistro() { loadScene("registro"); }
-    public void viewDashboard() { loadScene("dashboard"); }
-    public void viewCatalogo() { loadScene("catalogo"); }
+    public void viewLogin() {
+        loadScene("login");
+    }
+
+    public void viewRegistro() {
+        loadScene("registro");
+    }
+
+    public void viewDashboard() {
+        loadScene("dashboard");
+    }
+
+    public void viewCatalogo() {
+        loadScene("catalogo");
+    }
 }
