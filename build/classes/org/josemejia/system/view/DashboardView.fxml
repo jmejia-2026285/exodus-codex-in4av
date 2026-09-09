@@ -3,115 +3,134 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="raiz" prefHeight="620" prefWidth="980" styleClass="login-container" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.RegistroBibliotecarioController">
+<BorderPane fx:id="raiz" prefHeight="620" prefWidth="1000" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.DashboardController">
 
-    <HBox maxHeight="560" maxWidth="880" styleClass="tarjeta-elevada">
+    <left>
+        <VBox prefWidth="256" spacing="16" styleClass="dashboard-sidebar" stylesheets="@../styles/Dashboard.css">
+            <padding>
+                <Insets bottom="26" left="18" right="18" top="26" />
+            </padding>
 
-        <!-- Panel izquierdo: marca -->
-        <VBox alignment="TOP_LEFT" prefWidth="320" spacing="18" styleClass="panel-marca">
-
-            <ImageView fitWidth="120" preserveRatio="true">
-                <image>
-                    <Image url="@../resources/image/logo.png" />
-                </image>
-            </ImageView>
-
-            <VBox spacing="6">
-                <Label styleClass="panel-marca-titulo" text="EXODUS CODEX" />
-                <Region styleClass="regla-dorada-panel" />
-                <Label styleClass="panel-marca-subtitulo" text="Sistema de Gestión Bibliotecaria" wrapText="true" />
+            <VBox maxWidth="Infinity" styleClass="logo-placa">
+                <ImageView fitWidth="180" preserveRatio="true">
+                    <image>
+                        <Image url="@../resources/image/logo.png" />
+                    </image>
+                </ImageView>
             </VBox>
+
+            <Label styleClass="marca-subtitulo-oscuro" text="SISTEMA DE GESTIÓN BIBLIOTECARIA" wrapText="true" />
+
+            <Region maxWidth="Infinity" styleClass="sidebar-separador" />
+
+            <HBox alignment="CENTER_LEFT" spacing="12" stylesheets="@../styles/Dashboard.css">
+                <Label styleClass="sidebar-avatar" text="EC" />
+                <VBox spacing="2">
+                    <Label fx:id="lblBienvenida" styleClass="sidebar-bienvenida" wrapText="true" />
+                    <Label fx:id="lblRol" styleClass="sidebar-rol" />
+                </VBox>
+            </HBox>
+
+            <Region maxWidth="Infinity" styleClass="sidebar-separador" />
+
+            <Label styleClass="sidebar-seccion" text="NAVEGACIÓN" />
+
+            <Button fx:id="btnCatalogo" maxWidth="Infinity" onAction="#handleCatalogo" styleClass="boton-sidebar" text="Catálogo bibliográfico" />
+            <Button fx:id="btnRegistrarBibliotecario" maxWidth="Infinity" onAction="#handleRegistrarBibliotecario" styleClass="boton-sidebar" text="Registrar bibliotecario" />
 
             <Region VBox.vgrow="ALWAYS" />
 
-            <VBox spacing="14">
-                <Label styleClass="panel-marca-subtitulo" text="AL REGISTRARSE, EL BIBLIOTECARIO PODRÁ:" wrapText="true" />
-
-                <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Region maxWidth="6" prefWidth="6" styleClass="regla-dorada-panel" />
-                    <Label styleClass="panel-marca-subtitulo" text="Consultar y actualizar el catálogo" wrapText="true" />
-                </HBox>
-
-                <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Region maxWidth="6" prefWidth="6" styleClass="regla-dorada-panel" />
-                    <Label styleClass="panel-marca-subtitulo" text="Registrar préstamos y devoluciones" wrapText="true" />
-                </HBox>
-
-                <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Region maxWidth="6" prefWidth="6" styleClass="regla-dorada-panel" />
-                    <Label styleClass="panel-marca-subtitulo" text="Generar reportes del acervo" wrapText="true" />
-                </HBox>
-            </VBox>
-
-            <Region VBox.vgrow="ALWAYS" />
-
-            <Label styleClass="panel-marca-subtitulo" text="Cuenta creada por el jefe de biblioteca" wrapText="true" />
+            <Button fx:id="btnCerrarSesion" maxWidth="Infinity" onAction="#handleCerrarSesion" styleClass="boton-salir" text="Cerrar sesión" />
         </VBox>
+    </left>
 
-        <!-- Panel derecho: formulario -->
-        <ScrollPane fitToWidth="true" styleClass="scroll-formulario" HBox.hgrow="ALWAYS">
-            <VBox spacing="16">
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-formulario" stylesheets="@../styles/Dashboard.css">
+            <VBox spacing="26" styleClass="dashboard-contenido">
                 <padding>
-                    <Insets bottom="40" left="48" right="48" top="40" />
+                    <Insets bottom="48" left="52" right="52" top="48" />
                 </padding>
 
-                <Label styleClass="eyebrow" text="NUEVA CUENTA" />
-                <Label styleClass="marca-titulo" text="Registrar bibliotecario" />
-                <Region styleClass="regla-dorada" />
-                <Label styleClass="marca-subtitulo" text="Completa los datos del nuevo bibliotecario para darlo de alta en el sistema." wrapText="true" />
-
-                <HBox spacing="14">
-                    <VBox spacing="6" HBox.hgrow="ALWAYS">
-                        <Label styleClass="campo-etiqueta" text="NOMBRES" />
-                        <TextField fx:id="txtNombres" promptText="Ej. María José" styleClass="campo-texto" />
-                    </VBox>
-                    <VBox spacing="6" HBox.hgrow="ALWAYS">
-                        <Label styleClass="campo-etiqueta" text="APELLIDOS" />
-                        <TextField fx:id="txtApellidos" promptText="Ej. López Ramírez" styleClass="campo-texto" />
-                    </VBox>
-                </HBox>
-
-                <VBox spacing="6">
-                    <Label styleClass="campo-etiqueta" text="CORREO INSTITUCIONAL" />
-                    <TextField fx:id="txtCorreo" promptText="usuario@biblioteca.edu.gt" styleClass="campo-texto" />
+                <VBox spacing="10">
+                    <Label styleClass="eyebrow" text="PANEL PRINCIPAL" />
+                    <Region styleClass="regla-dorada" />
+                    <Label styleClass="dashboard-titulo" text="Bienvenido a Exodus Codex" />
+                    <Label styleClass="dashboard-subtitulo" text="Administra el acervo de la librería universitaria: registra títulos, actualiza copias y consulta el catálogo completo." wrapText="true" />
                 </VBox>
 
-                <VBox spacing="6">
-                    <Label styleClass="campo-etiqueta" text="USUARIO" />
-                    <TextField fx:id="txtUsuario" promptText="Nombre de usuario para iniciar sesión" styleClass="campo-texto" />
+                <!-- Resumen general -->
+                <VBox spacing="14">
+                    <Label styleClass="sidebar-seccion" text="RESUMEN GENERAL" />
+
+                    <HBox spacing="16">
+                        <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
+                            <Label styleClass="eyebrow" text="CATÁLOGO" />
+                            <Label styleClass="tarjeta-info-numero" text="Títulos y copias" />
+                            <Label styleClass="tarjeta-info-texto" text="Consulta, agrega y edita libros con su portada." wrapText="true" />
+                        </VBox>
+
+                        <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
+                            <Label styleClass="eyebrow" text="CUENTAS" />
+                            <Label styleClass="tarjeta-info-numero" text="Bibliotecarios" />
+                            <Label styleClass="tarjeta-info-texto" text="El jefe de biblioteca crea las cuentas del personal." wrapText="true" />
+                        </VBox>
+
+                        <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
+                            <Label styleClass="eyebrow" text="PRÉSTAMOS" />
+                            <Label styleClass="tarjeta-info-numero" text="Movimientos" />
+                            <Label styleClass="tarjeta-info-texto" text="Controla préstamos activos y devoluciones pendientes." wrapText="true" />
+                        </VBox>
+                    </HBox>
                 </VBox>
 
-                <HBox spacing="14">
-                    <VBox spacing="6" HBox.hgrow="ALWAYS">
-                        <Label styleClass="campo-etiqueta" text="CONTRASEÑA" />
-                        <PasswordField fx:id="txtContrasena" promptText="Mínimo 8 caracteres" styleClass="campo-texto" />
-                    </VBox>
-                    <VBox spacing="6" HBox.hgrow="ALWAYS">
-                        <Label styleClass="campo-etiqueta" text="CONFIRMAR CONTRASEÑA" />
-                        <PasswordField fx:id="txtConfirmarContrasena" promptText="Repite la contraseña" styleClass="campo-texto" />
-                    </VBox>
-                </HBox>
+                <!-- Accesos rápidos -->
+                <VBox spacing="14">
+                    <Label styleClass="sidebar-seccion" text="ACCESOS RÁPIDOS" />
 
-                <Label fx:id="lblMensajeError" managed="false" styleClass="mensaje-error" visible="false" wrapText="true" />
+                    <HBox spacing="16">
+                        <VBox spacing="10" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+                            <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
+                            <Label styleClass="tarjeta-info-texto" text="Registra un nuevo libro con portada, autor y existencias." wrapText="true" />
+                            <Button onAction="#handleCatalogo" styleClass="boton-secundario" text="Ir al catálogo" />
+                        </VBox>
 
-                <HBox alignment="CENTER_RIGHT" spacing="12">
-                    <padding>
-                        <Insets top="10" />
-                    </padding>
-                    <Button fx:id="btnCancelar" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" />
-                    <Button fx:id="btnRegistrar" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar cuenta" />
-                </HBox>
+                        <VBox spacing="10" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+                            <Label styleClass="tarjeta-accion-titulo" text="Nuevo bibliotecario" />
+                            <Label styleClass="tarjeta-info-texto" text="Da de alta una cuenta de personal para operar el sistema." wrapText="true" />
+                            <Button onAction="#handleRegistrarBibliotecario" styleClass="boton-primario" text="Registrar cuenta" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Actividad reciente -->
+                <VBox spacing="14" styleClass="tarjeta-info">
+                    <Label styleClass="eyebrow" text="ACTIVIDAD RECIENTE" />
+
+                    <VBox spacing="10">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Region styleClass="punto-dorado" />
+                            <Label styleClass="tarjeta-info-texto" text="Se agregó una nueva copia al catálogo." />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Region styleClass="punto-dorado" />
+                            <Label styleClass="tarjeta-info-texto" text="Se registró una cuenta de bibliotecario." />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Region styleClass="punto-dorado" />
+                            <Label styleClass="tarjeta-info-texto" text="Se actualizó la información de un título existente." />
+                        </HBox>
+                    </VBox>
+                </VBox>
+
             </VBox>
         </ScrollPane>
-    </HBox>
-</StackPane>
+    </center>
+</BorderPane>
