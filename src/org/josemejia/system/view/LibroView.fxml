@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1060.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="raiz" prefHeight="660" prefWidth="1060" styleClass="pantalla-fondo" stylesheets="@../../../../../../../exodus-codex/src/org/josemejia/sgb/resources/styles/styles.css">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="18" styleClass="barra-superior">
+               <children>
+                  <ImageView fitWidth="140" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../exodus-codex/src/org/josemejia/sgb/resources/image/logo.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="txtBuscar" prefWidth="320" promptText="Buscar por título, autor o ISBN..." styleClass="campo-texto" />
+                  <Button fx:id="btnBuscar" onAction="#handleBuscar" styleClass="boton-dorado" text="Buscar" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnVolver" onAction="#handleVolver" styleClass="boton-secundario" text="Volver al menú" />
+               </children>
+            </HBox>
+            <VBox spacing="14" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="26" left="26" right="26" top="26" />
+               </padding>
+               <children>
+                  <VBox spacing="6" styleClass="catalogo-header">
+                     <children>
+                        <Label styleClass="eyebrow" text="ACERVO" />
+                        <Label styleClass="dashboard-titulo" text="Catálogo bibliográfico" />
+                        <Label fx:id="lblTotalLibros" styleClass="dashboard-subtitulo" text="0 títulos registrados" />
+                        <Region styleClass="regla-dorada" />
+                     </children>
+                  </VBox>
+                  <BorderPane VBox.vgrow="ALWAYS">
+                     <center>
+                        <ScrollPane fx:id="scrollCatalogo" fitToWidth="true" styleClass="scroll-catalogo">
+                           <content>
+                              <FlowPane fx:id="panelTarjetas" hgap="18" styleClass="grilla-tarjetas" vgap="18">
+                                 <padding>
+                                    <Insets bottom="4" left="4" right="18" top="4" />
+                                 </padding>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <right>
+                        <ScrollPane fitToWidth="true" prefWidth="306" styleClass="scroll-formulario">
+                           <content>
+                              <VBox prefHeight="833.0" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
+                                 <children>
+                                    <Label styleClass="panel-formulario-titulo" text="Datos del libro" />
+                                    <Region styleClass="regla-dorada" />
+                                    <VBox alignment="CENTER" spacing="6">
+                                       <children>
+                                          <ImageView fx:id="imgPortadaPreview" fitHeight="130" fitWidth="110" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                                          <Button fx:id="btnSeleccionarPortada" maxWidth="Infinity" onAction="#handleSeleccionarPortada" styleClass="boton-secundario" text="Seleccionar portada" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="3">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="ISBN" />
+                                          <TextField fx:id="txtIsbn" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="3">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="TÍTULO" />
+                                          <TextField fx:id="txtTitulo" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="3">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="AUTOR PRINCIPAL" />
+                                          <TextField fx:id="txtAutor" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="3">
+                                       <children>
+                                          <Label styleClass="campo-etiqueta" text="EDITORIAL" />
+                                          <TextField fx:id="txtEditorial" styleClass="campo-texto" />
+                                       </children>
+                                    </VBox>
+                                    <HBox spacing="10">
+                                       <children>
+                                          <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label styleClass="campo-etiqueta" text="AÑO" />
+                                                <TextField fx:id="txtAnio" styleClass="campo-texto" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label styleClass="campo-etiqueta" text="COPIAS" />
+                                                <TextField fx:id="txtCopias" styleClass="campo-texto" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#handleGuardar" styleClass="boton-primario" text="Guardar" />
+                                    <HBox spacing="10">
+                                       <children>
+                                          <Button fx:id="btnLimpiar" maxWidth="Infinity" onAction="#handleLimpiar" styleClass="boton-secundario" text="Limpiar" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="btnEliminar" maxWidth="Infinity" onAction="#handleEliminar" styleClass="boton-peligro" text="Eliminar" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </right>
+                  </BorderPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
