@@ -1,0 +1,498 @@
+.root {
+    -navy-primario: #0F1F3D;
+    -navy-profundo: #0A162B;
+    -navy-suave: #1B3057;
+    -dorado-codex: #B8935A;
+    -dorado-claro: #D4B483;
+    -dorado-tenue: #F3E7D3;
+    -fondo: #F4F2EC;
+    -superficie: #FFFFFF;
+    -borde: #E3DFD5;
+    -texto-principal: #1B2433;
+    -texto-secundario: #6B7482;
+    -exito: #2E9E6B;
+    -advertencia: #D9A441;
+    -error: #D64545;
+
+    -fx-font-family: "Trebuchet MS", "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-background-color: -fondo;
+    -fx-focus-color: -dorado-codex;
+    -fx-faint-focus-color: transparent;
+}
+
+
+.marca-titulo {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 30px;
+    -fx-text-fill: -navy-primario;
+}
+
+.marca-subtitulo {
+    -fx-font-size: 11px;
+    -fx-text-fill: -texto-secundario;
+}
+
+.eyebrow {
+    -fx-font-size: 10px;
+    -fx-text-fill: -dorado-codex;
+    -fx-font-weight: bold;
+}
+
+.regla-dorada {
+    -fx-background-color: -dorado-codex;
+    -fx-min-height: 2;
+    -fx-max-height: 2;
+    -fx-min-width: 44;
+    -fx-max-width: 44;
+}
+
+.regla-dorada-larga {
+    -fx-background-color: -dorado-codex;
+    -fx-min-height: 2;
+    -fx-max-height: 2;
+}
+
+
+.login-container {
+    -fx-background-color: -fondo;
+}
+
+.panel-marca {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0F1F3D 0%, #0A162B 55%, #16294B 100%);
+}
+
+.panel-marca-titulo {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 26px;
+    -fx-text-fill: white;
+}
+
+.panel-marca-texto {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C4CCDA;
+}
+
+.panel-marca-cita {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+    -fx-text-fill: -dorado-claro;
+}
+
+.logo-placa {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 16 22 16 22;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 22, 0, 0, 8);
+}
+
+.panel-acceso {
+    -fx-background-color: -superficie;
+}
+
+.login-form {
+    -fx-background-color: transparent;
+}
+
+.tarjeta-elevada {
+    -fx-background-color: -superficie;
+    -fx-background-radius: 14;
+    -fx-border-color: -borde;
+    -fx-border-radius: 14;
+    -fx-padding: 26 30 26 30;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.10), 26, 0, 0, 10);
+}
+
+.campo-etiqueta {
+    -fx-font-size: 10px;
+    -fx-text-fill: -texto-secundario;
+    -fx-font-weight: bold;
+}
+
+.campo-texto {
+    -fx-background-color: #FAF9F6;
+    -fx-background-radius: 8;
+    -fx-border-color: -borde;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 12 10 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: -texto-principal;
+    -fx-prompt-text-fill: #A8AEB8;
+}
+
+.campo-texto:focused {
+    -fx-background-color: white;
+    -fx-border-color: -dorado-codex;
+    -fx-border-width: 1.5;
+}
+
+.mensaje-error {
+    -fx-text-fill: -error;
+    -fx-font-size: 11px;
+}
+
+.boton-primario {
+    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 22 12 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.30), 12, 0, 0, 4);
+}
+
+.boton-primario:hover {
+    -fx-background-color: linear-gradient(to right, #16294B, #26406E);
+}
+
+.boton-primario:pressed {
+    -fx-background-color: -navy-profundo;
+    -fx-effect: none;
+}
+
+.boton-secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: -navy-primario;
+    -fx-border-color: -borde;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20 10 20;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: -dorado-tenue;
+    -fx-border-color: -dorado-codex;
+}
+
+.boton-dorado {
+    -fx-background-color: -dorado-codex;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.boton-dorado:hover {
+    -fx-background-color: derive(-dorado-codex, -10%);
+}
+
+.boton-enlace {
+    -fx-background-color: transparent;
+    -fx-text-fill: -dorado-codex;
+    -fx-underline: true;
+    -fx-font-size: 12px;
+    -fx-padding: 4 0 4 0;
+    -fx-cursor: hand;
+}
+
+.boton-peligro {
+    -fx-background-color: transparent;
+    -fx-text-fill: -error;
+    -fx-border-color: derive(-error, 55%);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.boton-peligro:hover {
+    -fx-background-color: derive(-error, 85%);
+    -fx-border-color: -error;
+}
+
+.dashboard-root {
+    -fx-background-color: -fondo;
+}
+
+.dashboard-sidebar {
+    -fx-background-color: linear-gradient(to bottom, #0F1F3D 0%, #0A162B 100%);
+}
+
+.sidebar-separador {
+    -fx-background-color: rgba(255, 255, 255, 0.10);
+    -fx-min-height: 1;
+    -fx-max-height: 1;
+}
+
+.marca-subtitulo-oscuro {
+    -fx-font-size: 9px;
+    -fx-text-fill: #98A4B8;
+}
+
+.sidebar-seccion {
+    -fx-font-size: 9px;
+    -fx-text-fill: #6F7E96;
+    -fx-font-weight: bold;
+}
+
+.sidebar-avatar {
+    -fx-background-color: -dorado-codex;
+    -fx-background-radius: 40;
+    -fx-min-width: 42;
+    -fx-min-height: 42;
+    -fx-max-width: 42;
+    -fx-max-height: 42;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.sidebar-bienvenida {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-rol {
+    -fx-text-fill: -dorado-claro;
+    -fx-font-size: 10px;
+}
+
+.boton-sidebar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #DCE3EE;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 13px;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.boton-sidebar:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: white;
+}
+
+.boton-sidebar:pressed {
+    -fx-background-color: rgba(184, 147, 90, 0.28);
+}
+
+.boton-salir {
+    -fx-background-color: transparent;
+    -fx-text-fill: #C4CCDA;
+    -fx-border-color: rgba(255, 255, 255, 0.22);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 12px;
+    -fx-padding: 10 16 10 16;
+    -fx-cursor: hand;
+}
+
+.boton-salir:hover {
+    -fx-background-color: rgba(214, 69, 69, 0.18);
+    -fx-border-color: #D64545;
+    -fx-text-fill: white;
+}
+
+.dashboard-contenido {
+    -fx-background-color: -fondo;
+}
+
+.dashboard-titulo {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 26px;
+    -fx-text-fill: -navy-primario;
+}
+
+.dashboard-subtitulo {
+    -fx-font-size: 12px;
+    -fx-text-fill: -texto-secundario;
+}
+
+.tarjeta-info {
+    -fx-background-color: -superficie;
+    -fx-background-radius: 12;
+    -fx-border-color: -borde;
+    -fx-border-radius: 12;
+    -fx-padding: 18 22 18 22;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.07), 16, 0, 0, 6);
+}
+
+.tarjeta-info-numero {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 24px;
+    -fx-text-fill: -navy-primario;
+}
+
+.tarjeta-info-texto {
+    -fx-font-size: 11px;
+    -fx-text-fill: -texto-secundario;
+}
+
+.pantalla-fondo {
+    -fx-background-color: -fondo;
+}
+
+.catalogo-header {
+    -fx-padding: 0 0 6 0;
+}
+
+.barra-superior {
+    -fx-background-color: -superficie;
+    -fx-border-color: transparent transparent -borde transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 18 26 18 26;
+}
+
+.panel-formulario {
+    -fx-background-color: -superficie;
+    -fx-border-color: -borde;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.08), 18, 0, 0, 6);
+}
+
+.panel-formulario-titulo {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: -navy-primario;
+}
+
+.scroll-catalogo {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-catalogo > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-catalogo .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10;
+}
+
+.scroll-catalogo .scroll-bar:vertical .thumb {
+    -fx-background-color: #CFCABE;
+    -fx-background-radius: 6;
+}
+
+.scroll-catalogo .scroll-bar .increment-button,
+.scroll-catalogo .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-formulario {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-formulario > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-formulario .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+}
+
+.scroll-formulario .scroll-bar:vertical .thumb {
+    -fx-background-color: #CFCABE;
+    -fx-background-radius: 6;
+}
+
+.scroll-formulario .scroll-bar .increment-button,
+.scroll-formulario .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.grilla-tarjetas {
+    -fx-background-color: transparent;
+}
+
+.libro-tarjeta {
+    -fx-background-color: -superficie;
+    -fx-background-radius: 12;
+    -fx-border-color: -borde;
+    -fx-border-radius: 12;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.08), 14, 0, 0, 5);
+    -fx-cursor: hand;
+}
+
+.libro-tarjeta:hover {
+    -fx-border-color: -dorado-codex;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.20), 22, 0, 0, 10);
+}
+
+.libro-tarjeta-imagen {
+    -fx-background-color: #ECE8DF;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.22), 10, 0, 2, 4);
+}
+
+.libro-tarjeta-titulo {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texto-principal;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.libro-tarjeta-autor {
+    -fx-font-size: 11px;
+    -fx-text-fill: -texto-secundario;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.chip-exito {
+    -fx-background-color: derive(-exito, 82%);
+    -fx-text-fill: derive(-exito, -25%);
+    -fx-background-radius: 20;
+    -fx-padding: 4 12 4 12;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.chip-error {
+    -fx-background-color: derive(-error, 82%);
+    -fx-text-fill: derive(-error, -20%);
+    -fx-background-radius: 20;
+    -fx-padding: 4 12 4 12;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.boton-tarjeta {
+    -fx-background-color: -navy-primario;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-font-size: 10px;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.boton-tarjeta:hover {
+    -fx-background-color: -navy-suave;
+}
+
+.boton-tarjeta-peligro {
+    -fx-background-color: transparent;
+    -fx-text-fill: -error;
+    -fx-border-color: derive(-error, 55%);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 10px;
+    -fx-padding: 5 11 5 11;
+    -fx-cursor: hand;
+}
+
+.boton-tarjeta-peligro:hover {
+    -fx-background-color: derive(-error, 85%);
+    -fx-border-color: -error;
+}
