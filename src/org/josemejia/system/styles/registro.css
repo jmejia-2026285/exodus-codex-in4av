@@ -1,13 +1,13 @@
+/* ===== Fondo general ===== */
 .login-container {
     -fx-background-color: transparent;
 }
 
-.tarjeta-elevada {
-    -fx-background-color: white;
-    -fx-background-radius: 14;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 22, 0, 0, 8);
+.dashboard-root {
+    -fx-background-color: #ece9e2;
 }
 
+/* ===== ScrollPane sin fondo/borde feo ===== */
 .scroll-formulario {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -24,11 +24,17 @@
     -fx-background-color: transparent;
 }
 
-/* Panel izquierdo de marca */
+/* ===== Tarjeta principal (registro) ===== */
+.tarjeta-elevada {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 22, 0, 0, 8);
+}
+
+/* ===== Panel de marca (logo) ===== */
 .panel-marca {
     -fx-background-color: #12224a;
-    -fx-background-radius: 14 0 0 14;
-    -fx-padding: 40 24 40 24;
+    -fx-background-radius: 14 14 0 0;
 }
 
 .panel-marca-titulo {
@@ -46,11 +52,11 @@
 .regla-dorada-panel {
     -fx-background-color: #c9a227;
     -fx-pref-width: 40;
-    -fx-pref-height: 6;
-    -fx-max-height: 6;
+    -fx-pref-height: 2;
+    -fx-max-height: 2;
 }
 
-/* Regla dorada del formulario (la que ya tenías) */
+/* ===== Regla dorada del formulario / dashboard ===== */
 .regla-dorada {
     -fx-background-color: #c9a227;
     -fx-pref-width: 40;
@@ -58,6 +64,7 @@
     -fx-max-height: 2;
 }
 
+/* ===== Encabezados y textos ===== */
 .eyebrow {
     -fx-text-fill: #c9a227;
     -fx-font-size: 11px;
@@ -76,6 +83,7 @@
     -fx-font-size: 12px;
 }
 
+/* ===== Campos de formulario ===== */
 .campo-etiqueta {
     -fx-text-fill: #12224a;
     -fx-font-size: 11px;
@@ -102,7 +110,7 @@
     -fx-font-size: 12px;
 }
 
-/* Botón primario (Registrar cuenta) */
+/* ===== Botones ===== */
 .boton-primario {
     -fx-background-color: #12224a;
     -fx-text-fill: white;
@@ -116,7 +124,6 @@
     -fx-background-color: #1a2f63;
 }
 
-/* Botón secundario (Cancelar) */
 .boton-secundario {
     -fx-background-color: white;
     -fx-text-fill: #12224a;
@@ -129,4 +136,145 @@
 
 .boton-secundario:hover {
     -fx-background-color: #f7f6f2;
+}
+
+/* ===== Dashboard: sidebar ===== */
+.dashboard-sidebar {
+    -fx-background-color: #12224a;
+}
+
+.logo-placa {
+    -fx-alignment: center;
+}
+
+.marca-subtitulo-oscuro {
+    -fx-text-fill: #c9a227;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.sidebar-separador {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+}
+
+.sidebar-avatar {
+    -fx-background-color: #c9a227;
+    -fx-text-fill: #12224a;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 50%;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+    -fx-alignment: center;
+}
+
+.sidebar-bienvenida {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-rol {
+    -fx-text-fill: #a9b3cc;
+    -fx-font-size: 11px;
+}
+
+.sidebar-seccion {
+    -fx-text-fill: #a9b3cc;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+}
+
+.boton-sidebar {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14 10 14;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.boton-sidebar:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+
+.boton-salir {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e08585;
+    -fx-border-color: rgba(224,133,133,0.4);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+}
+
+.boton-salir:hover {
+    -fx-background-color: rgba(224,133,133,0.08);
+}
+
+/* ===== Dashboard: contenido central ===== */
+.dashboard-contenido {
+    -fx-background-color: transparent;
+}
+
+.dashboard-titulo {
+    -fx-text-fill: #12224a;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.dashboard-subtitulo {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 13px;
+}
+
+.tarjeta-info {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e5e2d9;
+    -fx-border-radius: 10;
+    -fx-padding: 16;
+}
+
+.tarjeta-info-numero {
+    -fx-text-fill: #12224a;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.tarjeta-info-texto {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 12px;
+}
+
+.tarjeta-accion {
+    -fx-background-color: #f7f6f2;
+    -fx-background-radius: 10;
+    -fx-border-color: #e5e2d9;
+    -fx-border-radius: 10;
+    -fx-padding: 16;
+}
+
+.tarjeta-accion-titulo {
+    -fx-text-fill: #12224a;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.punto-dorado {
+    -fx-background-color: #c9a227;
+    -fx-background-radius: 50%;
+    -fx-min-width: 6;
+    -fx-min-height: 6;
+    -fx-max-width: 6;
+    -fx-max-height: 6;
 }
