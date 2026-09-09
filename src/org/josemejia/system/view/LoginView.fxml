@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.LoginController">
    <children>
       <HBox prefHeight="560.0" prefWidth="900.0">
          <children>
