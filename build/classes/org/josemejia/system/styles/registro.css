@@ -1,5 +1,5 @@
 .login-container {
-    -fx-background-color: #ece9e2;
+    -fx-background-color: transparent;
 }
 
 .tarjeta-elevada {
@@ -46,8 +46,8 @@
 .regla-dorada-panel {
     -fx-background-color: #c9a227;
     -fx-pref-width: 40;
-    -fx-pref-height: 2;
-    -fx-max-height: 2;
+    -fx-pref-height: 6;
+    -fx-max-height: 6;
 }
 
 /* Regla dorada del formulario (la que ya tenías) */

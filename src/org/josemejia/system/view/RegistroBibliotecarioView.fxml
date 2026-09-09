@@ -12,74 +12,70 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="CENTER" prefHeight="850" prefWidth="850" styleClass="login-container" stylesheets="@../resource/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.RegistroBibliotecarioController">
-
-    <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
-        <VBox alignment="TOP_CENTER" prefHeight="775.0" prefWidth="933.0" styleClass="login-container" stylesheets="@../styles/registro.css">
-            <padding>
-                <Insets bottom="30" left="40" right="40" top="30" />
-            </padding>
-
+<VBox fx:id="raiz" alignment="CENTER" prefHeight="900" prefWidth="700" styleClass="login-container" stylesheets="@../resource/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.RegistroBibliotecarioController">
+    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="848.0" prefWidth="820.0" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
+<VBox alignment="CENTER" styleClass="login-container" stylesheets="@../styles/registro.css">    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+    
             <HBox alignment="CENTER" maxWidth="760" spacing="0" styleClass="tarjeta-elevada">
 
-                <VBox prefHeight="803.0" prefWidth="760.0" spacing="12" HBox.hgrow="ALWAYS">
+                <VBox alignment="TOP_CENTER" prefHeight="918.0" prefWidth="678.0" spacing="12" HBox.hgrow="ALWAYS">
                     <padding>
                         <Insets bottom="30" left="40" right="40" top="30" />
                     </padding>
    
-                      <VBox alignment="CENTER" minWidth="260" prefHeight="280.0" spacing="10" styleClass="panel-marca">
-    <ImageView blendMode="COLOR_BURN" fitHeight="220.0" fitWidth="531.0" preserveRatio="true">
-        <image>
-            <Image url="@../resource/image/logo.png" />
-        </image>
-    </ImageView>
-</VBox>
+                   <VBox alignment="CENTER" minWidth="260" prefHeight="237.0" prefWidth="598.0" spacing="16" styleClass="panel-marca">
+                       <ImageView blendMode="COLOR_BURN" fitHeight="207.0" fitWidth="339.0" nodeOrientation="INHERIT" preserveRatio="true">
+                           <image>
+                               <Image url="@../resource/image/logo.png" />
+                           </image>
+                       </ImageView>
+                   </VBox>
 
                     <HBox alignment="CENTER_LEFT" spacing="16">
-                        <Label styleClass="marca-titulo" text="Registrar bibliotecario" />
+                        <Label prefHeight="64.0" prefWidth="284.0" styleClass="marca-titulo" text="Registrar bibliotecario" />
                         <Region HBox.hgrow="ALWAYS" />
                         <Label styleClass="eyebrow" text="NUEVA CUENTA" />
                     </HBox>
 
-                    <Label prefHeight="26.0" prefWidth="293.0" styleClass="marca-subtitulo" text="Solo el Bibliotecario Jefe puede crear cuentas nuevas." wrapText="true" />
-
                     <HBox spacing="14">
                         <VBox spacing="5" HBox.hgrow="ALWAYS">
                             <Label styleClass="campo-etiqueta" text="NOMBRE" />
-                            <TextField fx:id="txtNombre" prefHeight="67.0" prefWidth="91.0" styleClass="campo-texto" />
+                            <TextField fx:id="txtNombre" styleClass="campo-texto" />
                         </VBox>
                         <VBox spacing="5" HBox.hgrow="ALWAYS">
                             <Label styleClass="campo-etiqueta" text="APELLIDO" />
-                            <TextField fx:id="txtApellido" prefHeight="69.0" prefWidth="122.0" styleClass="campo-texto" />
+                            <TextField fx:id="txtApellido" styleClass="campo-texto" />
                         </VBox>
                     </HBox>
 
                     <VBox spacing="5">
                         <Label styleClass="campo-etiqueta" text="CORREO ELECTRÓNICO" />
-                        <TextField fx:id="txtCorreo" prefHeight="61.0" prefWidth="410.0" promptText="correo@universidad.edu" styleClass="campo-texto" />
+                        <TextField fx:id="txtCorreo" promptText="correo@universidad.edu" styleClass="campo-texto" />
                     </VBox>
 
                     <VBox spacing="5">
                         <Label styleClass="campo-etiqueta" text="NOMBRE DE USUARIO" />
-                        <TextField fx:id="txtUsuario" prefHeight="52.0" prefWidth="410.0" styleClass="campo-texto" />
+                        <TextField fx:id="txtUsuario" styleClass="campo-texto" />
                     </VBox>
 
-                    <HBox prefHeight="90.0" prefWidth="410.0" spacing="14">
+                    <HBox spacing="14">
                         <VBox spacing="5" HBox.hgrow="ALWAYS">
                             <Label styleClass="campo-etiqueta" text="CONTRASEÑA" />
-                            <PasswordField fx:id="txtPassword" prefHeight="48.0" prefWidth="193.0" styleClass="campo-texto" />
+                            <PasswordField fx:id="txtPassword" styleClass="campo-texto" />
                         </VBox>
-                        <VBox prefHeight="25.0" prefWidth="224.0" spacing="5" HBox.hgrow="ALWAYS">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
                             <Label styleClass="campo-etiqueta" text="CONFIRMAR CONTRASEÑA" />
-                            <PasswordField fx:id="txtConfirmarPassword" prefHeight="48.0" prefWidth="204.0" styleClass="campo-texto" />
+                            <PasswordField fx:id="txtConfirmarPassword" styleClass="campo-texto" />
                         </VBox>
                     </HBox>
 
                     <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
 
                     <HBox spacing="12">
-                        <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" prefHeight="79.0" prefWidth="68.0" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" prefHeight="80.0" prefWidth="231.0" styleClass="boton-primario" text="Registrar cuenta" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar cuenta" HBox.hgrow="ALWAYS" />
                     </HBox>
                 </VBox>
             </HBox>
