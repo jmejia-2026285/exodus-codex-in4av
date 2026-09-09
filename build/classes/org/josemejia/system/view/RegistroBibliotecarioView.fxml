@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="raiz" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css"
+            prefWidth="1000" prefHeight="620"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.josemejia.sgb.controller.DashboardController">
+
+    <left>
+        <VBox spacing="16" styleClass="dashboard-sidebar" prefWidth="256">
+            <padding>
+                <Insets top="26" right="18" bottom="26" left="18"/>
+            </padding>
+
+            <VBox styleClass="logo-placa" maxWidth="Infinity">
+                <ImageView fitWidth="180" preserveRatio="true">
+                    <image>
+                        <Image url="@../resources/image/logo.png"/>
+                    </image>
+                </ImageView>
+            </VBox>
+
+            <Label text="SISTEMA DE GESTIÓN BIBLIOTECARIA" styleClass="marca-subtitulo-oscuro" wrapText="true"/>
+
+            <Region styleClass="sidebar-separador" maxWidth="Infinity"/>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="EC" styleClass="sidebar-avatar"/>
+                <VBox spacing="2">
+                    <Label fx:id="lblBienvenida" styleClass="sidebar-bienvenida" wrapText="true"/>
+                    <Label fx:id="lblRol" styleClass="sidebar-rol"/>
+                </VBox>
+            </HBox>
+
+            <Region styleClass="sidebar-separador" maxWidth="Infinity"/>
+
+            <Label text="NAVEGACIÓN" styleClass="sidebar-seccion"/>
+
+            <Button fx:id="btnCatalogo" text="Catálogo bibliográfico" styleClass="boton-sidebar" maxWidth="Infinity"
+                    onAction="#handleCatalogo"/>
+            <Button fx:id="btnRegistrarBibliotecario" text="Registrar bibliotecario" styleClass="boton-sidebar"
+                    maxWidth="Infinity" onAction="#handleRegistrarBibliotecario"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="btnCerrarSesion" text="Cerrar sesión" styleClass="boton-salir" maxWidth="Infinity"
+                    onAction="#handleCerrarSesion"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane styleClass="scroll-formulario" fitToWidth="true">
+            <VBox spacing="26" styleClass="dashboard-contenido">
+                <padding>
+                    <Insets top="48" right="52" bottom="48" left="52"/>
+                </padding>
+
+                <VBox spacing="10">
+                    <Label text="PANEL PRINCIPAL" styleClass="eyebrow"/>
+                    <Region styleClass="regla-dorada"/>
+                    <Label text="Bienvenido a Exodus Codex" styleClass="dashboard-titulo"/>
+                    <Label styleClass="dashboard-subtitulo" wrapText="true"
+                           text="Administra el acervo de la librería universitaria: registra títulos, actualiza copias y consulta el catálogo completo."/>
+                </VBox>
+
+                <!-- Resumen general -->
+                <VBox spacing="14">
+                    <Label text="RESUMEN GENERAL" styleClass="sidebar-seccion"/>
+
+                    <HBox spacing="16">
+                        <VBox styleClass="tarjeta-info" spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="CATÁLOGO" styleClass="eyebrow"/>
+                            <Label text="Títulos y copias" styleClass="tarjeta-info-numero"/>
+                            <Label text="Consulta, agrega y edita libros con su portada." styleClass="tarjeta-info-texto"
+                                   wrapText="true"/>
+                        </VBox>
+
+                        <VBox styleClass="tarjeta-info" spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="CUENTAS" styleClass="eyebrow"/>
+                            <Label text="Bibliotecarios" styleClass="tarjeta-info-numero"/>
+                            <Label text="El jefe de biblioteca crea las cuentas del personal."
+                                   styleClass="tarjeta-info-texto" wrapText="true"/>
+                        </VBox>
+
+                        <VBox styleClass="tarjeta-info" spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="PRÉSTAMOS" styleClass="eyebrow"/>
+                            <Label text="Movimientos" styleClass="tarjeta-info-numero"/>
+                            <Label text="Controla préstamos activos y devoluciones pendientes."
+                                   styleClass="tarjeta-info-texto" wrapText="true"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Accesos rápidos -->
+                <VBox spacing="14">
+                    <Label text="ACCESOS RÁPIDOS" styleClass="sidebar-seccion"/>
+
+                    <HBox spacing="16">
+                        <VBox styleClass="tarjeta-accion" spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Agregar título" styleClass="tarjeta-accion-titulo"/>
+                            <Label text="Registra un nuevo libro con portada, autor y existencias."
+                                   styleClass="tarjeta-info-texto" wrapText="true"/>
+                            <Button text="Ir al catálogo" styleClass="boton-secundario" onAction="#handleCatalogo"/>
+                        </VBox>
+
+                        <VBox styleClass="tarjeta-accion" spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Nuevo bibliotecario" styleClass="tarjeta-accion-titulo"/>
+                            <Label text="Da de alta una cuenta de personal para operar el sistema."
+                                   styleClass="tarjeta-info-texto" wrapText="true"/>
+                            <Button text="Registrar cuenta" styleClass="boton-primario" onAction="#handleRegistrarBibliotecario"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Actividad reciente -->
+                <VBox spacing="14" styleClass="tarjeta-info">
+                    <Label text="ACTIVIDAD RECIENTE" styleClass="eyebrow"/>
+
+                    <VBox spacing="10">
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Region styleClass="punto-dorado"/>
+                            <Label text="Se agregó una nueva copia al catálogo." styleClass="tarjeta-info-texto"/>
+                        </HBox>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Region styleClass="punto-dorado"/>
+                            <Label text="Se registró una cuenta de bibliotecario." styleClass="tarjeta-info-texto"/>
+                        </HBox>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Region styleClass="punto-dorado"/>
+                            <Label text="Se actualizó la información de un título existente." styleClass="tarjeta-info-texto"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
