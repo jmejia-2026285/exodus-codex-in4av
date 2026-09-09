@@ -9,6 +9,6 @@ package org.josemejia.system.controller;
  *
  * @author informatica
  */
-public class LoginController {
+public class DashboardController {
     
 }

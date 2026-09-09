@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package org.josemejia.system.controller;
+package org.josemejia.system.utils;
 
 /**
  *
  * @author informatica
  */
-public class LoginController {
+public class AlertUtils {
     
 }
