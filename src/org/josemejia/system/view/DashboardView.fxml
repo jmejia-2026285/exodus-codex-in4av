@@ -51,9 +51,8 @@
             <Button fx:id="btnCerrarSesion" maxWidth="Infinity" onAction="#handleCerrarSesion" styleClass="boton-salir" text="Cerrar sesión" />
         </VBox>
     </left>
-
-    <center>
-        <ScrollPane fitToWidth="true" styleClass="scroll-formulario" stylesheets="@../styles/Dashboard.css">
+   <right>
+        <ScrollPane fitToWidth="true" prefHeight="501.0" prefWidth="1087.0" styleClass="scroll-formulario" stylesheets="@../styles/Dashboard.css" BorderPane.alignment="CENTER">
             <VBox spacing="26" styleClass="dashboard-contenido">
                 <padding>
                     <Insets bottom="48" left="52" right="52" top="48" />
@@ -110,27 +109,7 @@
                     </HBox>
                 </VBox>
 
-                <!-- Actividad reciente -->
-                <VBox spacing="14" styleClass="tarjeta-info">
-                    <Label styleClass="eyebrow" text="ACTIVIDAD RECIENTE" />
-
-                    <VBox spacing="10">
-                        <HBox alignment="CENTER_LEFT" spacing="12">
-                            <Region styleClass="punto-dorado" />
-                            <Label styleClass="tarjeta-info-texto" text="Se agregó una nueva copia al catálogo." />
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="12">
-                            <Region styleClass="punto-dorado" />
-                            <Label styleClass="tarjeta-info-texto" text="Se registró una cuenta de bibliotecario." />
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="12">
-                            <Region styleClass="punto-dorado" />
-                            <Label styleClass="tarjeta-info-texto" text="Se actualizó la información de un título existente." />
-                        </HBox>
-                    </VBox>
-                </VBox>
-
             </VBox>
         </ScrollPane>
-    </center>
+   </right>
 </BorderPane>
