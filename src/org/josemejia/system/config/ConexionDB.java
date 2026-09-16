@@ -46,7 +46,7 @@ public class ConexionDB {
                         Enviroment.PASSWORD);
             }
         } catch (SQLException sqlException) {
-            System.out.println("Error al validar/reconectar: " + sqlException.getMessage());
+    throw new RuntimeException("Error al validar/reconectar: " + sqlException.getMessage(), sqlException);
         } catch (ClassNotFoundException classNotFound) {
             System.out.println("Error clase no encontrada");
         }
