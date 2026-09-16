@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="raiz" prefHeight="620" prefWidth="1000" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.DashboardController">
+<BorderPane fx:id="raiz" prefHeight="620" prefWidth="1000" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.DashboardController">
 
     <left>
         <VBox prefWidth="256" spacing="16" styleClass="dashboard-sidebar" stylesheets="@../styles/Dashboard.css">

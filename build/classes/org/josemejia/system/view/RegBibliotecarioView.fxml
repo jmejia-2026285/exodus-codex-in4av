@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="CENTER" prefHeight="900" prefWidth="700" styleClass="login-container" stylesheets="@../resource/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.sgb.controller.RegistroBibliotecarioController">
+<VBox fx:id="raiz" alignment="CENTER" prefHeight="900" prefWidth="700" styleClass="login-container" stylesheets="@../resource/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.RegBibliotecarioController">
     <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="848.0" prefWidth="820.0" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
 <VBox alignment="CENTER" styleClass="login-container" stylesheets="@../styles/registro.css">    <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
