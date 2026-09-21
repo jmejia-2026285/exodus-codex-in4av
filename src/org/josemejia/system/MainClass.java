@@ -33,7 +33,7 @@ public class MainClass extends Application {
         try {
             Parent root = FXMLLoader.load(
                 getClass().getResource(
-                    "/org/josemejia/system/view/RegistroBibliotecarioView_Redisenо.fxml"
+                    "/org/josemejia/system/view/RegistroBibliotecarioView.fxml"
                 )
             );
 
