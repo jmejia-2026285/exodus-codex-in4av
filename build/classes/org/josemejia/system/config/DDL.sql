@@ -148,3 +148,4 @@ END$$
 DELIMITER ;
 
 
+call sp_agregar_usuario("2573", "Alanbrito", "larios", "Alan", "AlanL", "257", "BIBLIOTECARIO");

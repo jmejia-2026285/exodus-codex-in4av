@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -21,7 +22,7 @@
                <children>
                   <ImageView fitHeight="162.0" fitWidth="259.0" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../exodus-codex/src/org/josemejia/sgb/resources/image/logo.png" />
+                        <Image url="@../resources/images/logo.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="btnBuscar" onAction="#handleBuscar" prefHeight="48.0" prefWidth="96.0" styleClass="boton-dorado" text="Buscar" />
@@ -38,8 +39,10 @@
                      <children>
                         <Label prefWidth="42.0" styleClass="eyebrow" text="ACERVO" />
                         <Label prefHeight="55.0" prefWidth="355.0" styleClass="dashboard-titulo" text="Catálogo bibliográfico" />
-                        <Label fx:id="lblTotalLibros" prefHeight="28.0" prefWidth="216.0" styleClass="dashboard-subtitulo" text="0 títulos registrados recientemente" />
-                        <Region maxHeight="17.0" maxWidth="207.0" prefHeight="2.0" prefWidth="207.0" styleClass="regla-dorada" />
+                        <Region maxHeight="6.0" maxWidth="294.0" minHeight="0.0" prefHeight="6.0" prefWidth="294.0" styleClass="regla-dorada">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor></Region>
                      </children>
                   </VBox>
                   <BorderPane VBox.vgrow="ALWAYS">
@@ -60,7 +63,7 @@
                               <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
                                  <children>
                                     <Label styleClass="panel-formulario-titulo" text="Datos del libro en biblioteca" />
-                                    <Region maxWidth="204.0" minHeight="0.0" prefHeight="0.0" prefWidth="204.0" styleClass="regla-dorada" />
+                                    <Region maxWidth="175.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" styleClass="regla-dorada" />
                                     <VBox spacing="3">
                                        <children>
                                           <Label styleClass="campo-etiqueta" text="TÍTULO" />
