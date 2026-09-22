@@ -1,10 +1,9 @@
 .dashboard-root {
-    -fx-background-color: #F4F2EC;
+    -fx-background-color: #F3F1EC;
 }
 
-/* Sidebar */
 .dashboard-sidebar {
-    -fx-background-color: #0A162B;
+    -fx-background-color: #10191D;
 }
 
 .logo-placa {
@@ -12,7 +11,7 @@
 }
 
 .marca-subtitulo-oscuro {
-    -fx-text-fill: #B8935A;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-letter-spacing: 1px;
@@ -25,11 +24,11 @@
 }
 
 .sidebar-avatar {
-    -fx-background-color: #B8935A;
-    -fx-text-fill: #0A162B;
+    -fx-background-color: #E0BC88;
+    -fx-text-fill: #10191D;
     -fx-font-weight: bold;
     -fx-font-size: 13px;
-    -fx-background-radius: 100;
+    -fx-background-radius: 50%;
     -fx-min-width: 36;
     -fx-min-height: 36;
     -fx-max-width: 36;
@@ -44,12 +43,12 @@
 }
 
 .sidebar-rol {
-    -fx-text-fill: #B8935A;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 11px;
 }
 
 .sidebar-seccion {
-    -fx-text-fill: #B8935A;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-letter-spacing: 1px;
@@ -61,7 +60,7 @@
     -fx-font-size: 13px;
     -fx-alignment: center-left;
     -fx-padding: 10 12 10 12;
-    -fx-background-radius: 6;
+    -fx-background-radius: 10;
     -fx-cursor: hand;
 }
 
@@ -71,88 +70,85 @@
 
 .boton-salir {
     -fx-background-color: transparent;
-    -fx-text-fill: #B8935A;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 13px;
-    -fx-border-color: #B8935A;
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
+    -fx-border-color: #E0BC88;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-padding: 9 12 9 12;
     -fx-cursor: hand;
 }
 
 .boton-salir:hover {
-    -fx-background-color: rgba(184,147,90,0.10);
+    -fx-background-color: rgba(224,188,136,0.10);
 }
 
-
-/* Contenido central */
 .dashboard-contenido {
     -fx-background-color: transparent;
 }
 
 .dashboard-titulo {
-    -fx-text-fill: #0F1F3D;
+    -fx-text-fill: #192D43;
     -fx-font-size: 28px;
     -fx-font-weight: bold;
 }
 
 .dashboard-subtitulo {
-    -fx-text-fill: #6B7482;
+    -fx-text-fill: #6C737B;
     -fx-font-size: 13px;
 }
 
 .eyebrow {
-    -fx-text-fill: #B8935A;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-letter-spacing: 1px;
 }
 
 .regla-dorada {
-    -fx-background-color: #B8935A;
+    -fx-background-color: #E0BC88;
+    -fx-background-radius: 2;
     -fx-pref-width: 40;
     -fx-pref-height: 2;
     -fx-max-height: 2;
 }
 
-
-/* Tarjetas de resumen */
 .tarjeta-info {
     -fx-background-color: #FFFFFF;
-    -fx-background-radius: 12;
+    -fx-background-radius: 14;
+    -fx-border-color: #D9D2C8;
+    -fx-border-radius: 14;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(10,22,43,0.12), 14, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(16,25,29,0.12), 14, 0, 0, 4);
 }
 
 .tarjeta-info-numero {
-    -fx-text-fill: #0F1F3D;
+    -fx-text-fill: #192D43;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 
 .tarjeta-info-texto {
-    -fx-text-fill: #6B7482;
+    -fx-text-fill: #6C737B;
     -fx-font-size: 12px;
 }
 
-
-/* Tarjetas de accesos rápidos */
 .tarjeta-accion {
     -fx-background-color: #FFFFFF;
-    -fx-background-radius: 12;
+    -fx-background-radius: 14;
     -fx-padding: 20;
-    -fx-border-color: #E3DFD5;
-    -fx-border-radius: 12;
+    -fx-border-color: #D9D2C8;
+    -fx-border-radius: 14;
 }
 
 .tarjeta-accion-titulo {
-    -fx-text-fill: #0F1F3D;
+    -fx-text-fill: #192D43;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 
 .punto-dorado {
-    -fx-background-color: #B8935A;
+    -fx-background-color: #E0BC88;
     -fx-background-radius: 100;
     -fx-min-width: 8;
     -fx-min-height: 8;
@@ -160,39 +156,33 @@
     -fx-max-height: 8;
 }
 
-
-/* Botón primario */
 .boton-primario {
-    -fx-background-color: #0F1F3D;
+    -fx-background-color: #192D43;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-background-radius: 6;
+    -fx-background-radius: 10;
     -fx-padding: 10 20 10 20;
     -fx-cursor: hand;
 }
 
 .boton-primario:hover {
-    -fx-background-color: #1B3057;
+    -fx-background-color: #23405C;
 }
 
-
-/* Botón secundario */
 .boton-secundario {
     -fx-background-color: #FFFFFF;
-    -fx-text-fill: #0F1F3D;
-    -fx-border-color: #E3DFD5;
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
+    -fx-text-fill: #192D43;
+    -fx-border-color: #D9D2C8;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-padding: 10 20 10 20;
     -fx-cursor: hand;
 }
 
 .boton-secundario:hover {
-    -fx-background-color: #F4F2EC;
+    -fx-background-color: #F3F1EC;
 }
 
-
-/* Scroll */
 .scroll-formulario {
     -fx-background-color: transparent;
     -fx-background: transparent;

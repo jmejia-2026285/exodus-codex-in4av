@@ -4,7 +4,6 @@ package org.josemejia.system.controller;
  *
  * @author informatica
  */
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,11 +11,16 @@ import javafx.scene.layout.BorderPane;
 import org.josemejia.system.model.Usuario;
 import org.josemejia.system.utils.AnimationUtils;
 import org.josemejia.system.utils.SesionManager;
-
+import javafx.scene.layout.VBox;
 import org.josemejia.system.utils.ViewFactory;
 
 public class DashboardController {
+// añadir campos @FXML
 
+    @FXML
+    private VBox tarjetaAgregarTitulo;
+    @FXML
+    private VBox tarjetaNuevoBibliotecario;
     @FXML
     private BorderPane raiz;
 
@@ -54,6 +58,8 @@ public class DashboardController {
         AnimationUtils.aplicarEfectoHover(btnCatalogo);
         AnimationUtils.aplicarEfectoHover(btnRegistrarBibliotecario);
         AnimationUtils.aplicarEfectoHover(btnCerrarSesion);
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaAgregarTitulo);
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaNuevoBibliotecario);
     }
 
     @FXML

@@ -26,7 +26,7 @@
 
 /* Panel izquierdo de marca */
 .panel-marca {
-    -fx-background-color: #12224a;
+    -fx-background-color: #192D43;
     -fx-background-radius: 14 0 0 14;
     -fx-padding: 40 24 40 24;
 }
@@ -39,12 +39,12 @@
 }
 
 .panel-marca-subtitulo {
-    -fx-text-fill: #c9a227;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 12px;
 }
 
 .regla-dorada-panel {
-    -fx-background-color: #c9a227;
+    -fx-background-color: #E0BC88;
     -fx-pref-width: 40;
     -fx-pref-height: 6;
     -fx-max-height: 6;
@@ -52,40 +52,40 @@
 
 /* Regla dorada del formulario (la que ya tenías) */
 .regla-dorada {
-    -fx-background-color: #c9a227;
+    -fx-background-color: #E0BC88;
     -fx-pref-width: 40;
     -fx-pref-height: 2;
     -fx-max-height: 2;
 }
 
 .eyebrow {
-    -fx-text-fill: #c9a227;
+    -fx-text-fill: #E0BC88;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-letter-spacing: 1px;
 }
 
 .marca-titulo {
-    -fx-text-fill: #12224a;
+    -fx-text-fill: #192D43;
     -fx-font-size: 26px;
     -fx-font-weight: bold;
 }
 
 .marca-subtitulo {
-    -fx-text-fill: #6b7280;
+    -fx-text-fill: #6C737B;
     -fx-font-size: 12px;
 }
 
 .campo-etiqueta {
-    -fx-text-fill: #12224a;
+    -fx-text-fill: #192D43;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-letter-spacing: 0.5px;
 }
 
 .campo-texto {
-    -fx-background-color: #f7f6f2;
-    -fx-border-color: #d9d6cd;
+    -fx-background-color: #F3F1EC;
+    -fx-border-color: #D9D2C8;
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-padding: 8 10 8 10;
@@ -93,7 +93,7 @@
 }
 
 .campo-texto:focused {
-    -fx-border-color: #c9a227;
+    -fx-border-color: #E0BC88;
     -fx-background-color: white;
 }
 
@@ -104,7 +104,7 @@
 
 /* Botón primario (Registrar cuenta) */
 .boton-primario {
-    -fx-background-color: #12224a;
+    -fx-background-color: #192D43;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 6;
@@ -113,14 +113,14 @@
 }
 
 .boton-primario:hover {
-    -fx-background-color: #1a2f63;
+    -fx-background-color: #23405C;
 }
 
 /* Botón secundario (Cancelar) */
 .boton-secundario {
     -fx-background-color: white;
-    -fx-text-fill: #12224a;
-    -fx-border-color: #d9d6cd;
+    -fx-text-fill: #192D43;
+    -fx-border-color: #D9D2C8;
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-padding: 10 20 10 20;
@@ -128,5 +128,5 @@
 }
 
 .boton-secundario:hover {
-    -fx-background-color: #f7f6f2;
+    -fx-background-color: #F3F1EC;
 }

@@ -60,8 +60,22 @@ public class LibroController {
     @FXML
     private void initialize() {
         AnimationUtils.aplicarFadeIn(panelTarjetas);
+        AnimationUtils.aplicarEfectoHover(btnBuscar);
+        AnimationUtils.aplicarEfectoHover(btnVolver);
+        AnimationUtils.aplicarEfectoHover(btnGuardar);
+        AnimationUtils.aplicarEfectoHover(btnLimpiar);
+        AnimationUtils.aplicarEfectoHover(btnEliminar);
+        AnimationUtils.aplicarFocoAnimado(txtBuscar);
+        AnimationUtils.aplicarFocoAnimado(txtTitulo);
+        AnimationUtils.aplicarFocoAnimado(txtAutor);
+        AnimationUtils.aplicarFocoAnimado(txtEditorial);
+        AnimationUtils.aplicarFocoAnimado(txtAnio);
+        AnimationUtils.aplicarFocoAnimado(txtIsbn);
+        AnimationUtils.aplicarFocoAnimado(txtCopias);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgPortadaPreview, 10);
         cargarCatalogo(libroService.listar());
         actualizarModoFormulario();
+
     }
 
     @FXML
@@ -160,6 +174,7 @@ public class LibroController {
         portada.setFitWidth(120);
         portada.setFitHeight(150);
         portada.getStyleClass().add("libro-tarjeta-imagen");
+        ImagenUtils.aplicarEsquinasRedondeadas(portada, 10);
 
         Label titulo = new Label(libro.getTitulo());
         titulo.getStyleClass().add("libro-tarjeta-titulo");
@@ -189,6 +204,8 @@ public class LibroController {
         tarjeta.setAlignment(Pos.TOP_CENTER);
         tarjeta.setPrefWidth(170);
         tarjeta.getStyleClass().add("libro-tarjeta");
+        AnimationUtils.aplicarSlideIn(tarjeta, 24);
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjeta);
         return tarjeta;
     }
 

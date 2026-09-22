@@ -45,6 +45,13 @@ public class RegBibliotecarioController {
     private void initialize() {
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnRegistrar);
+        AnimationUtils.aplicarEfectoHover(btnCancelar);
+        AnimationUtils.aplicarFocoAnimado(txtNombre);
+        AnimationUtils.aplicarFocoAnimado(txtApellido);
+        AnimationUtils.aplicarFocoAnimado(txtCorreo);
+        AnimationUtils.aplicarFocoAnimado(txtUsuario);
+        AnimationUtils.aplicarFocoAnimado(txtPassword);
+        AnimationUtils.aplicarFocoAnimado(txtConfirmarPassword);
         lblError.setText("");
     }
 
@@ -160,6 +167,8 @@ public class RegBibliotecarioController {
 
     private void mostrarError(String mensaje) {
         lblError.setText(mensaje);
+        AnimationUtils.aplicarFadeIn(lblError);
+        AnimationUtils.aplicarSacudida(lblError);
     }
 
     private void limpiarCampos() {

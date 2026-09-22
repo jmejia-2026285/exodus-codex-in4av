@@ -16,6 +16,9 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 import javafx.scene.image.Image;
+// imports: añadir estas 2 líneas junto a las existentes
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 
 /**
  * Maneja imágenes como archivo local: las empaquetadas con el proyecto (logo,
@@ -81,6 +84,15 @@ public class ImagenUtils {
         }
 
         return new Image(archivo.toURI().toString());
+    }
+
+    public static void aplicarEsquinasRedondeadas(ImageView imageView, double radio) {
+        Rectangle recorte = new Rectangle();
+        recorte.setArcWidth(radio * 2);
+        recorte.setArcHeight(radio * 2);
+        recorte.widthProperty().bind(imageView.fitWidthProperty());
+        recorte.heightProperty().bind(imageView.fitHeightProperty());
+        imageView.setClip(recorte);
     }
 
     private static String obtenerExtension(String nombreArchivo) {

@@ -41,6 +41,8 @@ public class LoginController {
         imgLogo.setImage(ImagenUtils.cargarImagenLocal("logo.png"));
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnLogin);
+        AnimationUtils.aplicarFocoAnimado(txtUsuario);
+        AnimationUtils.aplicarFocoAnimado(txtPassword);
         lblError.setText("");
     }
 
@@ -52,6 +54,7 @@ public class LoginController {
         if (ValidationsUtils.esCampoVacio(usuario) || ValidationsUtils.esCampoVacio(password)) {
             mostrarError("Usuario y contraseña son obligatorios.");
             AnimationUtils.aplicarFadeIn(lblError);
+            AnimationUtils.aplicarSacudida(lblError);
             AlertUtils.mostrarAlertaPersonalizada(
                     "Datos incompletos",
                     "Usuario y contraseña son obligatorios.",
@@ -67,6 +70,7 @@ public class LoginController {
             if (encontrado == null) {
                 mostrarError("Usuario o contraseña incorrectos.");
                 AnimationUtils.aplicarFadeIn(lblError);
+                AnimationUtils.aplicarSacudida(lblError);
                 AlertUtils.mostrarAlertaPersonalizada(
                         "Error de inicio de sesión",
                         "El usuario o la contraseña son incorrectos.",

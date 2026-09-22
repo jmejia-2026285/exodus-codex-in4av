@@ -1,30 +1,35 @@
-/* Diálogos y alertas — mismo lenguaje visual navy + dorado */
-
 .dialog-pane {
     -fx-background-color: #FFFFFF;
-    -fx-border-color: #E3DFD5;
+    -fx-background-radius: 14;
+    -fx-border-color: #D9D2C8;
+    -fx-border-radius: 14;
     -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-background-color: linear-gradient(to right, #192D43, #23405C);
+    -fx-background-radius: 14 14 0 0;
     -fx-padding: 16 20 16 20;
 }
 
 .alerta-exito .header-panel {
     -fx-background-color: linear-gradient(to right, #24805699, #2E9E6B);
+    -fx-background-radius: 14 14 0 0;
 }
 
 .alerta-error .header-panel {
     -fx-background-color: linear-gradient(to right, #A83535, #D64545);
+    -fx-background-radius: 14 14 0 0;
 }
 
 .alerta-advertencia .header-panel {
-    -fx-background-color: linear-gradient(to right, #B8935A, #D9A441);
+    -fx-background-color: linear-gradient(to right, #C9A876, #E0BC88);
+    -fx-background-radius: 14 14 0 0;
 }
 
 .alerta-info .header-panel {
     -fx-background-color: linear-gradient(to right, #21467F, #3B6FD1);
+    -fx-background-radius: 14 14 0 0;
 }
 
 .dialog-pane .header-panel .label {
@@ -34,20 +39,20 @@
 }
 
 .dialog-pane .content.label {
-    -fx-text-fill: #1B2433;
+    -fx-text-fill: #10191D;
     -fx-font-size: 13px;
     -fx-padding: 18 20 8 20;
 }
 
 .dialog-pane .button {
-    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-background-color: linear-gradient(to right, #192D43, #23405C);
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
     -fx-padding: 9 20 9 20;
     -fx-cursor: hand;
 }
 
 .dialog-pane .button:hover {
-    -fx-background-color: #B8935A;
+    -fx-background-color: #E0BC88;
 }
