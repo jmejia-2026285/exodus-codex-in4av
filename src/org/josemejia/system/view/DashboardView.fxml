@@ -44,13 +44,6 @@
 
             <Label styleClass="sidebar-seccion" text="NAVEGACIÓN" />
 
-            <Button fx:id="btnCatalogo" maxWidth="Infinity" onAction="#handleCatalogo" styleClass="boton-sidebar" text="Catálogo bibliográfico" />
-            <Button fx:id="btnRegistrarBibliotecario" maxWidth="Infinity" onAction="#handleRegistrarBibliotecario" styleClass="boton-sidebar" text="Registrar bibliotecario" />
-         <ImageView fitHeight="122.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../resources/images/Rem_dudosa_cute.png" />
-            </image>
-         </ImageView>
 
             <Region VBox.vgrow="ALWAYS" />
 
@@ -80,20 +73,28 @@
                     <HBox spacing="16">
                         <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
                             <Label styleClass="eyebrow" text="CATÁLOGO" />
-                            <Label styleClass="tarjeta-info-numero" text="Títulos y copias" />
+                            <HBox alignment="CENTER_LEFT" spacing="8">
+                                <ImageView fitHeight="59.0" fitWidth="58.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/images/gif/performance.gif" />
+                                    </image>
+                                </ImageView>
+                                <Label styleClass="tarjeta-info-numero" text="Títulos y copias" />
+                            </HBox>
                             <Label styleClass="tarjeta-info-texto" text="Consulta, agrega y edita libros con su portada." wrapText="true" />
                         </VBox>
 
                         <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
                             <Label styleClass="eyebrow" text="CUENTAS" />
-                            <Label styleClass="tarjeta-info-numero" text="Bibliotecarios" />
+                            <HBox alignment="CENTER_LEFT" spacing="8">
+                                <ImageView fitHeight="24.0" fitWidth="56.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/images/gif/Users.gif" />
+                                    </image>
+                                </ImageView>
+                                <Label styleClass="tarjeta-info-numero" text="Bibliotecarios" />
+                            </HBox>
                             <Label styleClass="tarjeta-info-texto" text="El jefe de biblioteca crea las cuentas del personal." wrapText="true" />
-                        </VBox>
-
-                        <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
-                            <Label styleClass="eyebrow" text="PRÉSTAMOS" />
-                            <Label styleClass="tarjeta-info-numero" text="Movimientos" />
-                            <Label styleClass="tarjeta-info-texto" text="Controla préstamos activos y devoluciones pendientes." wrapText="true" />
                         </VBox>
                     </HBox>
                 </VBox>
@@ -106,9 +107,9 @@
                         <VBox spacing="10" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
                             <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
                             <Label styleClass="tarjeta-info-texto" text="Registra un nuevo libro con portada, autor y existencias." wrapText="true" />
-                     <ImageView fitHeight="86.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../resources/images/gif/book-transparent.gif" />
+                           <Image url="@../resources/images/gif/folder.gif" />
                         </image>
                      </ImageView>
                             <Button onAction="#handleCatalogo" styleClass="boton-secundario" text="Ir al catálogo" />
