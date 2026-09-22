@@ -44,6 +44,8 @@
 
             <Label styleClass="sidebar-seccion" text="NAVEGACIÓN" />
 
+            <Button fx:id="btnCatalogo" maxWidth="Infinity" onAction="#handleCatalogo" styleClass="boton-sidebar" text="Catálogo bibliográfico" />
+            <Button fx:id="btnRegistrarBibliotecario" maxWidth="Infinity" onAction="#handleRegistrarBibliotecario" styleClass="boton-sidebar" text="Registrar bibliotecario" />
 
             <Region VBox.vgrow="ALWAYS" />
 
@@ -87,7 +89,7 @@
                         <VBox spacing="6" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
                             <Label styleClass="eyebrow" text="CUENTAS" />
                             <HBox alignment="CENTER_LEFT" spacing="8">
-                                <ImageView fitHeight="24.0" fitWidth="56.0" preserveRatio="true">
+                                <ImageView fitHeight="60.0" fitWidth="70.0" preserveRatio="true">
                                     <image>
                                         <Image url="@../resources/images/gif/Users.gif" />
                                     </image>
