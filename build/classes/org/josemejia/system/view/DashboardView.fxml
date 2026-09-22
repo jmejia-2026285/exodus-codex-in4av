@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -18,18 +17,16 @@
     prefWidth="1000.0"
     styleClass="dashboard-root"
     stylesheets="@../resources/styles/styles.css"
-    xmlns="http://javafx.com/javafx/23.0.2"
+    xmlns="http://javafx.com/javafx/21.0.1"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="org.josemejia.system.controller.DashboardController">
 
-    <!-- ========================================================= -->
-    <!-- BARRA LATERAL                                             -->
-    <!-- ========================================================= -->
     <left>
         <VBox
             prefWidth="256.0"
             spacing="16.0"
-            styleClass="dashboard-sidebar">
+            styleClass="dashboard-sidebar"
+            stylesheets="@../resources/styles/Dashboard.css">
 
             <padding>
                 <Insets
@@ -39,7 +36,6 @@
                     top="26.0" />
             </padding>
 
-            <!-- Logo -->
             <VBox
                 maxWidth="Infinity"
                 prefHeight="32.0"
@@ -56,9 +52,9 @@
                     </image>
 
                 </ImageView>
+
             </VBox>
 
-            <!-- Subtítulo -->
             <Label
                 styleClass="marca-subtitulo-oscuro"
                 text="SISTEMA DE GESTION BIBLIOTECARIA"
@@ -68,7 +64,6 @@
                 maxWidth="Infinity"
                 styleClass="sidebar-separador" />
 
-            <!-- Usuario -->
             <HBox
                 alignment="CENTER_LEFT"
                 spacing="12.0">
@@ -89,13 +84,13 @@
                         styleClass="sidebar-rol" />
 
                 </VBox>
+
             </HBox>
 
             <Region
                 maxWidth="Infinity"
                 styleClass="sidebar-separador" />
 
-            <!-- Navegación -->
             <Label
                 styleClass="sidebar-seccion"
                 text="NAVEGACIÓN" />
@@ -114,11 +109,9 @@
                 styleClass="boton-sidebar"
                 text="Registrar bibliotecario" />
 
-            <!-- Espaciador -->
             <Region
                 VBox.vgrow="ALWAYS" />
 
-            <!-- Cerrar sesión -->
             <Button
                 fx:id="btnCerrarSesion"
                 maxWidth="Infinity"
@@ -129,248 +122,228 @@
         </VBox>
     </left>
 
-
-    <!-- ========================================================= -->
-    <!-- CONTENIDO PRINCIPAL                                       -->
-    <!-- ========================================================= -->
     <right>
         <ScrollPane
             fitToWidth="true"
             prefHeight="501.0"
             prefWidth="1087.0"
             styleClass="scroll-formulario"
+            stylesheets="@../resources/styles/Dashboard.css"
             BorderPane.alignment="CENTER">
 
-            <content>
-                <VBox
-                    spacing="26.0"
-                    styleClass="dashboard-contenido">
+            <VBox
+                spacing="26.0"
+                styleClass="dashboard-contenido">
 
-                    <padding>
-                        <Insets
-                            bottom="48.0"
-                            left="52.0"
-                            right="52.0"
-                            top="48.0" />
-                    </padding>
+                <padding>
+                    <Insets
+                        bottom="48.0"
+                        left="52.0"
+                        right="52.0"
+                        top="48.0" />
+                </padding>
 
+                <VBox spacing="10.0">
 
-                    <!-- ================================================= -->
-                    <!-- ENCABEZADO                                        -->
-                    <!-- ================================================= -->
-                    <VBox spacing="10.0">
+                    <Label
+                        styleClass="eyebrow"
+                        text="PANEL PRINCIPAL" />
 
-                        <Label
-                            styleClass="eyebrow"
-                            text="PANEL PRINCIPAL" />
+                    <Region
+                        maxWidth="166.0"
+                        minHeight="1.0"
+                        prefHeight="1.0"
+                        prefWidth="166.0"
+                        styleClass="regla-dorada" />
 
-                        <Region
-                            maxWidth="166.0"
-                            minHeight="1.0"
-                            prefHeight="1.0"
-                            prefWidth="166.0"
-                            styleClass="regla-dorada">
-
-                            <cursor>
-                                <Cursor fx:constant="DEFAULT" />
-                            </cursor>
-
-                        </Region>
-
-                        <Label
-                            styleClass="dashboard-titulo"
-                            text="Bienvenido a Exodus Codex" />
-
-                    </VBox>
-
-
-                    <!-- ================================================= -->
-                    <!-- RESUMEN GENERAL                                   -->
-                    <!-- ================================================= -->
-                    <VBox spacing="14.0">
-
-                        <Label
-                            styleClass="sidebar-seccion"
-                            text="Funcionalidad:" />
-
-                        <HBox spacing="16.0">
-
-                            <!-- Tarjeta catálogo -->
-                            <VBox
-                                spacing="6.0"
-                                styleClass="tarjeta-info"
-                                HBox.hgrow="ALWAYS">
-
-                                <Label
-                                    styleClass="eyebrow"
-                                    text="CATÁLOGO" />
-
-                                <HBox
-                                    alignment="CENTER_LEFT"
-                                    spacing="8.0">
-
-                                    <ImageView
-                                        fitHeight="59.0"
-                                        fitWidth="58.0"
-                                        preserveRatio="true">
-
-                                        <image>
-                                            <Image url="@../resources/images/gif/performance.gif" />
-                                        </image>
-
-                                    </ImageView>
-
-                                    <Label
-                                        styleClass="tarjeta-info-numero"
-                                        text="Títulos y copias" />
-
-                                </HBox>
-
-                                <Label
-                                    styleClass="tarjeta-info-texto"
-                                    text="Consulta, agrega y edita libros con su portada."
-                                    wrapText="true" />
-
-                            </VBox>
-
-
-                            <!-- Tarjeta cuentas -->
-                            <VBox
-                                spacing="6.0"
-                                styleClass="tarjeta-info"
-                                HBox.hgrow="ALWAYS">
-
-                                <Label
-                                    styleClass="eyebrow"
-                                    text="CUENTAS" />
-
-                                <HBox
-                                    alignment="CENTER_LEFT"
-                                    spacing="8.0">
-
-                                    <ImageView
-                                        fitHeight="60.0"
-                                        fitWidth="70.0"
-                                        preserveRatio="true">
-
-                                        <image>
-                                            <Image url="@../resources/images/gif/Users.gif" />
-                                        </image>
-
-                                    </ImageView>
-
-                                    <Label
-                                        styleClass="tarjeta-info-numero"
-                                        text="Bibliotecarios" />
-
-                                </HBox>
-
-                                <Label
-                                    styleClass="tarjeta-info-texto"
-                                    text="El jefe de biblioteca crea las cuentas del personal."
-                                    wrapText="true" />
-
-                            </VBox>
-
-                        </HBox>
-
-                    </VBox>
-
-
-                    <!-- ================================================= -->
-                    <!-- ACCESOS RÁPIDOS                                  -->
-                    <!-- ================================================= -->
-                    <VBox spacing="14.0">
-
-                        <Label
-                            styleClass="sidebar-seccion"
-                            text="ACCESOS RÁPIDOS" />
-
-                        <HBox spacing="16.0">
-
-                            <!-- ========================================= -->
-                            <!-- AGREGAR TÍTULO                            -->
-                            <!-- ========================================= -->
-                            <VBox
-                                fx:id="tarjetaAgregarTitulo"
-                                spacing="10.0"
-                                styleClass="tarjeta-accion"
-                                HBox.hgrow="ALWAYS">
-
-                                <Label
-                                    styleClass="tarjeta-accion-titulo"
-                                    text="Agregar título" />
-
-                                <Label
-                                    styleClass="tarjeta-info-texto"
-                                    text="Registra un nuevo libro con portada, autor y existencias."
-                                    wrapText="true" />
-
-                                <ImageView
-                                    fitHeight="73.0"
-                                    fitWidth="91.0"
-                                    pickOnBounds="true"
-                                    preserveRatio="true">
-
-                                    <image>
-                                        <Image url="@../resources/images/gif/folder.gif" />
-                                    </image>
-
-                                </ImageView>
-
-                                <Button
-                                    onAction="#handleCatalogo"
-                                    styleClass="boton-secundario"
-                                    text="Ir al catálogo" />
-
-                            </VBox>
-
-
-                            <!-- ========================================= -->
-                            <!-- NUEVO BIBLIOTECARIO                       -->
-                            <!-- ========================================= -->
-                            <VBox
-                                fx:id="tarjetaNuevoBibliotecario"
-                                spacing="10.0"
-                                styleClass="tarjeta-accion"
-                                HBox.hgrow="ALWAYS">
-
-                                <Label
-                                    styleClass="tarjeta-accion-titulo"
-                                    text="Nuevo bibliotecario" />
-
-                                <Label
-                                    styleClass="tarjeta-info-texto"
-                                    text="Da de alta una cuenta de personal para operar el sistema."
-                                    wrapText="true" />
-
-                                <ImageView
-                                    fitHeight="84.0"
-                                    fitWidth="137.0"
-                                    pickOnBounds="true"
-                                    preserveRatio="true">
-
-                                    <image>
-                                        <Image url="@../resources/images/gif/bibliotecario.gif" />
-                                    </image>
-
-                                </ImageView>
-
-                                <Button
-                                    onAction="#handleRegistrarBibliotecario"
-                                    styleClass="boton-primario"
-                                    text="Registrar cuenta" />
-
-                            </VBox>
-
-                        </HBox>
-
-                    </VBox>
+                    <Label
+                        styleClass="dashboard-titulo"
+                        text="Bienvenido a Exodus Codex" />
 
                 </VBox>
-            </content>
+
+                <!-- RESUMEN GENERAL -->
+
+                <VBox spacing="14.0">
+
+                    <Label
+                        styleClass="sidebar-seccion"
+                        text="Funcionalidad:" />
+
+                    <HBox spacing="16.0">
+
+                        <!-- TARJETA CATÁLOGO -->
+
+                        <VBox
+                            spacing="6.0"
+                            styleClass="tarjeta-info"
+                            HBox.hgrow="ALWAYS">
+
+                            <Label
+                                styleClass="eyebrow"
+                                text="CATÁLOGO" />
+
+                            <HBox
+                                alignment="CENTER_LEFT"
+                                spacing="8.0">
+
+                                <ImageView
+                                    fitHeight="59.0"
+                                    fitWidth="58.0"
+                                    preserveRatio="true">
+
+                                    <image>
+                                        <Image url="@../resources/images/gif/performance.gif" />
+                                    </image>
+
+                                </ImageView>
+
+                                <Label
+                                    styleClass="tarjeta-info-numero"
+                                    text="Títulos y copias" />
+
+                            </HBox>
+
+                            <Label
+                                styleClass="tarjeta-info-texto"
+                                text="Consulta, agrega y edita libros con su portada."
+                                wrapText="true" />
+
+                        </VBox>
+
+                        <!-- TARJETA CUENTAS -->
+
+                        <VBox
+                            spacing="6.0"
+                            styleClass="tarjeta-info"
+                            HBox.hgrow="ALWAYS">
+
+                            <Label
+                                styleClass="eyebrow"
+                                text="CUENTAS" />
+
+                            <HBox
+                                alignment="CENTER_LEFT"
+                                spacing="8.0">
+
+                                <ImageView
+                                    fitHeight="60.0"
+                                    fitWidth="70.0"
+                                    preserveRatio="true">
+
+                                    <image>
+                                        <Image url="@../resources/images/gif/Users.gif" />
+                                    </image>
+
+                                </ImageView>
+
+                                <Label
+                                    styleClass="tarjeta-info-numero"
+                                    text="Bibliotecarios" />
+
+                            </HBox>
+
+                            <Label
+                                styleClass="tarjeta-info-texto"
+                                text="El jefe de biblioteca crea las cuentas del personal."
+                                wrapText="true" />
+
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+
+                <!-- ACCESOS RÁPIDOS -->
+
+                <VBox spacing="14.0">
+
+                    <Label
+                        styleClass="sidebar-seccion"
+                        text="ACCESOS RÁPIDOS" />
+
+                    <HBox spacing="16.0">
+
+                        <!-- TARJETA AGREGAR TÍTULO -->
+
+                        <VBox
+                            fx:id="tarjetaAgregarTitulo"
+                            spacing="10.0"
+                            styleClass="tarjeta-accion"
+                            HBox.hgrow="ALWAYS">
+
+                            <Label
+                                styleClass="tarjeta-accion-titulo"
+                                text="Agregar título" />
+
+                            <Label
+                                styleClass="tarjeta-info-texto"
+                                text="Registra un nuevo libro con portada, autor y existencias."
+                                wrapText="true" />
+
+                            <ImageView
+                                fitHeight="73.0"
+                                fitWidth="91.0"
+                                pickOnBounds="true"
+                                preserveRatio="true">
+
+                                <image>
+                                    <Image url="@../resources/images/gif/folder.gif" />
+                                </image>
+
+                            </ImageView>
+
+                            <Button
+                                onAction="#handleCatalogo"
+                                styleClass="boton-secundario"
+                                text="Ir al catálogo" />
+
+                        </VBox>
+
+                        <!-- TARJETA NUEVO BIBLIOTECARIO -->
+
+                        <VBox
+                            fx:id="tarjetaNuevoBibliotecario"
+                            spacing="10.0"
+                            styleClass="tarjeta-accion"
+                            HBox.hgrow="ALWAYS">
+
+                            <Label
+                                styleClass="tarjeta-accion-titulo"
+                                text="Nuevo bibliotecario" />
+
+                            <Label
+                                styleClass="tarjeta-info-texto"
+                                text="Da de alta una cuenta de personal para operar el sistema."
+                                wrapText="true" />
+
+                            <ImageView
+                                fitHeight="84.0"
+                                fitWidth="137.0"
+                                pickOnBounds="true"
+                                preserveRatio="true">
+
+                                <image>
+                                    <Image url="@../resources/images/gif/bibliotecario.gif" />
+                                </image>
+
+                            </ImageView>
+
+                            <Button
+                                onAction="#handleRegistrarBibliotecario"
+                                styleClass="boton-primario"
+                                text="Registrar cuenta" />
+
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
 
         </ScrollPane>
+
     </right>
 
 </BorderPane>

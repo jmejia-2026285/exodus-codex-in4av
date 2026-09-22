@@ -21,9 +21,9 @@
          <children>
             <HBox alignment="CENTER" spacing="18" styleClass="barra-superior">
                <children>
-                  <ImageView fitHeight="74.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/images/gif/book-transparent.gif" />
+                        <Image url="@../resources/images/gif/folder.gif" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="162.0" fitWidth="259.0" preserveRatio="true">
