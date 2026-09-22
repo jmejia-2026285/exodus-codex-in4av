@@ -63,12 +63,12 @@
 
 .panel-marca-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
-    -fx-font-size: 26px;
+    -fx-font-size: 20px;
     -fx-text-fill: white;
 }
 
 .panel-marca-texto {
-    -fx-font-size: 12px;
+    -fx-font-size: 11px;
     -fx-text-fill: #C8CCD0;
 }
 

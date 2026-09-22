@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -24,15 +25,15 @@
                         <Insets bottom="52" left="44" right="44" top="52" />
                      </padding>
                      <children>
-                        <VBox maxWidth="-Infinity" styleClass="logo-placa">
-                           <children>
-                              <ImageView fx:id="imgLogo" fitWidth="240.0" preserveRatio="true" />
-                           </children>
-                        </VBox>
+                        <ImageView fitHeight="243.0" fitWidth="399.0" nodeOrientation="INHERIT" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/logoblanco.png" />
+                           </image>
+                        </ImageView>
                         <Region VBox.vgrow="ALWAYS" />
                         <Region styleClass="regla-dorada" />
-                        <Label styleClass="panel-marca-titulo" text="Sistema de gestión bibliotecaria" wrapText="true" />
-                        <Label styleClass="panel-marca-texto" text="Catálogo, préstamos y usuarios de la librería universitaria en un solo lugar." wrapText="true" />
+                        <Label prefHeight="60.0" prefWidth="403.0" styleClass="panel-marca-titulo" text="Sistema de gestión bibliotecaria" wrapText="true" />
+                        <Label prefHeight="10.0" prefWidth="379.0" styleClass="panel-marca-texto" text="Catálogo, préstamos y usuarios de la librería universitaria en un solo lugar." wrapText="true" />
                         <Region VBox.vgrow="ALWAYS" />
                         <Label styleClass="panel-marca-cita" text="“Un libro es la llave del conocimiento.”" wrapText="true" />
                      </children>
