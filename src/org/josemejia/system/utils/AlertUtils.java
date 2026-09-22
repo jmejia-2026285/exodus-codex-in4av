@@ -8,6 +8,7 @@ package org.josemejia.system.utils;
  *
  * @author informatica
  */
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -22,7 +23,8 @@ public class AlertUtils {
         INFO(Alert.AlertType.INFORMATION, "rem_normal.png", "alerta-info"),
         EXITO(Alert.AlertType.INFORMATION, "rem_feliz.png", "alerta-exito"),
         ERROR(Alert.AlertType.ERROR, "error-alert.png", "alerta-error"),
-        ADVERTENCIA(Alert.AlertType.WARNING, "Rem_dudosa_cute.png", "alerta-advertencia");
+        ADVERTENCIA(Alert.AlertType.WARNING, "Rem_dudosa_cute.png", "alerta-advertencia"),
+        USUARIO_CREADO(Alert.AlertType.INFORMATION, "userdone.gif", "alerta-exito");
 
         private final Alert.AlertType tipo;
         private final String imagen;
@@ -79,12 +81,6 @@ public class AlertUtils {
             icono.setFitHeight(TAMANIO_ICONO);
             icono.setPreserveRatio(true);
             contenedor.getChildren().add(icono);
-            // También se usa como graphic para que el header-panel coloreado se muestre
-            ImageView iconoHeader = new ImageView(imagenRem);
-            iconoHeader.setFitWidth(32);
-            iconoHeader.setFitHeight(32);
-            iconoHeader.setPreserveRatio(true);
-            alerta.setGraphic(iconoHeader);
         }
 
         contenedor.getChildren().add(lbl);
