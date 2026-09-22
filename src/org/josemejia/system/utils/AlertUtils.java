@@ -9,6 +9,7 @@ package org.josemejia.system.utils;
  * @author informatica
  */
 
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -50,9 +51,8 @@ public class AlertUtils {
     }
 
     private static final String RUTA_CSS = "/org/josemejia/system/resources/styles/AlertStyles.css";
-    private static final double TAMANIO_ICONO = 48;
+    private static final double TAMANIO_ICONO = 70;
 
-    // Constructor privado para evitar instanciación
     private AlertUtils() {
     }
 
@@ -64,12 +64,12 @@ public class AlertUtils {
         Alert alerta = new Alert(tipo.getTipoAlerta());
         alerta.setTitle(titulo);
         alerta.setHeaderText(null);
+        alerta.getDialogPane().setGraphic(null);
 
         Label lbl = new Label(mensaje);
         lbl.setWrapText(true);
         lbl.setMaxWidth(280);
 
-        // Burbuja de mensaje: el icono de Rem correspondiente al tipo, junto al texto
         HBox contenedor = new HBox(14);
         contenedor.setAlignment(Pos.CENTER_LEFT);
         contenedor.setPadding(new Insets(4, 8, 4, 8));
@@ -86,7 +86,6 @@ public class AlertUtils {
         contenedor.getChildren().add(lbl);
         alerta.getDialogPane().setContent(contenedor);
 
-        // Carga segura del CSS
         var urlCss = AlertUtils.class.getResource(RUTA_CSS);
         if (urlCss != null) {
             alerta.getDialogPane().getStylesheets().add(urlCss.toExternalForm());

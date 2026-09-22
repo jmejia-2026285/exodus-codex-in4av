@@ -124,10 +124,9 @@ public class RegBibliotecarioController {
         try {
             usuarioService.registrarBibliotecario(nuevoBibliotecario, usuarioActual);
 
-            AlertUtils.mostrarAlertaPersonalizada(
-                    "Registro completado",
-                    "El bibliotecario ha sido registrado correctamente.",
-                    AlertUtils.TipoNotificacion.EXITO);
+            AlertUtils.mostrarAlertaPersonalizada("Cuenta creada",
+                    "El bibliotecario " + nombre + " " + apellido + " fue registrado correctamente.",
+                    AlertUtils.TipoNotificacion.USUARIO_CREADO);
             limpiarCampos();
 
         } catch (IllegalStateException excepcion) {
