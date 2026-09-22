@@ -107,32 +107,15 @@
                     <Label styleClass="sidebar-seccion" text="ACCESOS RÁPIDOS" />
 
                     <HBox spacing="16">
-
-                        <!-- Tarjeta: Agregar título -->
-                        <VBox fx:id="tarjetaAgregarTitulo"
-                              spacing="10"
-                              styleClass="tarjeta-accion"
-                              HBox.hgrow="ALWAYS">
-
-                            <Label styleClass="tarjeta-accion-titulo"
-                                   text="Agregar título" />
-
-                            <Label styleClass="tarjeta-info-texto"
-                                   text="Registra un nuevo libro con portada, autor y existencias."
-                                   wrapText="true" />
-
-                            <ImageView fitHeight="73.0"
-                                       fitWidth="91.0"
-                                       pickOnBounds="true"
-                                       preserveRatio="true">
-                                <image>
-                                    <Image url="@../resources/images/gif/folder.gif" />
-                                </image>
-                            </ImageView>
-
-                            <Button onAction="#handleCatalogo"
-                                    styleClass="boton-secundario"
-                                    text="Ir al catálogo" />
+                        <VBox spacing="10" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+                            <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
+                            <Label styleClass="tarjeta-info-texto" text="Registra un nuevo libro con portada, autor y existencias." wrapText="true" />
+                     <ImageView fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../resources/images/gif/folder.gif" />
+                        </image>
+                     </ImageView>
+                            <Button onAction="#handleCatalogo" styleClass="boton-secundario" text="Ir al catálogo" />
                         </VBox>
 
 
