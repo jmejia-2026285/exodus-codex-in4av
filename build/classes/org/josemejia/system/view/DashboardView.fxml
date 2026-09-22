@@ -15,7 +15,7 @@
 <BorderPane fx:id="raiz" prefHeight="620" prefWidth="1000" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.DashboardController">
 
     <left>
-        <VBox prefWidth="256" spacing="16" styleClass="dashboard-sidebar" stylesheets="@../styles/Dashboard.css">
+        <VBox prefWidth="256" spacing="16" styleClass="dashboard-sidebar" stylesheets="@../resources/styles/Dashboard.css">
             <padding>
                 <Insets bottom="26" left="18" right="18" top="26" />
             </padding>
@@ -32,7 +32,7 @@
 
             <Region maxWidth="Infinity" styleClass="sidebar-separador" />
 
-            <HBox alignment="CENTER_LEFT" spacing="12" stylesheets="@../styles/Dashboard.css">
+            <HBox alignment="CENTER_LEFT" spacing="12" stylesheets="@../resources/styles/Dashboard.css">
                 <Label styleClass="sidebar-avatar" text="EC" />
                 <VBox spacing="2">
                     <Label fx:id="lblBienvenida" styleClass="sidebar-bienvenida" wrapText="true" />
@@ -58,7 +58,7 @@
         </VBox>
     </left>
    <right>
-        <ScrollPane fitToWidth="true" prefHeight="501.0" prefWidth="1087.0" styleClass="scroll-formulario" stylesheets="@../styles/Dashboard.css" BorderPane.alignment="CENTER">
+        <ScrollPane fitToWidth="true" prefHeight="501.0" prefWidth="1087.0" styleClass="scroll-formulario" stylesheets="@../resources/styles/Dashboard.css" BorderPane.alignment="CENTER">
             <VBox spacing="26" styleClass="dashboard-contenido">
                 <padding>
                     <Insets bottom="48" left="52" right="52" top="48" />

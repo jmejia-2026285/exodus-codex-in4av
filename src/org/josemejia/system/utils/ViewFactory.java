@@ -23,23 +23,19 @@ public class ViewFactory {
 
     // Enum para centralizar la configuración de cada vista (Principio Abierto/Cerrado)
     private enum ViewConfig {
-        LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión", false, 800, 600),
-        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", true, 800, 620),
-        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true, 1345, 620),
-        CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico", true, 960, 620);
+        LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión", true),
+        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", true),
+        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true),
+        CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico", true);
 
         final String fxmlFile;
         final String title;
         final boolean resizable;
-        final int width;
-        final int height;
 
-        ViewConfig(String fxmlFile, String title, boolean resizable, int width, int height) {
+        ViewConfig(String fxmlFile, String title, boolean resizable) {
             this.fxmlFile = fxmlFile;
             this.title = title;
             this.resizable = resizable;
-            this.width = width;
-            this.height = height;
         }
 
         static ViewConfig fromString(String name) {
@@ -51,7 +47,7 @@ public class ViewFactory {
         }
     }
 
-    public Scene loadFileFXML(String nameFile, int width, int height) {
+    public Scene loadFileFXML(String nameFile) {
         String pathOfFile = PATH_VIEWS + nameFile;
         URL urlFile = MainClass.class.getResource(pathOfFile);
 
@@ -63,7 +59,7 @@ public class ViewFactory {
             // FXMLLoader ya usa JavaFXBuilderFactory por defecto, no es necesario configurarlo.
             // Además, se puede pasar la URL directamente al constructor para ahorrar líneas.
             FXMLLoader loader = new FXMLLoader(urlFile);
-            return new Scene(loader.load(), width, height);
+            return new Scene(loader.load());
         } catch (IOException e) {
             throw new UncheckedIOException("Error al cargar el FXML: " + pathOfFile, e);
         }
@@ -79,7 +75,8 @@ public class ViewFactory {
             stage.setResizable(config.resizable);
 
             // Cargar y cambiar la escena
-            Scene scene = loadFileFXML(config.fxmlFile, config.width, config.height);
+            // loadScene: ahora
+            Scene scene = loadFileFXML(config.fxmlFile);
             SceneManager.getInstanciaSceneManager().changeScene(scene);
 
         } catch (RuntimeException e) {
