@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -15,16 +17,21 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1060.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.LibroController">
    <children>
-      <VBox fx:id="raiz" prefHeight="660" prefWidth="1060" styleClass="pantalla-fondo" stylesheets="@../../../../../../../exodus-codex/src/org/josemejia/sgb/resources/styles/styles.css">
+      <VBox fx:id="raiz" prefHeight="660" prefWidth="1060" styleClass="pantalla-fondo">
          <children>
             <HBox alignment="CENTER" spacing="18" styleClass="barra-superior">
                <children>
-                  <ImageView fitHeight="162.0" fitWidth="259.0" preserveRatio="true">
+                  <ImageView fitHeight="74.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../exodus-codex/src/org/josemejia/sgb/resources/image/logo.png" />
+                        <Image url="@../resources/images/gif/book-transparent.gif" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnBuscar" onAction="#handleBuscar" prefHeight="48.0" prefWidth="96.0" styleClass="boton-dorado" text="Buscar" />
+                  <ImageView fitHeight="162.0" fitWidth="259.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnBuscar" onAction="#handleBuscar" prefHeight="48.0" prefWidth="96.0" styleClass="boton-dorado" stylesheets="@../resources/styles/styles.css" text="Buscar" />
                   <TextField fx:id="txtBuscar" prefHeight="50.0" prefWidth="375.0" promptText="Buscar libro por título, autor o ISBN..." styleClass="campo-texto" />
                   <Button fx:id="btnVolver" onAction="#handleVolver" styleClass="boton-secundario" text="Volver al menú" />
                </children>
@@ -36,10 +43,13 @@
                <children>
                   <VBox alignment="BASELINE_LEFT" spacing="6" styleClass="catalogo-header">
                      <children>
-                        <Label prefWidth="42.0" styleClass="eyebrow" text="ACERVO" />
-                        <Label prefHeight="55.0" prefWidth="355.0" styleClass="dashboard-titulo" text="Catálogo bibliográfico" />
-                        <Label fx:id="lblTotalLibros" prefHeight="28.0" prefWidth="216.0" styleClass="dashboard-subtitulo" text="0 títulos registrados recientemente" />
-                        <Region maxHeight="17.0" maxWidth="207.0" prefHeight="2.0" prefWidth="207.0" styleClass="regla-dorada" />
+                        <VBox prefHeight="0.0" prefWidth="963.0" />
+                        <Label prefHeight="33.0" prefWidth="321.0" styleClass="dashboard-titulo" text="Catálogo bibliográfico" />
+                        <Label fx:id="lblTotalLibros" styleClass="dashboard-subtitulo" text="0 títulos registrados" />
+                        <Region maxHeight="6.0" maxWidth="294.0" minHeight="0.0" prefHeight="6.0" prefWidth="294.0" styleClass="regla-dorada">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor></Region>
                      </children>
                   </VBox>
                   <BorderPane VBox.vgrow="ALWAYS">
@@ -55,12 +65,12 @@
                         </ScrollPane>
                      </center>
                      <right>
-                        <ScrollPane fitToWidth="true" prefWidth="306" styleClass="scroll-formulario">
+                        <ScrollPane fitToWidth="true" prefHeight="397.0" prefWidth="306" styleClass="scroll-formulario">
                            <content>
-                              <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
+                              <VBox alignment="TOP_CENTER" prefHeight="861.0" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
                                  <children>
                                     <Label styleClass="panel-formulario-titulo" text="Datos del libro en biblioteca" />
-                                    <Region maxWidth="204.0" minHeight="0.0" prefHeight="0.0" prefWidth="204.0" styleClass="regla-dorada" />
+                                    <Region maxWidth="175.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" styleClass="regla-dorada" />
                                     <VBox spacing="3">
                                        <children>
                                           <Label styleClass="campo-etiqueta" text="TÍTULO" />
@@ -123,6 +133,9 @@
                </children>
             </VBox>
          </children>
+         <stylesheets>
+            <URL value="@../resources/styles/styles.css" />
+         </stylesheets>
       </VBox>
    </children>
 </VBox>

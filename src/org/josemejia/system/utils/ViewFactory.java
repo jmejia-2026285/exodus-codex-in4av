@@ -24,8 +24,8 @@ public class ViewFactory {
     // Enum para centralizar la configuración de cada vista (Principio Abierto/Cerrado)
     private enum ViewConfig {
         LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión", false, 800, 600),
-        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", false, 800, 620),
-        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true, 860, 560),
+        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", true, 800, 620),
+        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true, 1345, 620),
         CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico", true, 960, 620);
 
         final String fxmlFile;

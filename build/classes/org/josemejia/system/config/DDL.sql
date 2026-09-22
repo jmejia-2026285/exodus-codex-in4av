@@ -1,9 +1,9 @@
-drop database if exists ExodusCodex_in4av;
-create database ExodusCodex_in4av;
-use ExodusCodex_in4av;
+drop database if exists exoduscodex_in4av;
+create database exoduscodex_in4av;
+use exoduscodex_in4av;
 
-    create table USUARIOS (
-		id_usuario Varchar(50) primary key,
+    create table usuarios (
+		id_usuario varchar(50) primary key,
 		nombre varchar(50),
 		apellido varchar(50),
 		correo varchar(50) unique,
@@ -12,7 +12,7 @@ use ExodusCodex_in4av;
         rol varchar(50)
     );
 
-    create table LIBROS (
+    create table libros (
         id_libro int primary key auto_increment, 
         isbn varchar(50) unique,
 		titulo varchar(50),
@@ -20,131 +20,134 @@ use ExodusCodex_in4av;
 		editorial varchar(50),
         anio_publicacion int, 
         copias_disponibles int,
-		portada varchar(50)
+		portada varchar(255)
     );
 
-DELIMITER $$
+delimiter $$
 
 -- ==========================================
 -- PROCEDIMIENTOS PARA AGREGAR
 -- ==========================================
 
 -- Agregar un nuevo usuario
-CREATE PROCEDURE sp_agregar_usuario (
-    IN p_id_usuario Varchar(50),
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_correo VARCHAR(50),
-    IN p_usuario VARCHAR(50),
-    IN p_password VARCHAR(50),
-    IN p_rol VARCHAR(50)
+create procedure sp_agregar_usuario (
+    in p_id_usuario varchar(50),
+    in p_nombre varchar(50),
+    in p_apellido varchar(50),
+    in p_correo varchar(50),
+    in p_usuario varchar(50),
+    in p_password varchar(50),
+    in p_rol varchar(50)
 )
-BEGIN
-    INSERT INTO USUARIOS (id_usuario, nombre, apellido, correo, usuario, password, rol)
-    VALUES (p_id_usuario, p_nombre, p_apellido, p_correo, p_usuario, p_password, p_rol);
-END$$
+begin
+    insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
+    values (p_id_usuario, p_nombre, p_apellido, p_correo, p_usuario, p_password, p_rol);
+end$$
 
 -- Agregar un nuevo libro
-CREATE PROCEDURE sp_agregar_libro (
-    IN p_isbn VARCHAR(50),
-    IN p_titulo VARCHAR(50),
-    IN p_autor_principal VARCHAR(50),
-    IN p_editorial VARCHAR(50),
-    IN p_anio_publicacion INT,
-    IN p_copias_disponibles INT,
-    IN p_portada VARCHAR(50)
+create procedure sp_agregar_libro (
+    in p_isbn varchar(50),
+    in p_titulo varchar(50),
+    in p_autor_principal varchar(50),
+    in p_editorial varchar(50),
+    in p_anio_publicacion int,
+    in p_copias_disponibles int,
+    in p_portada varchar(255)
 )
-BEGIN
-    INSERT INTO LIBROS (isbn, titulo, autor_principal, editorial, anio_publicacion, copias_disponibles, portada)
-    VALUES (p_isbn, p_titulo, p_autor_principal, p_editorial, p_anio_publicacion, p_copias_disponibles, p_portada);
-END$$
+begin
+    insert into libros (isbn, titulo, autor_principal, editorial, anio_publicacion, copias_disponibles, portada)
+    values (p_isbn, p_titulo, p_autor_principal, p_editorial, p_anio_publicacion, p_copias_disponibles, p_portada);
+end$$
 
 -- ==========================================
 -- PROCEDIMIENTOS PARA CONSULTAR
 -- ==========================================
 
 -- Consultar todos los elementos
-CREATE PROCEDURE sp_consultar_usuarios ()
-BEGIN
-    SELECT * FROM USUARIOS;
-END$$
+create procedure sp_consultar_usuarios ()
+begin
+    select * from usuarios;
+end$$
 
-CREATE PROCEDURE sp_consultar_libros ()
-BEGIN
-    SELECT * FROM LIBROS;
-END$$
+create procedure sp_consultar_libros ()
+begin
+    select * from libros;
+end$$
 
 
 -- Consultar por ID
-CREATE PROCEDURE sp_consultar_usuario_por_id (
-    IN p_id_usuario varchar(50)
+create procedure sp_consultar_usuario_por_id (
+    in p_id_usuario varchar(50)
 )
-BEGIN
-    SELECT * FROM USUARIOS WHERE id_usuario = p_id_usuario;
-END$$
+begin
+    select * from usuarios where id_usuario = p_id_usuario;
+end$$
 
-CREATE PROCEDURE sp_consultar_libro_por_id (
-    IN p_id_libro INT
+create procedure sp_consultar_libro_por_id (
+    in p_id_libro int
 )
-BEGIN
-    SELECT * FROM LIBROS WHERE id_libro = p_id_libro;
-END$$
+begin
+    select * from libros where id_libro = p_id_libro;
+end$$
 -- ==========================================
 -- PROCEDIMIENTOS NUEVOS (faltantes)
 -- ==========================================
 
 -- Login: validar usuario y password
-CREATE PROCEDURE sp_login_usuario (
-    IN p_usuario VARCHAR(20),
-    IN p_password VARCHAR(20)
+create procedure sp_login_usuario (
+    in p_usuario varchar(50),
+    in p_password varchar(50)
 )
-BEGIN
-    SELECT id_usuario, nombre, apellido, correo, usuario, rol
-    FROM USUARIOS
-    WHERE usuario = p_usuario AND password = p_password;
-END$$
+begin
+    select id_usuario, nombre, apellido, correo, usuario, rol
+    from usuarios
+    where usuario = p_usuario and password = p_password;
+end$$
 
 -- Buscar libros por texto (titulo, autor o isbn)
-CREATE PROCEDURE sp_buscar_libro (
-    IN p_termino VARCHAR(20)
+create procedure sp_buscar_libro (
+    in p_termino varchar(100)
 )
-BEGIN
-    SELECT * FROM LIBROS
-    WHERE titulo LIKE CONCAT('%', p_termino, '%')
-       OR autor_principal LIKE CONCAT('%', p_termino, '%')
-       OR isbn LIKE CONCAT('%', p_termino, '%');
-END$$
+begin
+    select * from libros
+    where titulo like concat('%', p_termino, '%')
+       or autor_principal like concat('%', p_termino, '%')
+       or isbn like concat('%', p_termino, '%');
+end$$
 
 -- Actualizar libro existente
-CREATE PROCEDURE sp_actualizar_libro (
-    IN p_id_libro INT,
-    IN p_isbn VARCHAR(20),
-    IN p_titulo VARCHAR(20),
-    IN p_autor_principal VARCHAR(20),
-    IN p_editorial VARCHAR(20),
-    IN p_anio_publicacion INT,
-    IN p_copias_disponibles INT,
-    IN p_portada VARCHAR(20)
+create procedure sp_actualizar_libro (
+    in p_id_libro int,
+    in p_isbn varchar(50),
+    in p_titulo varchar(50),
+    in p_autor_principal varchar(50),
+    in p_editorial varchar(50),
+    in p_anio_publicacion int,
+    in p_copias_disponibles int,
+    in p_portada varchar(255)
 )
-BEGIN
-    UPDATE LIBROS
-    SET isbn = p_isbn,
+begin
+    update libros
+    set isbn = p_isbn,
         titulo = p_titulo,
         autor_principal = p_autor_principal,
         editorial = p_editorial,
         anio_publicacion = p_anio_publicacion,
         copias_disponibles = p_copias_disponibles,
         portada = p_portada
-    WHERE id_libro = p_id_libro;
-END$$
+    where id_libro = p_id_libro;
+end$$
 
 -- Eliminar libro
-CREATE PROCEDURE sp_eliminar_libro (
-    IN p_id_libro INT
+create procedure sp_eliminar_libro (
+    in p_id_libro int
 )
-BEGIN
-    DELETE FROM LIBROS WHERE id_libro = p_id_libro;
-END$$
-DELIMITER ;
+begin
+    delete from libros where id_libro = p_id_libro;
+end$$
+delimiter ;
+
+insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
+values ('1', 'Jose', 'Mejia', 'jefe@exoduscodex.com', 'jefe', '1234', 'Bibliotecario Jefe');
 
 

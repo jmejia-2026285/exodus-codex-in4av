@@ -25,7 +25,7 @@ import javafx.scene.image.Image;
  */
 public class ImagenUtils {
 
-    private static final String RUTA_BASE_RECURSOS = "/org/josemejia/sgb/resources/image/";
+    private static final String RUTA_BASE_RECURSOS = "/org/josemejia/system/resources/images/";
 
     private static final String CARPETA_PORTADAS
             = System.getProperty("user.home") + File.separator + ".exoduscodex" + File.separator + "portadas";

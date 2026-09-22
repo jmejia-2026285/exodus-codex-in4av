@@ -72,6 +72,10 @@ public class RegBibliotecarioController {
                 || ValidationsUtils.esCampoVacio(password)
                 || ValidationsUtils.esCampoVacio(confirmarPassword)) {
             mostrarError("Por favor, rellene todos los campos.");
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Datos incompletos",
+                    "Por favor, rellene todos los campos.",
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
@@ -79,12 +83,20 @@ public class RegBibliotecarioController {
         String errorCorreo = ValidationsUtils.obtenerErrorCorreo(correo);
         if (errorCorreo != null) {
             mostrarError(errorCorreo);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Correo inválido",
+                    errorCorreo,
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
         // 3. Contraseñas coinciden
         if (!password.equals(confirmarPassword)) {
             mostrarError("Las contraseñas no coinciden.");
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Contraseñas distintas",
+                    "Las contraseñas no coinciden.",
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
@@ -92,6 +104,10 @@ public class RegBibliotecarioController {
         String errorLongitud = validarLongitudes(nombre, apellido, correo, usuario, password);
         if (errorLongitud != null) {
             mostrarError(errorLongitud);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Datos inválidos",
+                    errorLongitud,
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 

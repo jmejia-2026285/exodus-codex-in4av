@@ -70,7 +70,7 @@ public class UsuarioRepository implements UsuarioInterface {
     private String obtenerSiguienteId(Connection conexion) throws SQLException {
         try (Statement statement = conexion.createStatement();
              ResultSet resultado = statement.executeQuery(
-                 "SELECT COALESCE(MAX(CAST(id_usuario AS UNSIGNED)), 0) + 1 AS siguiente FROM USUARIOS")) {
+                 "SELECT COALESCE(MAX(CAST(id_usuario AS UNSIGNED)), 0) + 1 AS siguiente FROM usuarios")) {
             resultado.next();
             return String.valueOf(resultado.getInt("siguiente"));
         }
