@@ -35,6 +35,9 @@ public class DashboardController {
 
     @FXML
     private Button btnRegistrarBibliotecario;
+    
+    @FXML
+    private Button btnGestionPersonal;
 
     @FXML
     private Button btnCerrarSesion;
@@ -53,10 +56,15 @@ public class DashboardController {
         boolean esJefe = usuarioActual != null && usuarioActual.esBibliotecarioJefe();
         btnRegistrarBibliotecario.setVisible(esJefe);
         btnRegistrarBibliotecario.setManaged(esJefe);
+        
+        btnGestionPersonal.setVisible(esJefe);
+        btnGestionPersonal.setManaged(esJefe);
+        
 
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnCatalogo);
         AnimationUtils.aplicarEfectoHover(btnRegistrarBibliotecario);
+        AnimationUtils.aplicarEfectoHover(btnGestionPersonal);
         AnimationUtils.aplicarEfectoHover(btnCerrarSesion);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaAgregarTitulo);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaNuevoBibliotecario);
@@ -70,6 +78,10 @@ public class DashboardController {
     @FXML
     private void handleRegistrarBibliotecario() {
         viewFactory.viewRegistro();
+    }
+    @FXML
+    private void handleGestionPersonal() {
+        viewFactory.viewPersonal();
     }
 
     @FXML

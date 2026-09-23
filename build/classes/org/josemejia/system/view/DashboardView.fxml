@@ -53,6 +53,7 @@
             <Button fx:id="btnCatalogo" maxWidth="Infinity" onAction="#handleCatalogo" styleClass="boton-sidebar" text="Catálogo bibliográfico" />
 
             <Button fx:id="btnRegistrarBibliotecario" maxWidth="Infinity" onAction="#handleRegistrarBibliotecario" styleClass="boton-sidebar" text="Registrar bibliotecario" />
+                        <Button fx:id="btnGestionPersonal" maxWidth="Infinity" onAction="#handleGestionPersonal" styleClass="boton-sidebar" text="Gestionar personal" />
 
             <Region VBox.vgrow="ALWAYS" />
 
