@@ -38,7 +38,7 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        imgLogo.setImage(ImagenUtils.cargarImagenLocal("logo.png"));
+        imgLogo.setImage(ImagenUtils.cargarImagenLocal("logoblanco.png"));
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnLogin);
         AnimationUtils.aplicarFocoAnimado(txtUsuario);

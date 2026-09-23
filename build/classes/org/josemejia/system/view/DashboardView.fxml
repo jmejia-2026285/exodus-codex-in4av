@@ -11,154 +11,72 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane
-    fx:id="raiz"
-    prefHeight="620.0"
-    prefWidth="1000.0"
-    styleClass="dashboard-root"
-    stylesheets="@../resources/styles/styles.css"
-    xmlns="http://javafx.com/javafx/21.0.1"
-    xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="org.josemejia.system.controller.DashboardController">
+<BorderPane fx:id="raiz" prefHeight="620.0" prefWidth="1000.0" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.DashboardController">
 
     <left>
-        <VBox
-            prefWidth="256.0"
-            spacing="16.0"
-            styleClass="dashboard-sidebar"
-            stylesheets="@../resources/styles/Dashboard.css">
+        <VBox prefWidth="256.0" spacing="16.0" styleClass="dashboard-sidebar" stylesheets="@../resources/styles/Dashboard.css">
 
             <padding>
-                <Insets
-                    bottom="26.0"
-                    left="18.0"
-                    right="18.0"
-                    top="26.0" />
+                <Insets bottom="26.0" left="18.0" right="18.0" top="26.0" />
             </padding>
 
-            <VBox
-                maxWidth="Infinity"
-                prefHeight="32.0"
-                prefWidth="220.0"
-                styleClass="logo-placa">
+             <ImageView fitHeight="186.0" fitWidth="261.0" preserveRatio="true">
 
-                <ImageView
-                    fitHeight="111.0"
-                    fitWidth="207.0"
-                    preserveRatio="true">
+                 <image>
+                     <Image url="@../resources/images/logoblanco.png" />
+                 </image>
 
-                    <image>
-                        <Image url="@../resources/images/logo.png" />
-                    </image>
+             </ImageView>
 
-                </ImageView>
+            <Label styleClass="marca-subtitulo-oscuro" text="SISTEMA DE GESTION BIBLIOTECARIA" wrapText="true" />
 
-            </VBox>
+            <Region maxWidth="Infinity" styleClass="sidebar-separador" />
 
-            <Label
-                styleClass="marca-subtitulo-oscuro"
-                text="SISTEMA DE GESTION BIBLIOTECARIA"
-                wrapText="true" />
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
 
-            <Region
-                maxWidth="Infinity"
-                styleClass="sidebar-separador" />
-
-            <HBox
-                alignment="CENTER_LEFT"
-                spacing="12.0">
-
-                <Label
-                    styleClass="sidebar-avatar"
-                    text="EC" />
+                <Label styleClass="sidebar-avatar" text="EC" />
 
                 <VBox spacing="2.0">
 
-                    <Label
-                        fx:id="lblBienvenida"
-                        styleClass="sidebar-bienvenida"
-                        wrapText="true" />
+                    <Label fx:id="lblBienvenida" styleClass="sidebar-bienvenida" wrapText="true" />
 
-                    <Label
-                        fx:id="lblRol"
-                        styleClass="sidebar-rol" />
+                    <Label fx:id="lblRol" styleClass="sidebar-rol" />
 
                 </VBox>
 
             </HBox>
 
-            <Region
-                maxWidth="Infinity"
-                styleClass="sidebar-separador" />
+            <Region maxWidth="Infinity" styleClass="sidebar-separador" />
 
-            <Label
-                styleClass="sidebar-seccion"
-                text="NAVEGACIÓN" />
+            <Label styleClass="sidebar-seccion" text="NAVEGACIÓN" />
 
-            <Button
-                fx:id="btnCatalogo"
-                maxWidth="Infinity"
-                onAction="#handleCatalogo"
-                styleClass="boton-sidebar"
-                text="Catálogo bibliográfico" />
+            <Button fx:id="btnCatalogo" maxWidth="Infinity" onAction="#handleCatalogo" styleClass="boton-sidebar" text="Catálogo bibliográfico" />
 
-            <Button
-                fx:id="btnRegistrarBibliotecario"
-                maxWidth="Infinity"
-                onAction="#handleRegistrarBibliotecario"
-                styleClass="boton-sidebar"
-                text="Registrar bibliotecario" />
+            <Button fx:id="btnRegistrarBibliotecario" maxWidth="Infinity" onAction="#handleRegistrarBibliotecario" styleClass="boton-sidebar" text="Registrar bibliotecario" />
 
-            <Region
-                VBox.vgrow="ALWAYS" />
+            <Region VBox.vgrow="ALWAYS" />
 
-            <Button
-                fx:id="btnCerrarSesion"
-                maxWidth="Infinity"
-                onAction="#handleCerrarSesion"
-                styleClass="boton-salir"
-                text="Cerrar sesión" />
+            <Button fx:id="btnCerrarSesion" maxWidth="Infinity" onAction="#handleCerrarSesion" styleClass="boton-salir" text="Cerrar sesión" />
 
         </VBox>
     </left>
 
     <right>
-        <ScrollPane
-            fitToWidth="true"
-            prefHeight="501.0"
-            prefWidth="1087.0"
-            styleClass="scroll-formulario"
-            stylesheets="@../resources/styles/Dashboard.css"
-            BorderPane.alignment="CENTER">
+        <ScrollPane fitToWidth="true" prefHeight="501.0" prefWidth="1087.0" styleClass="scroll-formulario" stylesheets="@../resources/styles/Dashboard.css" BorderPane.alignment="CENTER">
 
-            <VBox
-                spacing="26.0"
-                styleClass="dashboard-contenido">
+            <VBox spacing="26.0" styleClass="dashboard-contenido">
 
                 <padding>
-                    <Insets
-                        bottom="48.0"
-                        left="52.0"
-                        right="52.0"
-                        top="48.0" />
+                    <Insets bottom="48.0" left="52.0" right="52.0" top="48.0" />
                 </padding>
 
                 <VBox spacing="10.0">
 
-                    <Label
-                        styleClass="eyebrow"
-                        text="PANEL PRINCIPAL" />
+                    <Label styleClass="eyebrow" text="PANEL PRINCIPAL" />
 
-                    <Region
-                        maxWidth="166.0"
-                        minHeight="1.0"
-                        prefHeight="1.0"
-                        prefWidth="166.0"
-                        styleClass="regla-dorada" />
+                    <Region maxWidth="166.0" minHeight="1.0" prefHeight="1.0" prefWidth="166.0" styleClass="regla-dorada" />
 
-                    <Label
-                        styleClass="dashboard-titulo"
-                        text="Bienvenido a Exodus Codex" />
+                    <Label styleClass="dashboard-titulo" text="Bienvenido a Exodus Codex" />
 
                 </VBox>
 
@@ -166,31 +84,19 @@
 
                 <VBox spacing="14.0">
 
-                    <Label
-                        styleClass="sidebar-seccion"
-                        text="Funcionalidad:" />
+                    <Label styleClass="sidebar-seccion" text="Funcionalidad:" />
 
                     <HBox spacing="16.0">
 
                         <!-- TARJETA CATÁLOGO -->
 
-                        <VBox
-                            spacing="6.0"
-                            styleClass="tarjeta-info"
-                            HBox.hgrow="ALWAYS">
+                        <VBox spacing="6.0" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
 
-                            <Label
-                                styleClass="eyebrow"
-                                text="CATÁLOGO" />
+                            <Label styleClass="eyebrow" text="CATÁLOGO" />
 
-                            <HBox
-                                alignment="CENTER_LEFT"
-                                spacing="8.0">
+                            <HBox alignment="CENTER_LEFT" spacing="8.0">
 
-                                <ImageView
-                                    fitHeight="59.0"
-                                    fitWidth="58.0"
-                                    preserveRatio="true">
+                                <ImageView fitHeight="59.0" fitWidth="58.0" preserveRatio="true">
 
                                     <image>
                                         <Image url="@../resources/images/gif/performance.gif" />
@@ -198,38 +104,23 @@
 
                                 </ImageView>
 
-                                <Label
-                                    styleClass="tarjeta-info-numero"
-                                    text="Títulos y copias" />
+                                <Label styleClass="tarjeta-info-numero" text="Títulos y copias" />
 
                             </HBox>
 
-                            <Label
-                                styleClass="tarjeta-info-texto"
-                                text="Consulta, agrega y edita libros con su portada."
-                                wrapText="true" />
+                            <Label styleClass="tarjeta-info-texto" text="Consulta, agrega y edita libros con su portada." wrapText="true" />
 
                         </VBox>
 
                         <!-- TARJETA CUENTAS -->
 
-                        <VBox
-                            spacing="6.0"
-                            styleClass="tarjeta-info"
-                            HBox.hgrow="ALWAYS">
+                        <VBox spacing="6.0" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
 
-                            <Label
-                                styleClass="eyebrow"
-                                text="CUENTAS" />
+                            <Label styleClass="eyebrow" text="CUENTAS" />
 
-                            <HBox
-                                alignment="CENTER_LEFT"
-                                spacing="8.0">
+                            <HBox alignment="CENTER_LEFT" spacing="8.0">
 
-                                <ImageView
-                                    fitHeight="60.0"
-                                    fitWidth="70.0"
-                                    preserveRatio="true">
+                                <ImageView fitHeight="60.0" fitWidth="70.0" preserveRatio="true">
 
                                     <image>
                                         <Image url="@../resources/images/gif/Users.gif" />
@@ -237,16 +128,11 @@
 
                                 </ImageView>
 
-                                <Label
-                                    styleClass="tarjeta-info-numero"
-                                    text="Bibliotecarios" />
+                                <Label styleClass="tarjeta-info-numero" text="Bibliotecarios" />
 
                             </HBox>
 
-                            <Label
-                                styleClass="tarjeta-info-texto"
-                                text="El jefe de biblioteca crea las cuentas del personal."
-                                wrapText="true" />
+                            <Label styleClass="tarjeta-info-texto" text="El jefe de biblioteca crea las cuentas del personal." wrapText="true" />
 
                         </VBox>
 
@@ -258,34 +144,19 @@
 
                 <VBox spacing="14.0">
 
-                    <Label
-                        styleClass="sidebar-seccion"
-                        text="ACCESOS RÁPIDOS" />
+                    <Label styleClass="sidebar-seccion" text="ACCESOS RÁPIDOS" />
 
                     <HBox spacing="16.0">
 
                         <!-- TARJETA AGREGAR TÍTULO -->
 
-                        <VBox
-                            fx:id="tarjetaAgregarTitulo"
-                            spacing="10.0"
-                            styleClass="tarjeta-accion"
-                            HBox.hgrow="ALWAYS">
+                        <VBox fx:id="tarjetaAgregarTitulo" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
-                            <Label
-                                styleClass="tarjeta-accion-titulo"
-                                text="Agregar título" />
+                            <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
 
-                            <Label
-                                styleClass="tarjeta-info-texto"
-                                text="Registra un nuevo libro con portada, autor y existencias."
-                                wrapText="true" />
+                            <Label styleClass="tarjeta-info-texto" text="Registra un nuevo libro con portada, autor y existencias." wrapText="true" />
 
-                            <ImageView
-                                fitHeight="73.0"
-                                fitWidth="91.0"
-                                pickOnBounds="true"
-                                preserveRatio="true">
+                            <ImageView fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
 
                                 <image>
                                     <Image url="@../resources/images/gif/folder.gif" />
@@ -293,35 +164,19 @@
 
                             </ImageView>
 
-                            <Button
-                                onAction="#handleCatalogo"
-                                styleClass="boton-secundario"
-                                text="Ir al catálogo" />
+                            <Button onAction="#handleCatalogo" styleClass="boton-secundario" text="Ir al catálogo" />
 
                         </VBox>
 
                         <!-- TARJETA NUEVO BIBLIOTECARIO -->
 
-                        <VBox
-                            fx:id="tarjetaNuevoBibliotecario"
-                            spacing="10.0"
-                            styleClass="tarjeta-accion"
-                            HBox.hgrow="ALWAYS">
+                        <VBox fx:id="tarjetaNuevoBibliotecario" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
-                            <Label
-                                styleClass="tarjeta-accion-titulo"
-                                text="Nuevo bibliotecario" />
+                            <Label styleClass="tarjeta-accion-titulo" text="Nuevo bibliotecario" />
 
-                            <Label
-                                styleClass="tarjeta-info-texto"
-                                text="Da de alta una cuenta de personal para operar el sistema."
-                                wrapText="true" />
+                            <Label styleClass="tarjeta-info-texto" text="Da de alta una cuenta de personal para operar el sistema." wrapText="true" />
 
-                            <ImageView
-                                fitHeight="84.0"
-                                fitWidth="137.0"
-                                pickOnBounds="true"
-                                preserveRatio="true">
+                            <ImageView fitHeight="84.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
 
                                 <image>
                                     <Image url="@../resources/images/gif/bibliotecario.gif" />
@@ -329,10 +184,7 @@
 
                             </ImageView>
 
-                            <Button
-                                onAction="#handleRegistrarBibliotecario"
-                                styleClass="boton-primario"
-                                text="Registrar cuenta" />
+                            <Button onAction="#handleRegistrarBibliotecario" styleClass="boton-primario" text="Registrar cuenta" />
 
                         </VBox>
 

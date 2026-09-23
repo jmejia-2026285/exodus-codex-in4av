@@ -1,13 +1,13 @@
 .dialog-pane {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: rgba(255,255,255,0.90);
     -fx-background-radius: 14;
-    -fx-border-color: #D9D2C8;
+    -fx-border-color: #bcac95;
     -fx-border-radius: 14;
     -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: linear-gradient(to right, #192D43, #23405C);
+    -fx-background-color: linear-gradient(to right, #2d4656, #657a80);
     -fx-background-radius: 14 14 0 0;
     -fx-padding: 16 20 16 20;
 }
@@ -23,7 +23,7 @@
 }
 
 .alerta-advertencia .header-panel {
-    -fx-background-color: linear-gradient(to right, #C9A876, #E0BC88);
+    -fx-background-color: linear-gradient(to right, #d4954f, #eca93a);
     -fx-background-radius: 14 14 0 0;
 }
 
@@ -39,13 +39,13 @@
 }
 
 .dialog-pane .content.label {
-    -fx-text-fill: #10191D;
+    -fx-text-fill: #2d3337;
     -fx-font-size: 13px;
     -fx-padding: 18 20 8 20;
 }
 
 .dialog-pane .button {
-    -fx-background-color: linear-gradient(to right, #192D43, #23405C);
+    -fx-background-color: linear-gradient(to right, #2d4656, #657a80);
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
@@ -54,5 +54,5 @@
 }
 
 .dialog-pane .button:hover {
-    -fx-background-color: #E0BC88;
+    -fx-background-color: #eca93a;
 }

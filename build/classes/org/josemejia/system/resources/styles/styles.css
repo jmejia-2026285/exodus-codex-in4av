@@ -1,15 +1,18 @@
 .root {
-    -navy-primario: #192D43;
-    -navy-profundo: #10191D;
-    -navy-suave: #23405C;
-    -dorado-codex: #E0BC88;
-    -dorado-claro: #EAD1AC;
-    -dorado-tenue: #F6EEE1;
-    -fondo: #F3F1EC;
+    -navy-primario: #2d4656;
+    -navy-profundo: #2d3337;
+    -navy-suave: #657a80;
+    -dorado-codex: #eca93a;
+    -dorado-claro: #f2c568;
+    -dorado-tenue: #f7e9c9;
+    -fondo: #ece5d6;
     -superficie: #FFFFFF;
-    -borde: #D9D2C8;
-    -texto-principal: #10191D;
-    -texto-secundario: #6C737B;
+    -superficie-glass: rgba(255,255,255,0.82);
+    -superficie-glass-oscura: rgba(255,255,255,0.10);
+    -overlay-oscuro: rgba(45,51,55,0.55);
+    -borde: #bcac95;
+    -texto-principal: #2d3337;
+    -texto-secundario: #657a80;
     -exito: #2E9E6B;
     -advertencia: #D9A441;
     -error: #D64545;
@@ -54,21 +57,26 @@
 }
 
 .login-container {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .panel-marca {
-    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #192D43 0%, #10191D 55%, #23405C 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(45,70,86,0.92) 0%, rgba(45,51,55,0.92) 55%, rgba(101,122,128,0.92) 100%);
+    -fx-background-radius: 20 0 0 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 30, 0, 0, 10);
 }
 
 .panel-marca-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
-    -fx-font-size: 26px;
+    -fx-font-size: 20px;
     -fx-text-fill: white;
 }
 
 .panel-marca-texto {
-    -fx-font-size: 12px;
+    -fx-font-size: 11px;
     -fx-text-fill: #C8CCD0;
 }
 
@@ -87,7 +95,9 @@
 }
 
 .panel-acceso {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
+    -fx-background-radius: 0 20 20 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 30, 0, 0, 10);
 }
 
 .login-form {
@@ -95,7 +105,7 @@
 }
 
 .tarjeta-elevada {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-background-radius: 16;
     -fx-border-color: -borde;
     -fx-border-radius: 16;
@@ -133,18 +143,18 @@
 }
 
 .boton-primario {
-    -fx-background-color: linear-gradient(to right, #192D43, #23405C);
+    -fx-background-color: linear-gradient(to right, #2d4656, #657a80);
     -fx-text-fill: white;
     -fx-background-radius: 10;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-padding: 12 22 12 22;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.30), 12, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.30), 12, 0, 0, 4);
 }
 
 .boton-primario:hover {
-    -fx-background-color: linear-gradient(to right, #23405C, #2E4E70);
+    -fx-background-color: linear-gradient(to right, #657a80, #7d94a0);
 }
 
 .boton-primario:pressed {
@@ -208,11 +218,14 @@
 }
 
 .dashboard-root {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .dashboard-sidebar {
-    -fx-background-color: linear-gradient(to bottom, #192D43 0%, #10191D 100%);
+    -fx-background-color: linear-gradient(to bottom, #2d4656 0%, #2d3337 100%);
 }
 
 .sidebar-separador {
@@ -273,7 +286,7 @@
 }
 
 .boton-sidebar:pressed {
-    -fx-background-color: rgba(224, 188, 136, 0.28);
+    -fx-background-color: rgba(236, 169, 58, 0.28);
 }
 
 .boton-salir {
@@ -294,27 +307,27 @@
 }
 
 .dashboard-contenido {
-    -fx-background-color: -fondo;
+    -fx-background-color: transparent;
 }
 
 .dashboard-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
     -fx-font-size: 26px;
-    -fx-text-fill: -navy-primario;
+    -fx-text-fill: #eca93a; /**/
 }
 
 .dashboard-subtitulo {
     -fx-font-size: 12px;
-    -fx-text-fill: -texto-secundario;
+    -fx-text-fill: #eca93a;
 }
 
 .tarjeta-info {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-background-radius: 14;
     -fx-border-color: -borde;
     -fx-border-radius: 14;
     -fx-padding: 18 22 18 22;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.07), 16, 0, 0, 6);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.07), 16, 0, 0, 6);
 }
 
 .tarjeta-info-numero {
@@ -329,7 +342,10 @@
 }
 
 .pantalla-fondo {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .catalogo-header {
@@ -337,19 +353,19 @@
 }
 
 .barra-superior {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-border-color: transparent transparent -borde transparent;
     -fx-border-width: 0 0 1 0;
     -fx-padding: 18 26 18 26;
 }
 
 .panel-formulario {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-border-color: -borde;
     -fx-border-radius: 16;
     -fx-background-radius: 16;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.08), 18, 0, 0, 6);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.08), 18, 0, 0, 6);
 }
 
 .panel-formulario-titulo {
@@ -415,24 +431,24 @@
 }
 
 .libro-tarjeta {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-background-radius: 14;
     -fx-border-color: -borde;
     -fx-border-radius: 14;
     -fx-padding: 14;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.08), 14, 0, 0, 5);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.08), 14, 0, 0, 5);
     -fx-cursor: hand;
 }
 
 .libro-tarjeta:hover {
     -fx-border-color: -dorado-codex;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.20), 22, 0, 0, 10);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.20), 22, 0, 0, 10);
 }
 
 .libro-tarjeta-imagen {
     -fx-background-color: #EDE7DC;
     -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(25, 45, 67, 0.22), 10, 0, 2, 4);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.22), 10, 0, 2, 4);
 }
 
 .libro-tarjeta-titulo {
