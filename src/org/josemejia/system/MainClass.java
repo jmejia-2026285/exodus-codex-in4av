@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.josemejia.system.utils.SceneManager;
 import org.josemejia.system.utils.ViewFactory;
+import javafx.stage.StageStyle;
 
 public class MainClass extends Application {
 
@@ -15,6 +16,7 @@ public class MainClass extends Application {
 
     @Override
     public void start(Stage stageRoot) {
+        stageRoot.initStyle(StageStyle.TRANSPARENT);
         SceneManager.getInstanciaSceneManager().setStagePrincipal(stageRoot);
         ViewFactory viewFactory = new ViewFactory();
         viewFactory.viewLogin();

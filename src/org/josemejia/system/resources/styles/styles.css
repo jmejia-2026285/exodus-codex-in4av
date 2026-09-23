@@ -511,4 +511,32 @@
 .boton-tarjeta-peligro:hover {
     -fx-background-color: derive(-error, 85%);
     -fx-border-color: -error;
+    
+}
+/* ---------- Marco de ventana (sin barra de título) ---------- */
+.ventana-borde {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(236, 169, 58, 0.85);
+    -fx-border-width: 2;
+    -fx-border-radius: 18;
+}
+
+.ventana-control {
+    -fx-background-color: rgba(45, 51, 55, 0.30);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+}
+
+.ventana-control:hover {
+    -fx-background-color: rgba(236, 169, 58, 0.92);
+    -fx-text-fill: -navy-profundo;
+}
+
+.ventana-control-cerrar:hover {
+    -fx-background-color: rgba(214, 69, 69, 0.95);
+    -fx-text-fill: white;
 }

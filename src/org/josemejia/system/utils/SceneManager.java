@@ -31,6 +31,7 @@ public class SceneManager {
         try {
             stageMain.setScene(scene);
             stageMain.sizeToScene();
+            stageMain.centerOnScreen();
             stageMain.show();
         } catch (NullPointerException objetoNulo) {
             //alert
