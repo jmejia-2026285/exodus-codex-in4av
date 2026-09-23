@@ -97,7 +97,7 @@
 
                             <HBox alignment="CENTER_LEFT" spacing="8.0">
 
-                                <ImageView fitHeight="59.0" fitWidth="58.0" preserveRatio="true">
+                                <ImageView fx:id="imgCatalogo" fitHeight="59.0" fitWidth="58.0" preserveRatio="true">
 
                                     <image>
                                         <Image url="@../resources/images/gif/performance.gif" />
@@ -121,7 +121,7 @@
 
                             <HBox alignment="CENTER_LEFT" spacing="8.0">
 
-                                <ImageView fitHeight="60.0" fitWidth="70.0" preserveRatio="true">
+                                <ImageView fx:id="imgCuentas" fitHeight="60.0" fitWidth="70.0" preserveRatio="true">
 
                                     <image>
                                         <Image url="@../resources/images/gif/Users.gif" />
@@ -157,7 +157,7 @@
 
                             <Label styleClass="tarjeta-info-texto" text="Registra un nuevo libro con portada, autor y existencias." wrapText="true" />
 
-                            <ImageView fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imgAgregarTitulo" fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
 
                                 <image>
                                     <Image url="@../resources/images/gif/folder.gif" />
@@ -177,7 +177,7 @@
 
                             <Label styleClass="tarjeta-info-texto" text="Da de alta una cuenta de personal para operar el sistema." wrapText="true" />
 
-                            <ImageView fitHeight="84.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imgNuevoBibliotecario" fitHeight="84.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
 
                                 <image>
                                     <Image url="@../resources/images/gif/bibliotecario.gif" />
@@ -186,6 +186,26 @@
                             </ImageView>
 
                             <Button onAction="#handleRegistrarBibliotecario" styleClass="boton-primario" text="Registrar cuenta" />
+
+                        </VBox>
+
+                        <!-- TARJETA GESTIONAR PERSONAL -->
+
+                        <VBox fx:id="tarjetaGestionPersonal" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+
+                            <Label styleClass="tarjeta-accion-titulo" text="Gestionar personal" />
+
+                            <Label styleClass="tarjeta-info-texto" text="Administra las cuentas del personal: consulta o edita bibliotecarios registrados." wrapText="true" />
+
+                            <ImageView fx:id="imgGestionPersonal" fitHeight="85.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+
+                                <image>
+                                    <Image url="@../resources/images/gif/Users.gif" />
+                                </image>
+
+                            </ImageView>
+
+                            <Button onAction="#handleGestionPersonal" styleClass="boton-secundario" text="Gestionar personal" />
 
                         </VBox>
 

@@ -7,9 +7,11 @@ package org.josemejia.system.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import org.josemejia.system.model.Usuario;
 import org.josemejia.system.utils.AnimationUtils;
+import org.josemejia.system.utils.ImagenUtils;
 import org.josemejia.system.utils.SesionManager;
 import javafx.scene.layout.VBox;
 import org.josemejia.system.utils.ViewFactory;
@@ -22,7 +24,20 @@ public class DashboardController {
     @FXML
     private VBox tarjetaNuevoBibliotecario;
     @FXML
+    private VBox tarjetaGestionPersonal;
+    @FXML
     private BorderPane raiz;
+
+    @FXML
+    private ImageView imgCatalogo;
+    @FXML
+    private ImageView imgCuentas;
+    @FXML
+    private ImageView imgAgregarTitulo;
+    @FXML
+    private ImageView imgNuevoBibliotecario;
+    @FXML
+    private ImageView imgGestionPersonal;
 
     @FXML
     private Label lblBienvenida;
@@ -59,6 +74,11 @@ public class DashboardController {
         
         btnGestionPersonal.setVisible(esJefe);
         btnGestionPersonal.setManaged(esJefe);
+
+        if (tarjetaGestionPersonal != null) {
+            tarjetaGestionPersonal.setVisible(esJefe);
+            tarjetaGestionPersonal.setManaged(esJefe);
+        }
         
 
         AnimationUtils.aplicarFadeIn(raiz);
@@ -68,6 +88,15 @@ public class DashboardController {
         AnimationUtils.aplicarEfectoHover(btnCerrarSesion);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaAgregarTitulo);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaNuevoBibliotecario);
+        if (tarjetaGestionPersonal != null) {
+            AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaGestionPersonal);
+        }
+
+        ImagenUtils.aplicarEsquinasRedondeadas(imgCatalogo, 12);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgCuentas, 12);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgAgregarTitulo, 12);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgNuevoBibliotecario, 12);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgGestionPersonal, 12);
     }
 
     @FXML
