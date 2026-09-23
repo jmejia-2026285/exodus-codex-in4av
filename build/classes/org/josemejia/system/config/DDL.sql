@@ -146,6 +146,39 @@ begin
     delete from libros where id_libro = p_id_libro;
 end$$
 delimiter ;
+use exoduscodex_in4av;
+
+-- Eliminar usuario
+drop procedure if exists sp_eliminar_usuario;
+
+delimiter $$
+
+create procedure sp_eliminar_usuario (
+    in p_id_usuario varchar(50)
+)
+begin
+    -- Protección en BD: un Bibliotecario Jefe no puede eliminarse
+    if exists (select 1 from usuarios
+               where id_usuario = p_id_usuario
+                 and rol = 'Bibliotecario Jefe') then
+        signal sqlstate '45000'
+            set message_text = 'No se puede eliminar a un Bibliotecario Jefe.';
+    end if;
+
+    delete from usuarios where id_usuario = p_id_usuario;
+end$$
+
+delimiter ;
+insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
+values
+('2', 'Ana',    'Lopez',    'ana.lopez@exoduscodex.com',       'alopez',    'ana1234',    'Bibliotecario'),
+('3', 'Carlos', 'Ramirez',  'carlos.ramirez@exoduscodex.com',  'cramirez',  'carlos1234', 'Bibliotecario'),
+('4', 'Lucia',  'Morales',  'lucia.morales@exoduscodex.com',   'lmorales',  'lucia1234',  'Bibliotecario'),
+('5', 'Diego',  'Castillo', 'diego.castillo@exoduscodex.com',  'dcastillo', 'diego1234',  'Bibliotecario'),
+('6', 'Sofia',  'Herrera',  'sofia.herrera@exoduscodex.com',   'sherrera',  'sofia1234',  'Bibliotecario');
+
+
+
 
 insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
 values ('1', 'Jose', 'Mejia', 'jefe@exoduscodex.com', 'jefe', '1234', 'Bibliotecario Jefe');
