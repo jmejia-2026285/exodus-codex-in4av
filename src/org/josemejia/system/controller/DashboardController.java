@@ -1,9 +1,5 @@
 package org.josemejia.system.controller;
 
-/**
- *
- * @author informatica
- */
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,7 +13,6 @@ import javafx.scene.layout.VBox;
 import org.josemejia.system.utils.ViewFactory;
 
 public class DashboardController {
-// añadir campos @FXML
 
     @FXML
     private VBox tarjetaAgregarTitulo;
@@ -27,11 +22,6 @@ public class DashboardController {
     private VBox tarjetaGestionPersonal;
     @FXML
     private BorderPane raiz;
-
-    @FXML
-    private ImageView imgCatalogo;
-    @FXML
-    private ImageView imgCuentas;
     @FXML
     private ImageView imgAgregarTitulo;
     @FXML
@@ -50,7 +40,7 @@ public class DashboardController {
 
     @FXML
     private Button btnRegistrarBibliotecario;
-    
+
     @FXML
     private Button btnGestionPersonal;
 
@@ -71,7 +61,7 @@ public class DashboardController {
         boolean esJefe = usuarioActual != null && usuarioActual.esBibliotecarioJefe();
         btnRegistrarBibliotecario.setVisible(esJefe);
         btnRegistrarBibliotecario.setManaged(esJefe);
-        
+
         btnGestionPersonal.setVisible(esJefe);
         btnGestionPersonal.setManaged(esJefe);
 
@@ -79,7 +69,6 @@ public class DashboardController {
             tarjetaGestionPersonal.setVisible(esJefe);
             tarjetaGestionPersonal.setManaged(esJefe);
         }
-        
 
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnCatalogo);
@@ -91,9 +80,6 @@ public class DashboardController {
         if (tarjetaGestionPersonal != null) {
             AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaGestionPersonal);
         }
-
-        ImagenUtils.aplicarEsquinasRedondeadas(imgCatalogo, 12);
-        ImagenUtils.aplicarEsquinasRedondeadas(imgCuentas, 12);
         ImagenUtils.aplicarEsquinasRedondeadas(imgAgregarTitulo, 12);
         ImagenUtils.aplicarEsquinasRedondeadas(imgNuevoBibliotecario, 12);
         ImagenUtils.aplicarEsquinasRedondeadas(imgGestionPersonal, 12);

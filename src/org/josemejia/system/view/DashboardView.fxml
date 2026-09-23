@@ -80,78 +80,12 @@
                     <Label styleClass="dashboard-titulo" text="Bienvenido a Exodus Codex" />
 
                 </VBox>
-
-                <!-- RESUMEN GENERAL -->
-
-                <VBox spacing="14.0">
-
-                    <Label styleClass="sidebar-seccion" text="Funcionalidad:" />
-
-                    <HBox spacing="16.0">
-
-                        <!-- TARJETA CATÁLOGO -->
-
-                        <VBox spacing="6.0" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
-
-                            <Label styleClass="eyebrow" text="CATÁLOGO" />
-
-                            <HBox alignment="CENTER_LEFT" spacing="8.0">
-
-                                <ImageView fx:id="imgCatalogo" fitHeight="59.0" fitWidth="58.0" preserveRatio="true">
-
-                                    <image>
-                                        <Image url="@../resources/images/gif/performance.gif" />
-                                    </image>
-
-                                </ImageView>
-
-                                <Label styleClass="tarjeta-info-numero" text="Títulos y copias" />
-
-                            </HBox>
-
-                            <Label styleClass="tarjeta-info-texto" text="Consulta, agrega y edita libros con su portada." wrapText="true" />
-
-                        </VBox>
-
-                        <!-- TARJETA CUENTAS -->
-
-                        <VBox spacing="6.0" styleClass="tarjeta-info" HBox.hgrow="ALWAYS">
-
-                            <Label styleClass="eyebrow" text="CUENTAS" />
-
-                            <HBox alignment="CENTER_LEFT" spacing="8.0">
-
-                                <ImageView fx:id="imgCuentas" fitHeight="60.0" fitWidth="70.0" preserveRatio="true">
-
-                                    <image>
-                                        <Image url="@../resources/images/gif/Users.gif" />
-                                    </image>
-
-                                </ImageView>
-
-                                <Label styleClass="tarjeta-info-numero" text="Bibliotecarios" />
-
-                            </HBox>
-
-                            <Label styleClass="tarjeta-info-texto" text="El jefe de biblioteca crea las cuentas del personal." wrapText="true" />
-
-                        </VBox>
-
-                    </HBox>
-
-                </VBox>
-
-                <!-- ACCESOS RÁPIDOS -->
-
-                <VBox spacing="14.0">
+<VBox spacing="14.0">
 
                     <Label styleClass="sidebar-seccion" text="ACCESOS RÁPIDOS" />
 
                     <HBox spacing="16.0">
-
-                        <!-- TARJETA AGREGAR TÍTULO -->
-
-                        <VBox fx:id="tarjetaAgregarTitulo" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+<VBox fx:id="tarjetaAgregarTitulo" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
                             <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
 
@@ -165,13 +99,10 @@
 
                             </ImageView>
 
-                            <Button onAction="#handleCatalogo" styleClass="boton-secundario" text="Ir al catálogo" />
+                            <Button onAction="#handleCatalogo" styleClass="boton-primario" text="Ir al catálogo" />
 
                         </VBox>
-
-                        <!-- TARJETA NUEVO BIBLIOTECARIO -->
-
-                        <VBox fx:id="tarjetaNuevoBibliotecario" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+<VBox fx:id="tarjetaNuevoBibliotecario" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
                             <Label styleClass="tarjeta-accion-titulo" text="Nuevo bibliotecario" />
 
@@ -188,10 +119,7 @@
                             <Button onAction="#handleRegistrarBibliotecario" styleClass="boton-primario" text="Registrar cuenta" />
 
                         </VBox>
-
-                        <!-- TARJETA GESTIONAR PERSONAL -->
-
-                        <VBox fx:id="tarjetaGestionPersonal" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+<VBox fx:id="tarjetaGestionPersonal" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
                             <Label styleClass="tarjeta-accion-titulo" text="Gestionar personal" />
 
@@ -205,7 +133,7 @@
 
                             </ImageView>
 
-                            <Button onAction="#handleGestionPersonal" styleClass="boton-secundario" text="Gestionar personal" />
+                            <Button onAction="#handleGestionPersonal" styleClass="boton-primario" text="Gestionar personal" />
 
                         </VBox>
 
