@@ -27,11 +27,12 @@ public class AlertUtils {
         ADVERTENCIA("ADVERTENCIA", "Rem_dudosa_cute.png", "alerta-advertencia"),
         USUARIO_CREADO("ÉXITO", "gif/userdone.gif", "alerta-exito"),
         LIBRO_GUARDADO("ÉXITO", "gif/save.gif", "alerta-exito"),
-        LIBRO_ELIMINADO("ÉXITO", "rem_asustada.png", "alerta-exito"),
+        LIBRO_ELIMINADO("ÉXITO", "gif/deleted-100px", "alerta-exito"),
         USUARIO_ACTUALIZADO("ÉXITO", "gif/Users.gif", "alerta-exito"),
         SIN_RESULTADOS("SIN RESULTADOS", "rem_duda.png", "alerta-info"),
         ACCESO_DENEGADO("ACCESO DENEGADO", "gif/acceso-denegado.gif", "alerta-error"),
-        BIENVENIDA("BIENVENIDO", "gif/bibliotecario.gif", "alerta-exito");
+        BIENVENIDA("BIENVENIDO", "gif/bibliotecario.gif", "alerta-exito"),
+        USUARIO_ELIMINADO("USUARIO ELIMINADO", "gif/delete-user", "alerta-advertencia");
 
         private final String etiqueta;
         private final String imagen;
