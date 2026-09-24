@@ -18,12 +18,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-/**
- * Alertas modales con la misma estética del resto del proyecto: ventana sin
- * bordes del sistema, fondo fondo.jpg, tarjeta de cristal y paleta Exodus
- * Codex. La API pública no cambia: mostrarAlertaPersonalizada(titulo, mensaje
- * [, tipo]).
- */
 public class AlertUtils {
 
     public enum TipoNotificacion {
@@ -31,7 +25,13 @@ public class AlertUtils {
         EXITO("ÉXITO", "rem_feliz.png", "alerta-exito"),
         ERROR("ERROR", "error-alert.png", "alerta-error"),
         ADVERTENCIA("ADVERTENCIA", "Rem_dudosa_cute.png", "alerta-advertencia"),
-        USUARIO_CREADO("ÉXITO", "userdone.gif", "alerta-exito");
+        USUARIO_CREADO("ÉXITO", "gif/userdone.gif", "alerta-exito"),
+        LIBRO_GUARDADO("ÉXITO", "gif/save.gif", "alerta-exito"),
+        LIBRO_ELIMINADO("ÉXITO", "rem_asustada.png", "alerta-exito"),
+        USUARIO_ACTUALIZADO("ÉXITO", "gif/Users.gif", "alerta-exito"),
+        SIN_RESULTADOS("SIN RESULTADOS", "rem_duda.png", "alerta-info"),
+        ACCESO_DENEGADO("ACCESO DENEGADO", "gif/acceso-denegado.gif", "alerta-error"),
+        BIENVENIDA("BIENVENIDO", "gif/bibliotecario.gif", "alerta-exito");
 
         private final String etiqueta;
         private final String imagen;

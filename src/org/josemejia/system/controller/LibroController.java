@@ -121,10 +121,10 @@ public class LibroController {
 
             if (libroSeleccionado == null) {
                 libroService.crear(libro, usuario);
-                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se registró correctamente.", TipoNotificacion.EXITO);
+                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se registró correctamente.", TipoNotificacion.LIBRO_GUARDADO);
             } else {
                 libroService.actualizar(libro, usuario);
-                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se actualizó correctamente.", TipoNotificacion.EXITO);
+                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se actualizó correctamente.", TipoNotificacion.LIBRO_GUARDADO);
             }
             handleLimpiar();
             cargarCatalogo(libroService.listar());
