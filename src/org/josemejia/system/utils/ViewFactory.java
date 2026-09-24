@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.josemejia.system.utils;
 
-/**
- *
- * @author informatica
- */
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.URL;
@@ -16,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,14 +29,20 @@ import org.josemejia.system.MainClass;
 public class ViewFactory {
 
     private static final String PATH_VIEWS = "/org/josemejia/system/view/";
+    private static final String RUTA_ESTILOS = "/org/josemejia/system/resources/styles/styles.css";
+    private static final double RADIO_VENTANA = 18;
 
-    // Enum para centralizar la configuración de cada vista (Principio Abierto/Cerrado)
+    private static final int BORDE_IZQ = 1, BORDE_DER = 2, BORDE_ARR = 4, BORDE_ABA = 8;
+    private static final double MARGEN_REDIMENSION = 6;
+    private static final double MIN_ANCHO = 640, MIN_ALTO = 420;
+
     private enum ViewConfig {
         LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión", true),
         REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", true),
         DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true),
         CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico", true),
-PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
+        PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
+
         final String fxmlFile;
         final String title;
         final boolean resizable;
@@ -72,35 +71,40 @@ PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
         }
 
         try {
-            // FXMLLoader ya usa JavaFXBuilderFactory por defecto, no es necesario configurarlo.
-            // Además, se puede pasar la URL directamente al constructor para ahorrar líneas.
             FXMLLoader loader = new FXMLLoader(urlFile);
             return crearEscenaConMarco(loader.load());
         } catch (IOException e) {
             throw new UncheckedIOException("Error al cargar el FXML: " + pathOfFile, e);
         }
     }
-        private static final String RUTA_ESTILOS = "/org/josemejia/system/resources/styles/styles.css";
-    private static final double RADIO_VENTANA = 18;
 
     private Scene crearEscenaConMarco(Parent contenido) {
-        Stage stage = SceneManager.getInstanciaSceneManager().getStagePrincipal();
+        SceneManager sceneManager = SceneManager.getInstanciaSceneManager();
+        Stage stage = sceneManager.getStagePrincipal();
 
         Region borde = new Region();
         borde.getStyleClass().add("ventana-borde");
         borde.setMouseTransparent(true);
+        borde.visibleProperty().bind(sceneManager.maximizadaProperty().not());
 
         Button btnMinimizar = new Button("\u2014");
         btnMinimizar.getStyleClass().add("ventana-control");
         btnMinimizar.setFocusTraversable(false);
         btnMinimizar.setOnAction(e -> stage.setIconified(true));
 
+        Button btnMaximizar = new Button();
+        btnMaximizar.getStyleClass().add("ventana-control");
+        btnMaximizar.setFocusTraversable(false);
+        btnMaximizar.textProperty().bind(
+                sceneManager.maximizadaProperty().map(m -> m ? "\u2750" : "\u25A1"));
+        btnMaximizar.setOnAction(e -> sceneManager.alternarMaximizado());
+
         Button btnCerrar = new Button("\u2715");
         btnCerrar.getStyleClass().addAll("ventana-control", "ventana-control-cerrar");
         btnCerrar.setFocusTraversable(false);
         btnCerrar.setOnAction(e -> Platform.exit());
 
-        HBox controles = new HBox(6, btnMinimizar, btnCerrar);
+        HBox controles = new HBox(6, btnMinimizar, btnMaximizar, btnCerrar);
         controles.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
         StackPane.setAlignment(controles, Pos.TOP_RIGHT);
         StackPane.setMargin(controles, new Insets(10, 14, 0, 0));
@@ -108,24 +112,52 @@ PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
         StackPane marco = new StackPane(contenido, borde, controles);
 
         Rectangle recorte = new Rectangle();
-        recorte.setArcWidth(RADIO_VENTANA * 2);
-        recorte.setArcHeight(RADIO_VENTANA * 2);
+        recorte.arcWidthProperty().bind(
+                sceneManager.maximizadaProperty().map(m -> m ? 0.0 : RADIO_VENTANA * 2));
+        recorte.arcHeightProperty().bind(
+                sceneManager.maximizadaProperty().map(m -> m ? 0.0 : RADIO_VENTANA * 2));
         recorte.widthProperty().bind(marco.widthProperty());
         recorte.heightProperty().bind(marco.heightProperty());
         marco.setClip(recorte);
 
-        // Arrastre: solo si se presiona fuera de controles interactivos
+        // Arrastre y redimensionado
         final double[] delta = new double[2];
         final boolean[] arrastrando = {false};
+        final int[] bordeActivo = {0};
+        final double[] inicio = new double[6]; // x, y, ancho, alto, screenX, screenY
+
+        marco.addEventFilter(MouseEvent.MOUSE_MOVED,
+                e -> marco.setCursor(cursorParaBorde(detectarBorde(e, marco))));
+
         marco.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
-            arrastrando[0] = e.isPrimaryButtonDown() && esZonaArrastrable(e.getTarget());
+            bordeActivo[0] = e.isPrimaryButtonDown() ? detectarBorde(e, marco) : 0;
+            arrastrando[0] = bordeActivo[0] == 0 && e.isPrimaryButtonDown()
+                    && !sceneManager.isMaximizada() && esZonaArrastrable(e.getTarget());
             delta[0] = e.getScreenX() - stage.getX();
             delta[1] = e.getScreenY() - stage.getY();
+            inicio[0] = stage.getX();
+            inicio[1] = stage.getY();
+            inicio[2] = stage.getWidth();
+            inicio[3] = stage.getHeight();
+            inicio[4] = e.getScreenX();
+            inicio[5] = e.getScreenY();
+            if (bordeActivo[0] != 0) {
+                e.consume();
+            }
         });
         marco.addEventFilter(MouseEvent.MOUSE_DRAGGED, e -> {
-            if (arrastrando[0]) {
+            if (bordeActivo[0] != 0) {
+                redimensionar(stage, marco, bordeActivo[0], inicio, e);
+                e.consume();
+            } else if (arrastrando[0]) {
                 stage.setX(e.getScreenX() - delta[0]);
                 stage.setY(e.getScreenY() - delta[1]);
+            }
+        });
+        marco.addEventFilter(MouseEvent.MOUSE_RELEASED, e -> {
+            if (bordeActivo[0] != 0) {
+                bordeActivo[0] = 0;
+                e.consume();
             }
         });
 
@@ -152,17 +184,81 @@ PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
         return true;
     }
 
+    private int detectarBorde(MouseEvent e, Region marco) {
+        if (SceneManager.getInstanciaSceneManager().isMaximizada()) {
+            return 0;
+        }
+        int borde = 0;
+        if (e.getSceneX() < MARGEN_REDIMENSION) {
+            borde |= BORDE_IZQ;
+        } else if (e.getSceneX() > marco.getWidth() - MARGEN_REDIMENSION) {
+            borde |= BORDE_DER;
+        }
+        if (e.getSceneY() < MARGEN_REDIMENSION) {
+            borde |= BORDE_ARR;
+        } else if (e.getSceneY() > marco.getHeight() - MARGEN_REDIMENSION) {
+            borde |= BORDE_ABA;
+        }
+        return borde;
+    }
+
+    private Cursor cursorParaBorde(int borde) {
+        switch (borde) {
+            case BORDE_IZQ:
+            case BORDE_DER:
+                return Cursor.H_RESIZE;
+            case BORDE_ARR:
+            case BORDE_ABA:
+                return Cursor.V_RESIZE;
+            case BORDE_IZQ | BORDE_ARR:
+                return Cursor.NW_RESIZE;
+            case BORDE_DER | BORDE_ABA:
+                return Cursor.SE_RESIZE;
+            case BORDE_DER | BORDE_ARR:
+                return Cursor.NE_RESIZE;
+            case BORDE_IZQ | BORDE_ABA:
+                return Cursor.SW_RESIZE;
+            default:
+                return null;
+        }
+    }
+
+    private void redimensionar(Stage stage, Region marco, int borde, double[] ini, MouseEvent e) {
+        double dx = e.getScreenX() - ini[4];
+        double dy = e.getScreenY() - ini[5];
+        double minAncho = Math.max(MIN_ANCHO, marco.minWidth(-1));
+        double minAlto = Math.max(MIN_ALTO, marco.minHeight(-1));
+
+        double x = ini[0], y = ini[1], ancho = ini[2], alto = ini[3];
+
+        if ((borde & BORDE_DER) != 0) {
+            ancho = Math.max(minAncho, ini[2] + dx);
+        }
+        if ((borde & BORDE_IZQ) != 0) {
+            ancho = Math.max(minAncho, ini[2] - dx);
+            x = ini[0] + ini[2] - ancho;
+        }
+        if ((borde & BORDE_ABA) != 0) {
+            alto = Math.max(minAlto, ini[3] + dy);
+        }
+        if ((borde & BORDE_ARR) != 0) {
+            alto = Math.max(minAlto, ini[3] - dy);
+            y = ini[1] + ini[3] - alto;
+        }
+        stage.setX(x);
+        stage.setY(y);
+        stage.setWidth(ancho);
+        stage.setHeight(alto);
+    }
+
     public void loadScene(String viewName) {
         try {
             ViewConfig config = ViewConfig.fromString(viewName);
             Stage stage = SceneManager.getInstanciaSceneManager().getStagePrincipal();
 
-            // Configurar el escenario una sola vez
             stage.setTitle(config.title);
             stage.setResizable(false);
 
-            // Cargar y cambiar la escena
-            // loadScene: ahora
             Scene scene = loadFileFXML(config.fxmlFile);
             SceneManager.getInstanciaSceneManager().changeScene(scene);
 
@@ -172,7 +268,6 @@ PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
         }
     }
 
-    // Se mantienen estos métodos para garantizar compatibilidad y NO modificar otras clases
     public void viewLogin() {
         loadScene("login");
     }
@@ -188,8 +283,8 @@ PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
     public void viewCatalogo() {
         loadScene("catalogo");
     }
-    
-        public void viewPersonal() {
+
+    public void viewPersonal() {
         loadScene("personal");
     }
 }
