@@ -46,19 +46,11 @@ public class ConexionDB {
                         Enviroment.PASSWORD);
             }
         } catch (SQLException sqlException) {
-    throw new RuntimeException("Error al validar/reconectar: " + sqlException.getMessage(), sqlException);
+            throw new RuntimeException("Error al validar/reconectar: " + sqlException.getMessage(), sqlException);
         } catch (ClassNotFoundException classNotFound) {
             System.out.println("Error clase no encontrada");
         }
         return connection;
-    }
-
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
-
-    public CallableStatement prepararLlamada(String sqlCall) throws SQLException {
-        return getConnection().prepareCall(sqlCall);
     }
 
     public void cerrarConexion() {

@@ -55,6 +55,7 @@ public class PersonalController {
             panelTarjetas.getChildren().clear();
             if (encontrado == null) {
                 lblTotalPersonal.setText("Sin resultados para el ID \"" + id + "\"");
+                AlertUtils.mostrarAlertaPersonalizada("Personal", "No existe ninguna cuenta con el ID \"" + id + "\".", TipoNotificacion.SIN_RESULTADOS);
                 return;
             }
             panelTarjetas.getChildren().add(crearTarjeta(encontrado));
@@ -140,6 +141,10 @@ public class PersonalController {
     }
 
     private void mostrarError(RuntimeException e) {
-        AlertUtils.mostrarAlertaPersonalizada("Personal", e.getMessage(), TipoNotificacion.ERROR);
-    }
+    String mensaje = e.getMessage();
+    TipoNotificacion tipo = mensaje != null && mensaje.contains("Bibliotecario Jefe puede")
+            ? TipoNotificacion.ACCESO_DENEGADO
+            : TipoNotificacion.ERROR;
+    AlertUtils.mostrarAlertaPersonalizada("Personal", mensaje, tipo);
+}
 }

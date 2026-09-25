@@ -81,7 +81,11 @@ public class LibroController {
     @FXML
     private void handleBuscar() {
         try {
-            cargarCatalogo(libroService.buscar(txtBuscar.getText()));
+            List<Libro> resultado = libroService.buscar(txtBuscar.getText());
+            cargarCatalogo(resultado);
+            if (resultado.isEmpty()) {
+                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "No se encontraron libros con ese criterio.", TipoNotificacion.SIN_RESULTADOS);
+            }
         } catch (RuntimeException e) {
             mostrarError(e);
         }
@@ -141,7 +145,7 @@ public class LibroController {
         }
         try {
             libroService.eliminar(libroSeleccionado, SesionManager.getInstanciaSessionManager().getUsuarioActual());
-            AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se eliminó del acervo.", TipoNotificacion.EXITO);
+            AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se eliminó del acervo.", TipoNotificacion.LIBRO_ELIMINADO);
             handleLimpiar();
             cargarCatalogo(libroService.listar());
         } catch (RuntimeException e) {
@@ -260,6 +264,10 @@ public class LibroController {
     }
 
     private void mostrarError(RuntimeException e) {
-        AlertUtils.mostrarAlertaPersonalizada("Catálogo", e.getMessage(), TipoNotificacion.ERROR);
-    }
+    String mensaje = e.getMessage();
+    TipoNotificacion tipo = mensaje != null && mensaje.contains("iniciar sesión")
+            ? TipoNotificacion.ACCESO_DENEGADO
+            : TipoNotificacion.ERROR;
+    AlertUtils.mostrarAlertaPersonalizada("Catálogo", mensaje, tipo);
+}
 }

@@ -138,10 +138,14 @@ public class RegBibliotecarioController {
 
         } catch (IllegalStateException excepcion) {
             mostrarError(excepcion.getMessage());
+            String mensajeError = excepcion.getMessage();
+            AlertUtils.TipoNotificacion tipoError = mensajeError != null && mensajeError.contains("Bibliotecario Jefe puede")
+                    ? AlertUtils.TipoNotificacion.ACCESO_DENEGADO
+                    : AlertUtils.TipoNotificacion.ERROR;
             AlertUtils.mostrarAlertaPersonalizada(
                     "Error al registrar",
-                    excepcion.getMessage(),
-                    AlertUtils.TipoNotificacion.ERROR);
+                    mensajeError,
+                    tipoError);
         }
     }
 

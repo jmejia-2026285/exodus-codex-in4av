@@ -64,10 +64,6 @@ public class AlertUtils {
     private AlertUtils() {
     }
 
-    public static void mostrarAlertaPersonalizada(String titulo, String mensaje) {
-        mostrarAlertaPersonalizada(titulo, mensaje, TipoNotificacion.INFO);
-    }
-
     public static void mostrarAlertaPersonalizada(String titulo, String mensaje, TipoNotificacion tipo) {
         String textoTitulo = titulo == null ? "" : titulo;
         String textoMensaje = mensaje == null ? "" : mensaje;

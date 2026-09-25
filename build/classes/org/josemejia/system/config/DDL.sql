@@ -83,12 +83,6 @@ begin
     select * from usuarios where id_usuario = p_id_usuario;
 end$$
 
-create procedure sp_consultar_libro_por_id (
-    in p_id_libro int
-)
-begin
-    select * from libros where id_libro = p_id_libro;
-end$$
 -- ==========================================
 -- PROCEDIMIENTOS NUEVOS (faltantes)
 -- ==========================================
