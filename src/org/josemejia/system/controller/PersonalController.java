@@ -131,9 +131,12 @@ public class PersonalController {
         try {
             Usuario usuarioActual = SesionManager.getInstanciaSessionManager().getUsuarioActual();
             usuarioService.eliminarBibliotecario(usuario.getIdUsuario(), usuarioActual);
-            AlertUtils.mostrarAlertaPersonalizada("Personal",
-                    "El bibliotecario " + usuario.getNombre() + " " + usuario.getApellido() + " fue eliminado.",
-                    TipoNotificacion.EXITO);
+
+          
+            AlertUtils.mostrarAlertaPersonalizada("Personal Eliminado",
+                    "El bibliotecario " + usuario.getNombre() + " " + usuario.getApellido() + " fue eliminado del sistema.",
+                    TipoNotificacion.USUARIO_ELIMINADO);
+
             cargarTodos();
         } catch (RuntimeException e) {
             mostrarError(e);
