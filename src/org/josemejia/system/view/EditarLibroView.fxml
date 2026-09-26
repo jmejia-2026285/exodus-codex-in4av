@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -54,7 +55,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="126.0" prefWidth="212.0" spacing="6">
                      <children>
-                        <ImageView fx:id="imgPortadaPreview" fitHeight="90.0" fitWidth="77.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                        <ImageView fx:id="imgPortadaPreview" fitHeight="90.0" fitWidth="91.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
                         <Button fx:id="btnSeleccionarPortada" maxWidth="Infinity" onAction="#handleSeleccionarPortada" prefHeight="38.0" prefWidth="251.0" styleClass="boton-secundario" text="Seleccionar portada" />
                      </children>
                   </VBox>
@@ -68,10 +69,20 @@
             </VBox>
          </content>
       </ScrollPane>
+      <ImageView fitHeight="39.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/gif/save.gif" />
+         </image>
+      </ImageView>
 
       <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#handleGuardar" styleClass="boton-primario" text="Guardar cambios" />
       <HBox spacing="10">
          <children>
+            <ImageView fitHeight="54.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/gif/deleted-100px.gif" />
+               </image>
+            </ImageView>
             <Button fx:id="btnEliminar" maxWidth="Infinity" onAction="#handleEliminar" styleClass="boton-peligro" text="Eliminar" HBox.hgrow="ALWAYS" />
             <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
          </children>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="CENTER" prefWidth="420.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.ComprobantePrestamoController">
+<VBox fx:id="raiz" alignment="CENTER" prefHeight="475.0" prefWidth="438.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.ComprobantePrestamoController">
    <children>
 
       <!-- ================= FORMULARIO (lo que se llena, no se imprime) ================= -->
@@ -43,6 +43,11 @@
 
             <HBox alignment="CENTER" spacing="10.0">
                <children>
+                  <ImageView fitHeight="58.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/gif/print-icon.gif" />
+                     </image>
+                  </ImageView>
                   <Button fx:id="btnGenerar" onAction="#handleGenerarComprobante" styleClass="boton-primario" text="Generar comprobante" />
                   <Button fx:id="btnCancelar" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" />
                </children>

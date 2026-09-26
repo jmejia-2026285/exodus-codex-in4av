@@ -24,13 +24,13 @@
                         <Insets bottom="52" left="44" right="44" top="52" />
                     </padding>
                     <children>
-                        <ImageView fitHeight="108.0" fitWidth="201.0" nodeOrientation="INHERIT" preserveRatio="true">
+                        <ImageView fitHeight="155.0" fitWidth="284.0" nodeOrientation="INHERIT" preserveRatio="true">
                             <image>
                                 <Image url="@../resources/images/logoblanco.png" />
                             </image>
                         </ImageView>
                         <Region styleClass="regla-dorada" />
-                              <ImageView fx:id="imgFotoPreview" fitHeight="311.0" fitWidth="269.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                              <ImageView fx:id="imgFotoPreview" fitHeight="248.0" fitWidth="269.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
                               <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" styleClass="boton-secundario" text="Seleccionar fotografía" />
                     </children>
                 </VBox>
@@ -44,7 +44,11 @@
                             <children>
                                 <Label styleClass="eyebrow" text="ADMINISTRACIÓN DE PERSONAL" />
                                 <Label styleClass="marca-titulo" text="Registrar bibliotecario" />
-                                <Label text="Completa los datos del nuevo bibliotecario." />
+                        <ImageView fitHeight="84.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/gif/bibliotecario.gif" />
+                           </image>
+                        </ImageView>
                             </children>
                         </VBox>
 
@@ -111,6 +115,11 @@
                                             <children>
                                                 <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
                                                 <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar cuenta" HBox.hgrow="ALWAYS" />
+                                    <ImageView fitHeight="49.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/gif/save.gif" />
+                                       </image>
+                                    </ImageView>
                                             </children>
                                         </HBox>
 

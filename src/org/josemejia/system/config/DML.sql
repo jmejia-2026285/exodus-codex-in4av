@@ -1,6 +1,5 @@
-drop database if exists exoduscodex_in4av;
-create database exoduscodex_in4av;
 use exoduscodex_in4av;
+
 
 
 CALL sp_agregar_usuario('1', 'Mariana',  'Vasquez',  'mariana.vasquez@exoduscodex.com',  'mvasquez',  'mariana123',  'Bibliotecario Jefe', NULL);
@@ -16,3 +15,5 @@ CALL sp_agregar_libro('978-0-06-112008-4', 'To Kill a Mockingbird',   'Harper Le
 CALL sp_agregar_libro('978-0-345-33970-1', 'El señor de los anillos', 'J. R. R. Tolkien',        'George Allen & Unwin',   1954, 6, NULL);
 
 call sp_agregar_usuario("2573", "Alanbrito", "larios", "Alan", "AlanL", "257", "BIBLIOTECARIO");
+
+CALL sp_agregar_usuario('6', 'Angel',  'Mejia',  'angelml@exoduscodex.com',  'AngelML',  '1234',  'Bibliotecario Jefe', NULL);

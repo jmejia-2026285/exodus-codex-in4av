@@ -13,7 +13,7 @@
 
 <VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.LoginController">
     <padding>
-        <Insets top="36.0" bottom="36.0" left="36.0" right="36.0" />
+        <Insets bottom="36.0" left="36.0" right="36.0" top="36.0" />
     </padding>
     <children>
         <HBox prefHeight="560.0" prefWidth="900.0">
@@ -80,6 +80,11 @@
                                         </VBox>
                                         <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
                                         <Button fx:id="btnLogin" maxWidth="Infinity" onAction="#handleLogin" styleClass="boton-primario" text="Entrar a la biblioteca" />
+                              <ImageView fitHeight="52.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/images/gif/performance.gif" />
+                                 </image>
+                              </ImageView>
                                         <Label styleClass="marca-subtitulo" text="Exodus Codex KINAL.edu" />
                                     </children>
                                 </VBox>

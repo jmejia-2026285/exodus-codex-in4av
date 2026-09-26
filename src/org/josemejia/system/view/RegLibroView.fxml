@@ -49,6 +49,11 @@
                             <children>
                                 <Label styleClass="eyebrow" text="CATÁLOGO BIBLIOGRÁFICO" />
                                 <Label styleClass="marca-titulo" text="Registrar libro" />
+                        <ImageView fitHeight="65.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/gif/folder.gif" />
+                           </image>
+                        </ImageView>
                             </children>
                         </VBox>
 
@@ -106,6 +111,11 @@
                                             <children>
                                                 <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="CANCELAR" HBox.hgrow="ALWAYS" />
                                                 <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar libro" HBox.hgrow="ALWAYS" />
+                                    <ImageView fitHeight="46.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/gif/save.gif" />
+                                       </image>
+                                    </ImageView>
                                             </children>
                                         </HBox>
 
