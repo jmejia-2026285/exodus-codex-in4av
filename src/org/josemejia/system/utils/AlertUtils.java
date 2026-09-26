@@ -23,20 +23,20 @@ public class AlertUtils {
     public enum TipoNotificacion {
         
         //bloque de ENUMS para los tipos de alertas
-        INFO("INFORMACIÓN", "rem_normal.png", "alerta-info"),
-        EXITO("ÉXITO", "rem_feliz.png", "alerta-exito"),
+        INFO("INFORMACIÓN", "gif/information-animation.gif", "alerta-info"),
+        EXITO("ÉXITO", "gif/check-animation.gif", "alerta-exito"),
         ERROR("ERROR", "error-alert.png", "alerta-error"),
         ADVERTENCIA("ADVERTENCIA", "gif/warning.gif", "alerta-advertencia"),
         USUARIO_CREADO("ÉXITO", "gif/userdone.gif", "alerta-exito"),
         LIBRO_GUARDADO("ÉXITO", "gif/save.gif", "alerta-exito"),
         LIBRO_ELIMINADO("ÉXITO", "gif/deleted-100px.gif", "alerta-exito"),
         USUARIO_ACTUALIZADO("ÉXITO", "gif/Users.gif", "alerta-exito"),
-        SIN_RESULTADOS("SIN RESULTADOS", "rem_duda.png", "alerta-info"),
+        SIN_RESULTADOS("SIN RESULTADOS", "gif/not_found.gif", "alerta-info"),
         ACCESO_DENEGADO("ACCESO DENEGADO", "gif/acceso-denegado.gif", "alerta-error"),
         BIENVENIDA("BIENVENIDO", "gif/bibliotecario.gif", "alerta-exito"),
         USUARIO_ELIMINADO("USUARIO ELIMINADO", "gif/delete-user.gif", "alerta-advertencia"),
-        IMPRESION_EXITOSA("IMPRESIÓN EXITOSA", "gif/print-success.gif", "alerta-exito"),
-    IMPRESION_ERROR("ERROR DE IMPRESIÓN", "gif/print-error.gif", "alerta-error");
+        IMPRESION_EXITOSA("IMPRESIÓN EXITOSA", "gif/printed-icon.gif", "alerta-exito"),
+        IMPRESION_ERROR("ERROR DE IMPRESIÓN", "print-fail-icon-415px.png", "alerta-error");
     
     //atributos de la etiqueta
 
