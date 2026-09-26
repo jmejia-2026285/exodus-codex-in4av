@@ -252,7 +252,14 @@ public class PersonalController {
         return tarjeta;
     }
 
-    private void eliminarBibliotecario(Usuario usuario) {
+        private void eliminarBibliotecario(Usuario usuario) {
+        boolean confirmado = AlertUtils.mostrarConfirmacion(
+                "Eliminar bibliotecario",
+                "¿Seguro que quieres eliminar a " + usuario.getNombre() + " " + usuario.getApellido() + " del sistema? Esta acción no se puede deshacer.",
+                "Eliminar");
+        if (!confirmado) {
+            return;
+        }
         try {
             Usuario usuarioActual = SesionManager.getInstanciaSessionManager().getUsuarioActual();
             usuarioService.eliminarBibliotecario(usuario.getIdUsuario(), usuarioActual);

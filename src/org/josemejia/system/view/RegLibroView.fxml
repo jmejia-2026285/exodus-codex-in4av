@@ -126,7 +126,6 @@
                         </ScrollPane>
                     </children>
                 </VBox>
-            <Region styleClass="regla-dorada" />
             </children>
         </HBox>
     </children>
