@@ -38,9 +38,11 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        imgLogo.setImage(ImagenUtils.cargarImagenLocal("logo.png"));
+        imgLogo.setImage(ImagenUtils.cargarImagenLocal("logoblanco.png"));
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnLogin);
+        AnimationUtils.aplicarFocoAnimado(txtUsuario);
+        AnimationUtils.aplicarFocoAnimado(txtPassword);
         lblError.setText("");
     }
 
@@ -49,26 +51,26 @@ public class LoginController {
         String usuario = txtUsuario.getText() == null ? "" : txtUsuario.getText().trim();
         String password = txtPassword.getText() == null ? "" : txtPassword.getText();
 
-        // 1. Validación de campos vacíos usando ValidationsUtils
         if (ValidationsUtils.esCampoVacio(usuario) || ValidationsUtils.esCampoVacio(password)) {
             mostrarError("Usuario y contraseña son obligatorios.");
-            AnimationUtils.aplicarFadeIn(lblError); // Detalle pro: anima la aparición del error
+            AnimationUtils.aplicarFadeIn(lblError);
+            AnimationUtils.aplicarSacudida(lblError);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Datos incompletos",
+                    "Usuario y contraseña son obligatorios.",
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
-        // Limpiamos el label de error antes de hacer la petición al servicio
         lblError.setText("");
 
         try {
-            // 2. Autenticación
             Usuario encontrado = authService.login(usuario, password);
 
-            // 3. Manejo de credenciales incorrectas usando AlertUtils
             if (encontrado == null) {
                 mostrarError("Usuario o contraseña incorrectos.");
                 AnimationUtils.aplicarFadeIn(lblError);
-
-                // 👇 AHORA SÍ USAMOS ALERTUTILS CORRECTAMENTE 👇
+                AnimationUtils.aplicarSacudida(lblError);
                 AlertUtils.mostrarAlertaPersonalizada(
                         "Error de inicio de sesión",
                         "El usuario o la contraseña son incorrectos.",
@@ -76,13 +78,20 @@ public class LoginController {
                 return;
             }
 
-            // 4. Login exitoso
             lblError.setText("");
             SesionManager.getInstanciaSessionManager().setUsuarioActual(encontrado);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Bienvenido(a)",
+                    "Hola, " + encontrado.getNombre() + ". Tu sesión se inició correctamente.",
+                    AlertUtils.TipoNotificacion.BIENVENIDA);
             viewFactory.viewDashboard();
 
         } catch (RuntimeException excepcion) {
             mostrarError("No se pudo iniciar sesión. Intenta de nuevo.");
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Error de inicio de sesión",
+                    "No se pudo iniciar sesión. Intenta de nuevo.",
+                    AlertUtils.TipoNotificacion.ERROR);
             excepcion.printStackTrace();
         }
     }

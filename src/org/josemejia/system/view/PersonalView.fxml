@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="raiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1060.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.PersonalController">
+   <children>
+      <HBox alignment="CENTER" spacing="18" styleClass="barra-superior">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/gif/Users.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="162.0" fitWidth="259.0" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnBuscar" onAction="#handleBuscar" prefHeight="48.0" prefWidth="96.0" styleClass="boton-dorado" text="Buscar" />
+            <TextField fx:id="txtBuscarId" prefHeight="50.0" prefWidth="220.0" promptText="Buscar por ID de usuario..." styleClass="campo-texto" />
+            <Button fx:id="btnVerTodos" onAction="#handleVerTodos" styleClass="boton-secundario" text="Ver todos" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnVolver" onAction="#handleVolver" styleClass="boton-secundario" text="Volver al menú" />
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" spacing="14" VBox.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="26" left="26" right="26" top="26" />
+         </padding>
+         <children>
+            <VBox alignment="BASELINE_LEFT" spacing="6" styleClass="catalogo-header">
+               <children>
+                  <Label styleClass="dashboard-titulo" text="Gestión de personal" />
+                  <Label fx:id="lblTotalPersonal" styleClass="dashboard-subtitulo" text="0 cuentas registradas" />
+                  <Region maxHeight="6.0" maxWidth="294.0" minHeight="0.0" prefHeight="6.0" prefWidth="294.0" styleClass="regla-dorada" />
+               </children>
+            </VBox>
+            <BorderPane VBox.vgrow="ALWAYS">
+               <center>
+                  <ScrollPane fitToWidth="true" styleClass="scroll-catalogo" BorderPane.alignment="CENTER">
+                     <content>
+                        <FlowPane fx:id="panelTarjetas" hgap="18" styleClass="grilla-tarjetas" vgap="18">
+                           <padding>
+                              <Insets bottom="4" left="4" right="18" top="4" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+               <right>
+                  <ScrollPane fitToWidth="true" prefHeight="397.0" prefWidth="306" styleClass="scroll-formulario" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
+                           <children>
+                              <Label styleClass="panel-formulario-titulo" text="Editar cuenta seleccionada" />
+                              <Region maxWidth="175.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" styleClass="regla-dorada" />
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="NOMBRE" />
+                                    <TextField fx:id="txtNombre" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="APELLIDO" />
+                                    <TextField fx:id="txtApellido" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="CORREO" />
+                                    <TextField fx:id="txtCorreo" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="USUARIO" />
+                                    <TextField fx:id="txtUsuario" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="126.0" prefWidth="212.0" spacing="6">
+                                 <children>
+                                    <ImageView fx:id="imgFotoPreview" fitHeight="90.0" fitWidth="90.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                                    <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" prefHeight="38.0" prefWidth="251.0" styleClass="boton-secundario" text="Seleccionar fotografía" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#handleGuardar" styleClass="boton-primario" text="Actualizar" />
+                              <Button fx:id="btnLimpiar" maxWidth="Infinity" onAction="#handleLimpiar" styleClass="boton-secundario" text="Limpiar" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </right>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

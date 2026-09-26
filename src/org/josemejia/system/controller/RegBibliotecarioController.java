@@ -6,6 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import java.io.File;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import org.josemejia.system.utils.ImagenUtils;
+import org.josemejia.system.utils.SceneManager;
 
 import org.josemejia.system.model.Usuario;
 import org.josemejia.system.service.UsuarioService;
@@ -37,20 +42,49 @@ public class RegBibliotecarioController {
     private Button btnRegistrar;
     @FXML
     private Button btnCancelar;
+        @FXML
+    private ImageView imgFotoPreview;
+    @FXML
+    private Button btnSeleccionarFoto;
 
     private final UsuarioService usuarioService = new UsuarioService();
     private final ViewFactory viewFactory = new ViewFactory();
+        private String rutaFotoActual;
 
     @FXML
     private void initialize() {
         AnimationUtils.aplicarFadeIn(raiz);
         AnimationUtils.aplicarEfectoHover(btnRegistrar);
+        AnimationUtils.aplicarEfectoHover(btnCancelar);
+        AnimationUtils.aplicarFocoAnimado(txtNombre);
+        AnimationUtils.aplicarFocoAnimado(txtApellido);
+        AnimationUtils.aplicarFocoAnimado(txtCorreo);
+        AnimationUtils.aplicarFocoAnimado(txtUsuario);
+        AnimationUtils.aplicarFocoAnimado(txtPassword);
+        AnimationUtils.aplicarFocoAnimado(txtConfirmarPassword);
+                AnimationUtils.aplicarEfectoHover(btnSeleccionarFoto);
+        ImagenUtils.aplicarEsquinasRedondeadas(imgFotoPreview, 10);
         lblError.setText("");
     }
 
     @FXML
     private void handleCancelar() {
-        viewFactory.viewLogin();
+        viewFactory.viewDashboard(); //-------
+    }
+        @FXML
+    private void handleSeleccionarFoto() {
+        FileChooser selector = new FileChooser();
+        selector.setTitle("Seleccionar fotografía del bibliotecario");
+        selector.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg"));
+        File archivo = selector.showOpenDialog(SceneManager.getInstanciaSceneManager().getStagePrincipal());
+        if (archivo != null) {
+            try {
+                rutaFotoActual = ImagenUtils.copiarFotoPersonalAAppData(archivo);
+                imgFotoPreview.setImage(ImagenUtils.cargarPortadaDesdeRuta(rutaFotoActual));
+            } catch (RuntimeException e) {
+                mostrarError(e.getMessage());
+            }
+        }
     }
 
     @FXML
@@ -63,6 +97,7 @@ public class RegBibliotecarioController {
         String usuario = txtUsuario.getText() == null ? "" : txtUsuario.getText().trim();
         String password = txtPassword.getText() == null ? "" : txtPassword.getText();
         String confirmarPassword = txtConfirmarPassword.getText() == null ? "" : txtConfirmarPassword.getText();
+        
 
         // 1. Campos obligatorios
         if (ValidationsUtils.esCampoVacio(nombre)
@@ -72,6 +107,10 @@ public class RegBibliotecarioController {
                 || ValidationsUtils.esCampoVacio(password)
                 || ValidationsUtils.esCampoVacio(confirmarPassword)) {
             mostrarError("Por favor, rellene todos los campos.");
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Datos incompletos",
+                    "Por favor, rellene todos los campos.",
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
@@ -79,12 +118,20 @@ public class RegBibliotecarioController {
         String errorCorreo = ValidationsUtils.obtenerErrorCorreo(correo);
         if (errorCorreo != null) {
             mostrarError(errorCorreo);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Correo inválido",
+                    errorCorreo,
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
         // 3. Contraseñas coinciden
         if (!password.equals(confirmarPassword)) {
             mostrarError("Las contraseñas no coinciden.");
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Contraseñas distintas",
+                    "Las contraseñas no coinciden.",
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
@@ -92,6 +139,10 @@ public class RegBibliotecarioController {
         String errorLongitud = validarLongitudes(nombre, apellido, correo, usuario, password);
         if (errorLongitud != null) {
             mostrarError(errorLongitud);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Datos inválidos",
+                    errorLongitud,
+                    AlertUtils.TipoNotificacion.ADVERTENCIA);
             return;
         }
 
@@ -102,24 +153,28 @@ public class RegBibliotecarioController {
         nuevoBibliotecario.setCorreo(correo);
         nuevoBibliotecario.setUsuario(usuario);
         nuevoBibliotecario.setPassword(password);
+                nuevoBibliotecario.setFoto(rutaFotoActual);
 
         Usuario usuarioActual = SesionManager.getInstanciaSessionManager().getUsuarioActual();
 
         try {
             usuarioService.registrarBibliotecario(nuevoBibliotecario, usuarioActual);
 
-            AlertUtils.mostrarAlertaPersonalizada(
-                    "Registro completado",
-                    "El bibliotecario ha sido registrado correctamente.",
-                    AlertUtils.TipoNotificacion.EXITO);
+            AlertUtils.mostrarAlertaPersonalizada("Cuenta creada",
+                    "El bibliotecario " + nombre + " " + apellido + " fue registrado correctamente.",
+                    AlertUtils.TipoNotificacion.USUARIO_CREADO);
             limpiarCampos();
 
         } catch (IllegalStateException excepcion) {
             mostrarError(excepcion.getMessage());
+            String mensajeError = excepcion.getMessage();
+            AlertUtils.TipoNotificacion tipoError = mensajeError != null && mensajeError.contains("Bibliotecario Jefe puede")
+                    ? AlertUtils.TipoNotificacion.ACCESO_DENEGADO
+                    : AlertUtils.TipoNotificacion.ERROR;
             AlertUtils.mostrarAlertaPersonalizada(
                     "Error al registrar",
-                    excepcion.getMessage(),
-                    AlertUtils.TipoNotificacion.ERROR);
+                    mensajeError,
+                    tipoError);
         }
     }
 
@@ -144,6 +199,8 @@ public class RegBibliotecarioController {
 
     private void mostrarError(String mensaje) {
         lblError.setText(mensaje);
+        AnimationUtils.aplicarFadeIn(lblError);
+        AnimationUtils.aplicarSacudida(lblError);
     }
 
     private void limpiarCampos() {

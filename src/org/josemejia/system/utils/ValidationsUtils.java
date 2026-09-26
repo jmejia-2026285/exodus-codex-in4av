@@ -10,6 +10,7 @@ package org.josemejia.system.utils;
  */
 
 
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class ValidationsUtils {
@@ -26,9 +27,7 @@ public class ValidationsUtils {
         return texto == null || texto.isBlank();
     }
 
-    public static boolean esCorreoValido(String correo) {
-        return obtenerErrorCorreo(correo) == null;
-    }
+    
 
     public static String obtenerErrorCorreo(String correo) {
         if (esCampoVacio(correo)) {
@@ -51,13 +50,11 @@ public class ValidationsUtils {
         return anio > 0 && anio <= 2100;
     }
 
-    public static boolean esEnteroValido(String texto) {
-        if (esCampoVacio(texto)) {
-            return false;
-        }
-
-        return PATRON_ENTERO.matcher(texto.trim()).matches();
+    public static boolean esFechaLimiteValida(LocalDate fechaLimite) {
+        return fechaLimite != null && fechaLimite.isAfter(LocalDate.now());
     }
+
+    
 
     public static boolean esEnteroPositivoValido(String texto) {
         if (esCampoVacio(texto)) {

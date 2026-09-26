@@ -1,53 +1,109 @@
-/* Diálogos y alertas — mismo lenguaje visual navy + dorado */
+/* ==========================================================
+   Alertas Exodus Codex
+   Misma paleta y lenguaje visual que styles.css:
+   fondo.jpg + tarjeta de cristal + acento dorado.
+   ========================================================== */
 
-.dialog-pane {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #E3DFD5;
-    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+.alerta-raiz {
+    -navy-primario: #2d4656;
+    -navy-profundo: #2d3337;
+    -navy-suave: #657a80;
+    -dorado-codex: #eca93a;
+    -dorado-claro: #f2c568;
+    -borde: #bcac95;
+    -texto-principal: #2d3337;
+    -texto-secundario: #657a80;
+    -exito: #2E9E6B;
+    -advertencia: #D9A441;
+    -error: #D64545;
+    -info: #3B6FD1;
+    -acento: -navy-suave;
+
+    -fx-font-family: "Trebuchet MS", "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-background-color: transparent;
+    -fx-padding: 22;
+    -fx-focus-color: -dorado-codex;
+    -fx-faint-focus-color: transparent;
 }
 
-.dialog-pane .header-panel {
-    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
-    -fx-padding: 16 20 16 20;
+/* Acento por tipo: etiqueta, regla y borde superior de la tarjeta */
+.alerta-exito       { -acento: -exito; }
+.alerta-error       { -acento: -error; }
+.alerta-advertencia { -acento: -advertencia; }
+.alerta-info        { -acento: -info; }
+
+.alerta-sombra {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(16, 25, 29, 0.45), 26, 0, 0, 10);
 }
 
-.alerta-exito .header-panel {
-    -fx-background-color: linear-gradient(to right, #24805699, #2E9E6B);
+/* Foto de fondo del proyecto, igual que login y pantallas */
+.alerta-marco {
+    -fx-background-color: -navy-profundo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-radius: 18;
+    -fx-padding: 14;
+    -fx-border-color: rgba(236, 169, 58, 0.70);
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
 }
 
-.alerta-error .header-panel {
-    -fx-background-color: linear-gradient(to right, #A83535, #D64545);
+.alerta-tarjeta {
+    -fx-background-color: rgba(255, 255, 255, 0.84);
+    -fx-background-radius: 14;
+    -fx-border-color: -borde;
+    -fx-border-radius: 14;
+    -fx-padding: 20 26 18 26;
 }
 
-.alerta-advertencia .header-panel {
-    -fx-background-color: linear-gradient(to right, #B8935A, #D9A441);
-}
-
-.alerta-info .header-panel {
-    -fx-background-color: linear-gradient(to right, #21467F, #3B6FD1);
-}
-
-.dialog-pane .header-panel .label {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
+.alerta-etiqueta {
+    -fx-font-size: 10px;
     -fx-font-weight: bold;
+    -fx-text-fill: derive(-acento, -15%);
 }
 
-.dialog-pane .content.label {
-    -fx-text-fill: #1B2433;
+.alerta-titulo {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 20px;
+    -fx-text-fill: -navy-primario;
+}
+
+.alerta-regla {
+    -fx-background-color: -acento;
+    -fx-background-radius: 2;
+    -fx-min-height: 3;
+    -fx-max-height: 3;
+    -fx-min-width: 44;
+    -fx-max-width: 44;
+}
+
+.alerta-mensaje {
     -fx-font-size: 13px;
-    -fx-padding: 18 20 8 20;
+    -fx-text-fill: -texto-principal;
 }
 
-.dialog-pane .button {
-    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+.alerta-boton {
+    -fx-background-color: linear-gradient(to right, #2d4656, #657a80);
     -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-background-radius: 8;
-    -fx-padding: 9 20 9 20;
+    -fx-padding: 10 26 10 26;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.30), 12, 0, 0, 4);
 }
 
-.dialog-pane .button:hover {
-    -fx-background-color: #B8935A;
+.alerta-boton:hover {
+    -fx-background-color: -dorado-codex;
+    -fx-text-fill: -navy-profundo;
+}
+
+.alerta-boton:pressed {
+    -fx-background-color: -navy-profundo;
+    -fx-text-fill: white;
+    -fx-effect: none;
 }

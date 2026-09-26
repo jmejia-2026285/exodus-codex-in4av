@@ -12,73 +12,117 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="CENTER" prefHeight="900" prefWidth="700" styleClass="login-container" stylesheets="@../resource/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.RegBibliotecarioController">
-    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="848.0" prefWidth="820.0" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
-<VBox alignment="CENTER" styleClass="login-container" stylesheets="@../styles/registro.css">    <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
+<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.RegBibliotecarioController">
+    <padding>
+        <Insets bottom="36.0" left="36.0" right="36.0" top="36.0" />
     </padding>
-    
-            <HBox alignment="CENTER" maxWidth="760" spacing="0" styleClass="tarjeta-elevada">
-
-                <VBox alignment="TOP_CENTER" prefHeight="918.0" prefWidth="678.0" spacing="12" HBox.hgrow="ALWAYS">
+    <children>
+        <HBox prefHeight="640.0" prefWidth="980.0">
+            <children>
+                <VBox alignment="CENTER_LEFT" prefWidth="380.0" spacing="22" styleClass="panel-marca">
                     <padding>
-                        <Insets bottom="30" left="40" right="40" top="30" />
+                        <Insets bottom="52" left="44" right="44" top="52" />
                     </padding>
-   
-                   <VBox alignment="CENTER" minWidth="260" prefHeight="237.0" prefWidth="598.0" spacing="16" styleClass="panel-marca">
-                       <ImageView blendMode="COLOR_BURN" fitHeight="207.0" fitWidth="339.0" nodeOrientation="INHERIT" preserveRatio="true">
-                           <image>
-                               <Image url="@../resource/image/logo.png" />
-                           </image>
-                       </ImageView>
-                   </VBox>
-
-                    <HBox alignment="CENTER_LEFT" spacing="16">
-                        <Label prefHeight="64.0" prefWidth="284.0" styleClass="marca-titulo" text="Registrar bibliotecario" />
-                        <Region HBox.hgrow="ALWAYS" />
-                        <Label styleClass="eyebrow" text="NUEVA CUENTA" />
-                    </HBox>
-
-                    <HBox spacing="14">
-                        <VBox spacing="5" HBox.hgrow="ALWAYS">
-                            <Label styleClass="campo-etiqueta" text="NOMBRE" />
-                            <TextField fx:id="txtNombre" styleClass="campo-texto" />
-                        </VBox>
-                        <VBox spacing="5" HBox.hgrow="ALWAYS">
-                            <Label styleClass="campo-etiqueta" text="APELLIDO" />
-                            <TextField fx:id="txtApellido" styleClass="campo-texto" />
-                        </VBox>
-                    </HBox>
-
-                    <VBox spacing="5">
-                        <Label styleClass="campo-etiqueta" text="CORREO ELECTRÓNICO" />
-                        <TextField fx:id="txtCorreo" promptText="correo@universidad.edu" styleClass="campo-texto" />
-                    </VBox>
-
-                    <VBox spacing="5">
-                        <Label styleClass="campo-etiqueta" text="NOMBRE DE USUARIO" />
-                        <TextField fx:id="txtUsuario" styleClass="campo-texto" />
-                    </VBox>
-
-                    <HBox spacing="14">
-                        <VBox spacing="5" HBox.hgrow="ALWAYS">
-                            <Label styleClass="campo-etiqueta" text="CONTRASEÑA" />
-                            <PasswordField fx:id="txtPassword" styleClass="campo-texto" />
-                        </VBox>
-                        <VBox spacing="5" HBox.hgrow="ALWAYS">
-                            <Label styleClass="campo-etiqueta" text="CONFIRMAR CONTRASEÑA" />
-                            <PasswordField fx:id="txtConfirmarPassword" styleClass="campo-texto" />
-                        </VBox>
-                    </HBox>
-
-                    <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
-
-                    <HBox spacing="12">
-                        <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar cuenta" HBox.hgrow="ALWAYS" />
-                    </HBox>
+                    <children>
+                        <ImageView fitHeight="108.0" fitWidth="201.0" nodeOrientation="INHERIT" preserveRatio="true">
+                            <image>
+                                <Image url="@../resources/images/logoblanco.png" />
+                            </image>
+                        </ImageView>
+                        <Region styleClass="regla-dorada" />
+                              <ImageView fx:id="imgFotoPreview" fitHeight="311.0" fitWidth="269.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                              <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" styleClass="boton-secundario" text="Seleccionar fotografía" />
+                    </children>
                 </VBox>
-            </HBox>
-        </VBox>
-    </ScrollPane>
+
+                <VBox alignment="TOP_CENTER" spacing="6.0" styleClass="panel-acceso" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="40.0" left="60.0" right="60.0" top="40.0" />
+                    </padding>
+                    <children>
+                        <VBox maxWidth="380.0" spacing="6.0">
+                            <children>
+                                <Label styleClass="eyebrow" text="ADMINISTRACIÓN DE PERSONAL" />
+                                <Label styleClass="marca-titulo" text="Registrar bibliotecario" />
+                                <Label text="Completa los datos del nuevo bibliotecario." />
+                            </children>
+                        </VBox>
+
+                        <ScrollPane fitToWidth="true" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox maxWidth="380.0" spacing="12.0" styleClass="login-form">
+                                    <padding>
+                                        <Insets top="26.0" />
+                                    </padding>
+                                    <children>
+
+                                        <HBox spacing="14.0">
+                                            <children>
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="campo-etiqueta" text="NOMBRE" />
+                                                        <TextField fx:id="txtNombre" promptText="Allan Camilo" styleClass="campo-texto" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="campo-etiqueta" text="APELLIDO" />
+                                                        <TextField fx:id="txtApellido" promptText="Escobar Mejia" styleClass="campo-texto" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <VBox spacing="6.0">
+                                            <children>
+                                                <Label styleClass="campo-etiqueta" text="CORREO ELECTRÓNICO" />
+                                                <TextField fx:id="txtCorreo" promptText="correo@universidad.edu" styleClass="campo-texto" />
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="6.0">
+                                            <children>
+                                                <Label styleClass="campo-etiqueta" text="NOMBRE DE USUARIO" />
+                                                <TextField fx:id="txtUsuario" promptText="Bibliotecario" styleClass="campo-texto" />
+                                            </children>
+                                        </VBox>
+
+                                        <HBox spacing="14.0">
+                                            <children>
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="campo-etiqueta" text="CONTRASEÑA" />
+                                                        <PasswordField fx:id="txtPassword" promptText="••••••••" styleClass="campo-texto" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="campo-etiqueta" text="CONFIRMAR CONTRASEÑA" />
+                                                        <PasswordField fx:id="txtConfirmarPassword" promptText="••••••••" styleClass="campo-texto" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <VBox alignment="CENTER" spacing="6" />
+
+                                        <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
+
+                                        <HBox spacing="12.0">
+                                            <children>
+                                                <Button fx:id="btnCancelar" maxWidth="Infinity" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnRegistrar" maxWidth="Infinity" onAction="#handleRegistrar" styleClass="boton-primario" text="Registrar cuenta" HBox.hgrow="ALWAYS" />
+                                            </children>
+                                        </HBox>
+
+                                        <Label styleClass="marca-subtitulo" text="Exodus Codex KINAL.edu" />
+
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
 </VBox>

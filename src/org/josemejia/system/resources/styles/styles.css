@@ -1,15 +1,18 @@
 .root {
-    -navy-primario: #0F1F3D;
-    -navy-profundo: #0A162B;
-    -navy-suave: #1B3057;
-    -dorado-codex: #B8935A;
-    -dorado-claro: #D4B483;
-    -dorado-tenue: #F3E7D3;
-    -fondo: #F4F2EC;
+    -navy-primario: #2d4656;
+    -navy-profundo: #2d3337;
+    -navy-suave: #657a80;
+    -dorado-codex: #eca93a;
+    -dorado-claro: #f2c568;
+    -dorado-tenue: #f7e9c9;
+    -fondo: #ece5d6;
     -superficie: #FFFFFF;
-    -borde: #E3DFD5;
-    -texto-principal: #1B2433;
-    -texto-secundario: #6B7482;
+    -superficie-glass: rgba(255,255,255,0.82);
+    -superficie-glass-oscura: rgba(255,255,255,0.10);
+    -overlay-oscuro: rgba(45,51,55,0.55);
+    -borde: #bcac95;
+    -texto-principal: #2d3337;
+    -texto-secundario: #657a80;
     -exito: #2E9E6B;
     -advertencia: #D9A441;
     -error: #D64545;
@@ -19,7 +22,6 @@
     -fx-focus-color: -dorado-codex;
     -fx-faint-focus-color: transparent;
 }
-
 
 .marca-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
@@ -40,6 +42,7 @@
 
 .regla-dorada {
     -fx-background-color: -dorado-codex;
+    -fx-background-radius: 2;
     -fx-min-height: 2;
     -fx-max-height: 2;
     -fx-min-width: 44;
@@ -48,28 +51,33 @@
 
 .regla-dorada-larga {
     -fx-background-color: -dorado-codex;
+    -fx-background-radius: 2;
     -fx-min-height: 2;
     -fx-max-height: 2;
 }
 
-
 .login-container {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .panel-marca {
-    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0F1F3D 0%, #0A162B 55%, #16294B 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(45,70,86,0.92) 0%, rgba(45,51,55,0.92) 55%, rgba(101,122,128,0.92) 100%);
+    -fx-background-radius: 20 0 0 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 30, 0, 0, 10);
 }
 
 .panel-marca-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
-    -fx-font-size: 26px;
+    -fx-font-size: 20px;
     -fx-text-fill: white;
 }
 
 .panel-marca-texto {
-    -fx-font-size: 12px;
-    -fx-text-fill: #C4CCDA;
+    -fx-font-size: 11px;
+    -fx-text-fill: #C8CCD0;
 }
 
 .panel-marca-cita {
@@ -87,7 +95,9 @@
 }
 
 .panel-acceso {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
+    -fx-background-radius: 0 20 20 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 30, 0, 0, 10);
 }
 
 .login-form {
@@ -95,12 +105,12 @@
 }
 
 .tarjeta-elevada {
-    -fx-background-color: -superficie;
-    -fx-background-radius: 14;
+    -fx-background-color: -superficie-glass;
+    -fx-background-radius: 16;
     -fx-border-color: -borde;
-    -fx-border-radius: 14;
+    -fx-border-radius: 16;
     -fx-padding: 26 30 26 30;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.10), 26, 0, 0, 10);
+    -fx-effect: dropshadow(gaussian, rgba(16, 25, 29, 0.10), 26, 0, 0, 10);
 }
 
 .campo-etiqueta {
@@ -111,9 +121,9 @@
 
 .campo-texto {
     -fx-background-color: #FAF9F6;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
     -fx-border-color: -borde;
-    -fx-border-radius: 8;
+    -fx-border-radius: 10;
     -fx-border-width: 1;
     -fx-padding: 10 12 10 12;
     -fx-font-size: 13px;
@@ -133,18 +143,18 @@
 }
 
 .boton-primario {
-    -fx-background-color: linear-gradient(to right, #0F1F3D, #1B3057);
+    -fx-background-color: linear-gradient(to right, #2d4656, #657a80);
     -fx-text-fill: white;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-padding: 12 22 12 22;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.30), 12, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.30), 12, 0, 0, 4);
 }
 
 .boton-primario:hover {
-    -fx-background-color: linear-gradient(to right, #16294B, #26406E);
+    -fx-background-color: linear-gradient(to right, #657a80, #7d94a0);
 }
 
 .boton-primario:pressed {
@@ -153,11 +163,11 @@
 }
 
 .boton-secundario {
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(255, 255, 255, 0.65);
     -fx-text-fill: -navy-primario;
     -fx-border-color: -borde;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-padding: 10 20 10 20;
     -fx-font-size: 12px;
     -fx-cursor: hand;
@@ -170,8 +180,8 @@
 
 .boton-dorado {
     -fx-background-color: -dorado-codex;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
+    -fx-text-fill: -navy-profundo;
+    -fx-background-radius: 10;
     -fx-font-weight: bold;
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
@@ -195,8 +205,8 @@
     -fx-background-color: transparent;
     -fx-text-fill: -error;
     -fx-border-color: derive(-error, 55%);
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
     -fx-cursor: hand;
@@ -208,11 +218,14 @@
 }
 
 .dashboard-root {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .dashboard-sidebar {
-    -fx-background-color: linear-gradient(to bottom, #0F1F3D 0%, #0A162B 100%);
+    -fx-background-color: linear-gradient(to bottom, #2d4656 0%, #2d3337 100%);
 }
 
 .sidebar-separador {
@@ -223,24 +236,24 @@
 
 .marca-subtitulo-oscuro {
     -fx-font-size: 9px;
-    -fx-text-fill: #98A4B8;
+    -fx-text-fill: #8F97A0;
 }
 
 .sidebar-seccion {
     -fx-font-size: 9px;
-    -fx-text-fill: #6F7E96;
+    -fx-text-fill: #8A929A;
     -fx-font-weight: bold;
 }
 
 .sidebar-avatar {
     -fx-background-color: -dorado-codex;
-    -fx-background-radius: 40;
+    -fx-background-radius: 50%;
     -fx-min-width: 42;
     -fx-min-height: 42;
     -fx-max-width: 42;
     -fx-max-height: 42;
     -fx-alignment: center;
-    -fx-text-fill: white;
+    -fx-text-fill: -navy-profundo;
     -fx-font-weight: bold;
     -fx-font-size: 15px;
 }
@@ -258,8 +271,8 @@
 
 .boton-sidebar {
     -fx-background-color: transparent;
-    -fx-text-fill: #DCE3EE;
-    -fx-background-radius: 8;
+    -fx-text-fill: #E1E4E7;
+    -fx-background-radius: 10;
     -fx-border-color: transparent;
     -fx-padding: 12 14 12 14;
     -fx-font-size: 13px;
@@ -273,15 +286,15 @@
 }
 
 .boton-sidebar:pressed {
-    -fx-background-color: rgba(184, 147, 90, 0.28);
+    -fx-background-color: rgba(236, 169, 58, 0.28);
 }
 
 .boton-salir {
     -fx-background-color: transparent;
-    -fx-text-fill: #C4CCDA;
+    -fx-text-fill: #C8CCD0;
     -fx-border-color: rgba(255, 255, 255, 0.22);
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-font-size: 12px;
     -fx-padding: 10 16 10 16;
     -fx-cursor: hand;
@@ -294,27 +307,27 @@
 }
 
 .dashboard-contenido {
-    -fx-background-color: -fondo;
+    -fx-background-color: transparent;
 }
 
 .dashboard-titulo {
     -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
     -fx-font-size: 26px;
-    -fx-text-fill: -navy-primario;
+    -fx-text-fill: #eca93a; /**/
 }
 
 .dashboard-subtitulo {
     -fx-font-size: 12px;
-    -fx-text-fill: -texto-secundario;
+    -fx-text-fill: #eca93a;
 }
 
 .tarjeta-info {
-    -fx-background-color: -superficie;
-    -fx-background-radius: 12;
+    -fx-background-color: -superficie-glass;
+    -fx-background-radius: 14;
     -fx-border-color: -borde;
-    -fx-border-radius: 12;
+    -fx-border-radius: 14;
     -fx-padding: 18 22 18 22;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.07), 16, 0, 0, 6);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.07), 16, 0, 0, 6);
 }
 
 .tarjeta-info-numero {
@@ -329,7 +342,10 @@
 }
 
 .pantalla-fondo {
-    -fx-background-color: -fondo;
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .catalogo-header {
@@ -337,19 +353,19 @@
 }
 
 .barra-superior {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-border-color: transparent transparent -borde transparent;
     -fx-border-width: 0 0 1 0;
     -fx-padding: 18 26 18 26;
 }
 
 .panel-formulario {
-    -fx-background-color: -superficie;
+    -fx-background-color: -superficie-glass;
     -fx-border-color: -borde;
-    -fx-border-radius: 14;
-    -fx-background-radius: 14;
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.08), 18, 0, 0, 6);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.08), 18, 0, 0, 6);
 }
 
 .panel-formulario-titulo {
@@ -374,7 +390,7 @@
 }
 
 .scroll-catalogo .scroll-bar:vertical .thumb {
-    -fx-background-color: #CFCABE;
+    -fx-background-color: #CFC5B8;
     -fx-background-radius: 6;
 }
 
@@ -400,7 +416,7 @@
 }
 
 .scroll-formulario .scroll-bar:vertical .thumb {
-    -fx-background-color: #CFCABE;
+    -fx-background-color: #CFC5B8;
     -fx-background-radius: 6;
 }
 
@@ -415,24 +431,24 @@
 }
 
 .libro-tarjeta {
-    -fx-background-color: -superficie;
-    -fx-background-radius: 12;
+    -fx-background-color: -superficie-glass;
+    -fx-background-radius: 14;
     -fx-border-color: -borde;
-    -fx-border-radius: 12;
+    -fx-border-radius: 14;
     -fx-padding: 14;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.08), 14, 0, 0, 5);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.08), 14, 0, 0, 5);
     -fx-cursor: hand;
 }
 
 .libro-tarjeta:hover {
     -fx-border-color: -dorado-codex;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.20), 22, 0, 0, 10);
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.20), 22, 0, 0, 10);
 }
 
 .libro-tarjeta-imagen {
-    -fx-background-color: #ECE8DF;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(15, 31, 61, 0.22), 10, 0, 2, 4);
+    -fx-background-color: #EDE7DC;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(45, 70, 86, 0.22), 10, 0, 2, 4);
 }
 
 .libro-tarjeta-titulo {
@@ -471,7 +487,7 @@
 .boton-tarjeta {
     -fx-background-color: -navy-primario;
     -fx-text-fill: white;
-    -fx-background-radius: 6;
+    -fx-background-radius: 8;
     -fx-font-size: 10px;
     -fx-padding: 6 12 6 12;
     -fx-cursor: hand;
@@ -485,8 +501,8 @@
     -fx-background-color: transparent;
     -fx-text-fill: -error;
     -fx-border-color: derive(-error, 55%);
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
     -fx-font-size: 10px;
     -fx-padding: 5 11 5 11;
     -fx-cursor: hand;
@@ -495,4 +511,32 @@
 .boton-tarjeta-peligro:hover {
     -fx-background-color: derive(-error, 85%);
     -fx-border-color: -error;
+    
+}
+/* ---------- Marco de ventana (sin barra de título) ---------- */
+.ventana-borde {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(236, 169, 58, 0.85);
+    -fx-border-width: 2;
+    -fx-border-radius: 18;
+}
+
+.ventana-control {
+    -fx-background-color: rgba(45, 51, 55, 0.30);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+}
+
+.ventana-control:hover {
+    -fx-background-color: rgba(236, 169, 58, 0.92);
+    -fx-text-fill: -navy-profundo;
+}
+
+.ventana-control-cerrar:hover {
+    -fx-background-color: rgba(214, 69, 69, 0.95);
+    -fx-text-fill: white;
 }
