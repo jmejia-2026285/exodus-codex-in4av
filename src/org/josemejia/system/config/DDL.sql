@@ -2,14 +2,15 @@ drop database if exists exoduscodex_in4av;
 create database exoduscodex_in4av;
 use exoduscodex_in4av;
 
-    create table usuarios (
+        create table usuarios (
 		id_usuario varchar(50) primary key,
 		nombre varchar(50),
 		apellido varchar(50),
 		correo varchar(50) unique,
 		usuario varchar(50) unique,
 		password varchar(50),
-        rol varchar(50)
+        rol varchar(50),
+        foto varchar(255)
     );
 
     create table libros (
@@ -37,11 +38,12 @@ create procedure sp_agregar_usuario (
     in p_correo varchar(50),
     in p_usuario varchar(50),
     in p_password varchar(50),
-    in p_rol varchar(50)
+    in p_rol varchar(50),
+    in p_foto varchar(255)
 )
 begin
-    insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
-    values (p_id_usuario, p_nombre, p_apellido, p_correo, p_usuario, p_password, p_rol);
+    insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol, foto)
+    values (p_id_usuario, p_nombre, p_apellido, p_correo, p_usuario, p_password, p_rol, p_foto);
 end$$
 
 -- Agregar un nuevo libro
@@ -162,19 +164,36 @@ begin
     delete from usuarios where id_usuario = p_id_usuario;
 end$$
 
+-- Actualizar usuario existente
+create procedure sp_actualizar_usuario (
+    in p_id_usuario varchar(50),
+    in p_nombre varchar(50),
+    in p_apellido varchar(50),
+    in p_correo varchar(50),
+    in p_usuario varchar(50),
+    in p_foto varchar(255)
+)
+begin
+    update usuarios
+    set nombre = p_nombre,
+        apellido = p_apellido,
+        correo = p_correo,
+        usuario = p_usuario,
+        foto = p_foto
+    where id_usuario = p_id_usuario;
+end$$
+
 delimiter ;
-insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
-values
-('2', 'Ana',    'Lopez',    'ana.lopez@exoduscodex.com',       'alopez',    'ana1234',    'Bibliotecario'),
-('3', 'Carlos', 'Ramirez',  'carlos.ramirez@exoduscodex.com',  'cramirez',  'carlos1234', 'Bibliotecario'),
-('4', 'Lucia',  'Morales',  'lucia.morales@exoduscodex.com',   'lmorales',  'lucia1234',  'Bibliotecario'),
-('5', 'Diego',  'Castillo', 'diego.castillo@exoduscodex.com',  'dcastillo', 'diego1234',  'Bibliotecario'),
-('6', 'Sofia',  'Herrera',  'sofia.herrera@exoduscodex.com',   'sherrera',  'sofia1234',  'Bibliotecario');
 
+CALL sp_agregar_usuario('1', 'Mariana',  'Vasquez',  'mariana.vasquez@exoduscodex.com',  'mvasquez',  'mariana123',  'Bibliotecario Jefe', NULL);
+CALL sp_agregar_usuario('2', 'Andres',   'Paz',      'andres.paz@exoduscodex.com',       'apaz',      'andres123',   'Bibliotecario',      NULL);
+CALL sp_agregar_usuario('3', 'Valeria',  'Cruz',     'valeria.cruz@exoduscodex.com',     'vcruz',     'valeria123',  'Bibliotecario',      NULL);
+CALL sp_agregar_usuario('4', 'Fernando', 'Ordonez',  'fernando.ordonez@exoduscodex.com', 'fordonez',  'fernando123', 'Bibliotecario',      NULL);
+CALL sp_agregar_usuario('5', 'Camila',   'Reyes',    'camila.reyes@exoduscodex.com',     'creyes',    'camila123',   'Bibliotecario',      NULL);
 
-
-
-insert into usuarios (id_usuario, nombre, apellido, correo, usuario, password, rol)
-values ('1', 'Jose', 'Mejia', 'jefe@exoduscodex.com', 'jefe', '1234', 'Bibliotecario Jefe');
-
+CALL sp_agregar_libro('978-0-307-47472-8', 'Cien años de soledad',    'Gabriel García Márquez', 'Sudamericana',           1967, 4, NULL);
+CALL sp_agregar_libro('978-84-376-0494-7', 'Rayuela',                 'Julio Cortázar',          'Sudamericana',           1963, 3, NULL);
+CALL sp_agregar_libro('978-0-14-118353-1', '1984',                    'George Orwell',           'Secker & Warburg',       1949, 5, NULL);
+CALL sp_agregar_libro('978-0-06-112008-4', 'To Kill a Mockingbird',   'Harper Lee',              'J. B. Lippincott & Co.', 1960, 2, NULL);
+CALL sp_agregar_libro('978-0-345-33970-1', 'El señor de los anillos', 'J. R. R. Tolkien',        'George Allen & Unwin',   1954, 6, NULL);
 
