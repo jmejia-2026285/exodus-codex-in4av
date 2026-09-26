@@ -130,3 +130,17 @@
 .boton-secundario:hover {
     -fx-background-color: #ece5d6;
 }
+
+.boton-secundarioD {
+    -fx-background-color: white;
+    -fx-text-fill: #2d4656;
+    -fx-border-color: #bcac95;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.boton-secundarioD:hover {
+    -fx-background-color: #ece5d6;
+}

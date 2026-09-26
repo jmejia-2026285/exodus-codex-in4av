@@ -39,7 +39,10 @@ public class DashboardController {
     private Button btnCatalogo;
 
     @FXML
-    private Button btnRegistrarBibliotecario;
+    private Button btnRegistrarLibro;
+
+    @FXML
+    private Button btnRegistrarBibliotecario; //
 
     @FXML
     private Button btnGestionPersonal;
@@ -47,18 +50,26 @@ public class DashboardController {
     @FXML
     private Button btnCerrarSesion;
 
+    @FXML
+    private VBox tarjetaVerCatalogo;
+
+    @FXML
+    private ImageView imgVerCatalogo;
+
     private final ViewFactory viewFactory = new ViewFactory();
 
     @FXML
     private void initialize() {
+
         Usuario usuarioActual = SesionManager.getInstanciaSessionManager().getUsuarioActual();
+
+        boolean esJefe = usuarioActual != null && usuarioActual.esBibliotecarioJefe();
 
         if (usuarioActual != null) {
             lblBienvenida.setText("Bienvenido(a), " + usuarioActual.getNombre());
             lblRol.setText(usuarioActual.getRol());
         }
 
-        boolean esJefe = usuarioActual != null && usuarioActual.esBibliotecarioJefe();
         btnRegistrarBibliotecario.setVisible(esJefe);
         btnRegistrarBibliotecario.setManaged(esJefe);
 
@@ -68,6 +79,9 @@ public class DashboardController {
         if (tarjetaGestionPersonal != null) {
             tarjetaGestionPersonal.setVisible(esJefe);
             tarjetaGestionPersonal.setManaged(esJefe);
+            tarjetaNuevoBibliotecario.setVisible(esJefe);
+            tarjetaNuevoBibliotecario.setManaged(esJefe);
+
         }
 
         AnimationUtils.aplicarFadeIn(raiz);
@@ -76,13 +90,18 @@ public class DashboardController {
         AnimationUtils.aplicarEfectoHover(btnGestionPersonal);
         AnimationUtils.aplicarEfectoHover(btnCerrarSesion);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaAgregarTitulo);
-        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaNuevoBibliotecario);
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaVerCatalogo);
+        AnimationUtils.aplicarEfectoHover(btnRegistrarLibro);
+
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaNuevoBibliotecario); //
+
         if (tarjetaGestionPersonal != null) {
             AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaGestionPersonal);
         }
         ImagenUtils.aplicarEsquinasRedondeadas(imgAgregarTitulo, 12);
         ImagenUtils.aplicarEsquinasRedondeadas(imgNuevoBibliotecario, 12);
         ImagenUtils.aplicarEsquinasRedondeadas(imgGestionPersonal, 12);
+        AnimationUtils.aplicarEfectoHoverTarjeta(tarjetaVerCatalogo);
     }
 
     @FXML
@@ -91,9 +110,15 @@ public class DashboardController {
     }
 
     @FXML
+    private void handleRegistrarLibro() {
+        viewFactory.viewRegistroLibro();
+    }
+
+    @FXML
     private void handleRegistrarBibliotecario() {
         viewFactory.viewRegistro();
     }
+
     @FXML
     private void handleGestionPersonal() {
         viewFactory.viewPersonal();

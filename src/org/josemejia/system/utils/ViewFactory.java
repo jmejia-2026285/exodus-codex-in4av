@@ -48,6 +48,7 @@ public class ViewFactory {
         REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario"),
         DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal"),
         CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico"),
+        REGISTRO_LIBRO("RegLibroView.fxml", "Exodus Codex - Registrar libro"),
         PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal");
 
         final String fxmlFile;
@@ -290,6 +291,10 @@ public class ViewFactory {
 
     public void viewCatalogo() {
         loadScene("catalogo");
+    }
+    
+        public void viewRegistroLibro() {
+        loadScene("registro_libro");
     }
 
     public void viewPersonal() {
