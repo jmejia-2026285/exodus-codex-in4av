@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.RegBibliotecarioController">
+<VBox fx:id="raiz" alignment="CENTER" styleClass="login-container" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.RegBibliotecarioController">
     <padding>
-        <Insets top="36.0" bottom="36.0" left="36.0" right="36.0" />
+        <Insets bottom="36.0" left="36.0" right="36.0" top="36.0" />
     </padding>
     <children>
         <HBox prefHeight="640.0" prefWidth="980.0">
@@ -24,17 +24,14 @@
                         <Insets bottom="52" left="44" right="44" top="52" />
                     </padding>
                     <children>
-                        <ImageView fitHeight="243.0" fitWidth="399.0" nodeOrientation="INHERIT" preserveRatio="true">
+                        <ImageView fitHeight="108.0" fitWidth="201.0" nodeOrientation="INHERIT" preserveRatio="true">
                             <image>
                                 <Image url="@../resources/images/logoblanco.png" />
                             </image>
                         </ImageView>
-                        <Region VBox.vgrow="ALWAYS" />
                         <Region styleClass="regla-dorada" />
-                        <Label styleClass="panel-marca-titulo" text="Registro de bibliotecarios" wrapText="true" />
-                        <Label styleClass="panel-marca-texto" text="Crea una cuenta para el personal que administrará el catálogo y los préstamos." wrapText="true" />
-                        <Region VBox.vgrow="ALWAYS" />
-                        <Label styleClass="panel-marca-cita" text="“Cada bibliotecario custodia el conocimiento.”" wrapText="true" />
+                              <ImageView fx:id="imgFotoPreview" fitHeight="311.0" fitWidth="269.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                              <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" styleClass="boton-secundario" text="Seleccionar fotografía" />
                     </children>
                 </VBox>
 
@@ -106,6 +103,7 @@
                                                 </VBox>
                                             </children>
                                         </HBox>
+                                        <VBox alignment="CENTER" spacing="6" />
 
                                         <Label fx:id="lblError" styleClass="mensaje-error" wrapText="true" />
 
