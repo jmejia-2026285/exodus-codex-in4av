@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -45,15 +46,63 @@
                   <Region maxHeight="6.0" maxWidth="294.0" minHeight="0.0" prefHeight="6.0" prefWidth="294.0" styleClass="regla-dorada" />
                </children>
             </VBox>
-            <ScrollPane fitToWidth="true" styleClass="scroll-catalogo" VBox.vgrow="ALWAYS">
-               <content>
-                  <FlowPane fx:id="panelTarjetas" hgap="18" styleClass="grilla-tarjetas" vgap="18">
-                     <padding>
-                        <Insets bottom="4" left="4" right="18" top="4" />
-                     </padding>
-                  </FlowPane>
-               </content>
-            </ScrollPane>
+            <BorderPane VBox.vgrow="ALWAYS">
+               <center>
+                  <ScrollPane fitToWidth="true" styleClass="scroll-catalogo" BorderPane.alignment="CENTER">
+                     <content>
+                        <FlowPane fx:id="panelTarjetas" hgap="18" styleClass="grilla-tarjetas" vgap="18">
+                           <padding>
+                              <Insets bottom="4" left="4" right="18" top="4" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+               <right>
+                  <ScrollPane fitToWidth="true" prefHeight="397.0" prefWidth="306" styleClass="scroll-formulario" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefWidth="298.0" spacing="8" styleClass="panel-formulario">
+                           <children>
+                              <Label styleClass="panel-formulario-titulo" text="Editar cuenta seleccionada" />
+                              <Region maxWidth="175.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" styleClass="regla-dorada" />
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="NOMBRE" />
+                                    <TextField fx:id="txtNombre" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="APELLIDO" />
+                                    <TextField fx:id="txtApellido" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="CORREO" />
+                                    <TextField fx:id="txtCorreo" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3">
+                                 <children>
+                                    <Label styleClass="campo-etiqueta" text="USUARIO" />
+                                    <TextField fx:id="txtUsuario" styleClass="campo-texto" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="126.0" prefWidth="212.0" spacing="6">
+                                 <children>
+                                    <ImageView fx:id="imgFotoPreview" fitHeight="90.0" fitWidth="90.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                                    <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" prefHeight="38.0" prefWidth="251.0" styleClass="boton-secundario" text="Seleccionar fotografía" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#handleGuardar" styleClass="boton-primario" text="Actualizar" />
+                              <Button fx:id="btnLimpiar" maxWidth="Infinity" onAction="#handleLimpiar" styleClass="boton-secundario" text="Limpiar" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </right>
+            </BorderPane>
          </children>
       </VBox>
    </children>

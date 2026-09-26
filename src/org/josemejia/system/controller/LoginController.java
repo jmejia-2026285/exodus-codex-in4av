@@ -80,6 +80,10 @@ public class LoginController {
 
             lblError.setText("");
             SesionManager.getInstanciaSessionManager().setUsuarioActual(encontrado);
+            AlertUtils.mostrarAlertaPersonalizada(
+                    "Bienvenido(a)",
+                    "Hola, " + encontrado.getNombre() + ". Tu sesión se inició correctamente.",
+                    AlertUtils.TipoNotificacion.BIENVENIDA);
             viewFactory.viewDashboard();
 
         } catch (RuntimeException excepcion) {

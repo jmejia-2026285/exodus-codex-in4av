@@ -8,23 +8,30 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextInputControl;
+
 import javafx.scene.input.MouseEvent;
+
+import javafx.scene.Scene;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+import javafx.stage.Stage;
+
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+
 import org.josemejia.system.MainClass;
+import org.josemejia.system.config.ConexionDB;
 
 public class ViewFactory {
 
@@ -37,20 +44,19 @@ public class ViewFactory {
     private static final double MIN_ANCHO = 640, MIN_ALTO = 420;
 
     private enum ViewConfig {
-        LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión", true),
-        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario", true),
-        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal", true),
-        CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico", true),
-        PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal", true);
+        LOGIN("LoginView.fxml", "Exodus Codex - Iniciar sesión"),
+        REGISTRO("RegBibliotecarioView.fxml", "Exodus Codex - Registrar Bibliotecario"),
+        DASHBOARD("DashboardView.fxml", "Exodus Codex - Menú principal"),
+        CATALOGO("LibroView.fxml", "Exodus Codex - Catálogo bibliográfico"),
+        REGISTRO_LIBRO("RegLibroView.fxml", "Exodus Codex - Registrar libro"),
+        PERSONAL("PersonalView.fxml", "Exodus Codex - Gestión de personal");
 
         final String fxmlFile;
         final String title;
-        final boolean resizable;
 
-        ViewConfig(String fxmlFile, String title, boolean resizable) {
+        ViewConfig(String fxmlFile, String title) {
             this.fxmlFile = fxmlFile;
             this.title = title;
-            this.resizable = resizable;
         }
 
         static ViewConfig fromString(String name) {
@@ -102,7 +108,10 @@ public class ViewFactory {
         Button btnCerrar = new Button("\u2715");
         btnCerrar.getStyleClass().addAll("ventana-control", "ventana-control-cerrar");
         btnCerrar.setFocusTraversable(false);
-        btnCerrar.setOnAction(e -> Platform.exit());
+        btnCerrar.setOnAction(e -> {
+            ConexionDB.getInstanciaConexionDB().cerrarConexion();
+            Platform.exit();
+        });
 
         HBox controles = new HBox(6, btnMinimizar, btnMaximizar, btnCerrar);
         controles.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
@@ -282,6 +291,10 @@ public class ViewFactory {
 
     public void viewCatalogo() {
         loadScene("catalogo");
+    }
+    
+        public void viewRegistroLibro() {
+        loadScene("registro_libro");
     }
 
     public void viewPersonal() {

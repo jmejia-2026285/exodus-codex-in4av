@@ -14,6 +14,11 @@ public class UsuarioService {
         usuarioRepository.crear(nuevoBibliotecario);
     }
 
+    public void actualizarBibliotecario(Usuario usuario, Usuario usuarioActual) {
+        verificarEsJefe(usuarioActual);
+        usuarioRepository.actualizar(usuario);
+    }
+
     public List<Usuario> listarBibliotecarios(Usuario usuarioActual) {
         verificarEsJefe(usuarioActual);
         return usuarioRepository.listar();

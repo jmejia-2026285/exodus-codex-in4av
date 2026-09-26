@@ -12,5 +12,6 @@ public interface UsuarioInterface {
     List<Usuario> listar();
 
     Usuario buscarPorId(String idUsuario);
+    void actualizar(Usuario usuario);
     void eliminar(String idUsuario);
 }

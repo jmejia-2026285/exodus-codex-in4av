@@ -1,12 +1,11 @@
 package org.josemejia.system;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
+import javafx.application.Application; // Importaciones para hacer funcionar java fx
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import org.josemejia.system.utils.SceneManager;
 import org.josemejia.system.utils.ViewFactory;
-import javafx.stage.StageStyle;
 
 public class MainClass extends Application {
 
@@ -16,36 +15,12 @@ public class MainClass extends Application {
 
     @Override
     public void start(Stage stageRoot) {
-        stageRoot.initStyle(StageStyle.TRANSPARENT);
-        SceneManager.getInstanciaSceneManager().setStagePrincipal(stageRoot);
-        ViewFactory viewFactory = new ViewFactory();
+
+        stageRoot.initStyle(StageStyle.TRANSPARENT); // Aqui se elimina el marco de programa normal de windows //
+
+        SceneManager.getInstanciaSceneManager().setStagePrincipal(stageRoot);  // este bloque de codigo se ecarga de invocar al viewFactory
+        ViewFactory viewFactory = new ViewFactory();                                            // y especificamente el apartado para invogar al login
         viewFactory.viewLogin();
-
-        // Si en algún momento necesitas cargar la vista directamente por FXML
-        // (comportamiento de la versión anterior de MainClass), puedes usar:
-        // cargarVistaPorFXML(stageRoot);
     }
 
-    /**
-     * Lógica original de la segunda versión de MainClass, conservada como
-     * método auxiliar para cargar una vista directamente desde un FXML,
-     * sin depender de SceneManager/ViewFactory.
-     */
-    private void cargarVistaPorFXML(Stage stage) {
-        try {
-            Parent root = FXMLLoader.load(
-                getClass().getResource(
-                    "/org/josemejia/system/view/RegistroBibliotecarioView.fxml"
-                )
-            );
-
-            Scene scene = new Scene(root);
-
-            stage.setTitle("Sistema Bibliotecario");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
