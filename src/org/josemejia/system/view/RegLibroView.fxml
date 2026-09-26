@@ -23,13 +23,13 @@
                         <Insets bottom="52" left="44" right="44" top="52" />
                     </padding>
                     <children>
-                        <ImageView fitHeight="84.0" fitWidth="133.0" preserveRatio="true">
+                        <ImageView fitHeight="155.0" fitWidth="220.0" preserveRatio="true">
                             <image>
                                 <Image url="@../resources/images/logoblanco.png" />
                             </image>
                         </ImageView>
                         <Region styleClass="regla-dorada" />
-                              <ImageView fx:id="imgPortadaPreview" fitHeight="354.0" fitWidth="230.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                              <ImageView fx:id="imgPortadaPreview" fitHeight="306.0" fitWidth="230.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
 
                             <VBox alignment="CENTER" spacing="6">
                                 <children>

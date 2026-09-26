@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="raiz" prefHeight="620.0" prefWidth="1000.0" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.DashboardController">
+<BorderPane fx:id="raiz" prefHeight="620.0" prefWidth="1000.0" styleClass="dashboard-root" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.DashboardController">
 
     <left>
         <VBox prefWidth="256.0" spacing="16.0" styleClass="dashboard-sidebar" stylesheets="@../resources/styles/Dashboard.css">
@@ -96,7 +96,7 @@
                             <ImageView fx:id="imgAgregarTitulo" fitHeight="73.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
 
                                 <image>
-                                    <Image url="@../resources/images/gif/folder.gif" />
+                                    <Image url="@../resources/images/gif/save.gif" />
                                 </image>
 
                             </ImageView>
