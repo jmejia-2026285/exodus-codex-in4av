@@ -10,6 +10,7 @@ package org.josemejia.system.utils;
  */
 
 
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class ValidationsUtils {
@@ -47,6 +48,10 @@ public class ValidationsUtils {
     public static boolean esAnioValido(int anio) {
         // Puedes ajustar 2100 según las reglas de tu negocio
         return anio > 0 && anio <= 2100;
+    }
+
+    public static boolean esFechaLimiteValida(LocalDate fechaLimite) {
+        return fechaLimite != null && fechaLimite.isAfter(LocalDate.now());
     }
 
     

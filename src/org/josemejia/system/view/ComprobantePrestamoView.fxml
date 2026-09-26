@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="raiz" alignment="CENTER" prefWidth="420.0" styleClass="pantalla-fondo" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.ComprobantePrestamoController">
+   <children>
+
+      <!-- ================= FORMULARIO (lo que se llena, no se imprime) ================= -->
+
+      <VBox fx:id="panelFormulario" alignment="CENTER" spacing="12.0" styleClass="panel-formulario" stylesheets="@../resources/styles/comprobante.css">
+         <padding>
+            <Insets bottom="24.0" left="28.0" right="28.0" top="24.0" />
+         </padding>
+         <children>
+
+            <Label styleClass="panel-formulario-titulo" text="Comprobante de préstamo" />
+
+            <Region maxWidth="120.0" minHeight="2.0" prefHeight="2.0" styleClass="regla-dorada" />
+
+            <Label fx:id="lblTitulo" styleClass="libro-tarjeta-titulo" wrapText="true" />
+            <Label fx:id="lblAutor" styleClass="libro-tarjeta-autor" />
+            <Label fx:id="lblIsbn" styleClass="tarjeta-info-texto" />
+
+            <Label styleClass="campo-etiqueta" text="Nombre del estudiante" />
+            <TextField fx:id="txtNombreEstudiante" promptText="Nombre completo" styleClass="campo-texto" />
+
+            <Label styleClass="campo-etiqueta" text="Matrícula / carnet" />
+            <TextField fx:id="txtMatricula" promptText="Ej. 2026123" styleClass="campo-texto" />
+
+            <Label styleClass="campo-etiqueta" text="Fecha límite de devolución" />
+            <DatePicker fx:id="dpFechaLimite" maxWidth="Infinity" />
+
+            <Label fx:id="lblMensajeError" managed="false" styleClass="mensaje-error" visible="false" wrapText="true" />
+
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="btnGenerar" onAction="#handleGenerarComprobante" styleClass="boton-primario" text="Generar comprobante" />
+                  <Button fx:id="btnCancelar" onAction="#handleCancelar" styleClass="boton-secundario" text="Cancelar" />
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+
+      <!-- ================= COMPROBANTE (esto es lo único que se manda a imprimir) ================= -->
+
+      <VBox fx:id="panelComprobante" alignment="TOP_CENTER" managed="false" prefWidth="360.0" spacing="8.0" styleClass="comprobante-hoja" stylesheets="@../resources/styles/comprobante.css" visible="false">
+         <padding>
+            <Insets bottom="26.0" left="26.0" right="26.0" top="26.0" />
+         </padding>
+         <children>
+
+            <ImageView fitHeight="52.0" fitWidth="72.0" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/logo.png" />
+               </image>
+            </ImageView>
+
+            <Label styleClass="comprobante-marca" text="EXODUS CODEX" />
+            <Label styleClass="comprobante-subtitulo" text="Comprobante de préstamo" />
+
+            <Region maxWidth="140.0" minHeight="2.0" prefHeight="2.0" styleClass="regla-dorada" />
+
+            <Label fx:id="lblTituloImpreso" styleClass="comprobante-titulo-libro" wrapText="true" />
+            <Label fx:id="lblAutorImpreso" styleClass="comprobante-dato" />
+            <Label fx:id="lblIsbnImpreso" styleClass="comprobante-dato" />
+
+            <Region maxWidth="140.0" minHeight="1.0" prefHeight="1.0" styleClass="regla-dorada" />
+
+            <Label fx:id="lblEstudianteImpreso" styleClass="comprobante-dato" />
+            <Label fx:id="lblMatriculaImpreso" styleClass="comprobante-dato" />
+            <Label fx:id="lblFechaPrestamoImpreso" styleClass="comprobante-dato" />
+
+            <Label styleClass="comprobante-etiqueta-limite" text="FECHA LÍMITE DE DEVOLUCIÓN" />
+            <Label fx:id="lblFechaLimiteImpreso" styleClass="comprobante-fecha-limite" />
+
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="btnImprimir" onAction="#handleImprimir" styleClass="boton-primario" text="Imprimir" />
+                  <Button fx:id="btnVolverEditar" onAction="#handleVolverEditar" styleClass="boton-secundario" text="Volver a editar" />
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

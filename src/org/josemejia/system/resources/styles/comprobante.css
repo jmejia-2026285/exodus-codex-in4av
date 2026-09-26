@@ -1,0 +1,45 @@
+.comprobante-hoja {
+    -fx-background-color: -superficie;
+    -fx-border-color: -borde;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.comprobante-marca {
+    -fx-font-family: "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -navy-primario;
+}
+
+.comprobante-subtitulo {
+    -fx-font-size: 11px;
+    -fx-text-fill: -texto-secundario;
+}
+
+.comprobante-titulo-libro {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -navy-primario;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.comprobante-dato {
+    -fx-font-size: 12px;
+    -fx-text-fill: -texto-principal;
+}
+
+.comprobante-etiqueta-limite {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -texto-secundario;
+    -fx-padding: 6 0 0 0;
+}
+
+.comprobante-fecha-limite {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -error;
+}
