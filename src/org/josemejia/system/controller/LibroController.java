@@ -9,9 +9,13 @@ package org.josemejia.system.controller;
  * @author informatica
  */
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -21,6 +25,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.josemejia.system.model.Libro;
 import org.josemejia.system.model.Usuario;
 import org.josemejia.system.service.LibroService;
@@ -195,6 +201,10 @@ public class LibroController {
         btnEditar.getStyleClass().add("boton-tarjeta");
         btnEditar.setOnAction(e -> seleccionarLibro(libro));
 
+        Button btnComprobante = new Button("Imprimir comprobante");
+        btnComprobante.getStyleClass().add("boton-tarjeta");
+        btnComprobante.setOnAction(e -> abrirComprobante(libro));
+
         Button btnEliminarTarjeta = new Button("Eliminar");
         btnEliminarTarjeta.getStyleClass().add("boton-tarjeta-peligro");
         btnEliminarTarjeta.setOnAction(e -> {
@@ -202,7 +212,7 @@ public class LibroController {
             handleEliminar();
         });
 
-        HBox acciones = new HBox(8, btnEditar, btnEliminarTarjeta);
+        HBox acciones = new HBox(8, btnEditar, btnComprobante, btnEliminarTarjeta);
         acciones.setAlignment(Pos.CENTER);
         VBox tarjeta = new VBox(8, portada, titulo, autor, copias, acciones);
         tarjeta.setAlignment(Pos.TOP_CENTER);
@@ -211,6 +221,29 @@ public class LibroController {
         AnimationUtils.aplicarSlideIn(tarjeta, 24);
         AnimationUtils.aplicarEfectoHoverTarjeta(tarjeta);
         return tarjeta;
+    }
+
+    private void abrirComprobante(Libro libro) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/josemejia/system/view/ComprobantePrestamoView.fxml"));
+            Parent raizComprobante = loader.load();
+
+            ComprobantePrestamoController controlador = loader.getController();
+            controlador.setLibro(libro);
+
+            Stage stageComprobante = new Stage();
+            stageComprobante.initOwner(SceneManager.getInstanciaSceneManager().getStagePrincipal());
+            stageComprobante.initModality(Modality.WINDOW_MODAL);
+            stageComprobante.setTitle("Exodus Codex - Comprobante de préstamo");
+            stageComprobante.setResizable(false);
+            stageComprobante.setScene(new Scene(raizComprobante));
+
+            controlador.setStage(stageComprobante);
+
+            stageComprobante.showAndWait();
+        } catch (IOException e) {
+            mostrarError(new RuntimeException("No se pudo abrir el comprobante de préstamo.", e));
+        }
     }
 
     private void seleccionarLibro(Libro libro) {
