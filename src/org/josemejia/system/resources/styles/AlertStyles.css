@@ -107,3 +107,37 @@
     -fx-text-fill: white;
     -fx-effect: none;
 }
+
+
+.alerta-boton-secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: -texto-secundario;
+    -fx-border-color: -borde;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22 10 22;
+    -fx-cursor: hand;
+}
+.alerta-boton-secundario:hover {
+    -fx-background-color: rgba(101, 122, 128, 0.12);
+}
+
+.alerta-boton-peligro {
+    -fx-background-color: -error;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 26 10 26;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(214, 69, 69, 0.35), 12, 0, 0, 4);
+}
+.alerta-boton-peligro:hover {
+    -fx-background-color: derive(-error, -15%);
+}
+.alerta-boton-peligro:pressed {
+    -fx-background-color: derive(-error, -30%);
+    -fx-effect: none;
+}

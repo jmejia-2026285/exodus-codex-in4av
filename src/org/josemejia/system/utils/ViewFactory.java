@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -171,6 +172,58 @@ public class ViewFactory {
         });
 
         // Obligatorio: las variables de color (-borde, -dorado-codex...) viven en .root
+        URL css = ViewFactory.class.getResource(RUTA_ESTILOS);
+        if (css != null) {
+            marco.getStylesheets().add(css.toExternalForm());
+        }
+
+        Scene escena = new Scene(marco);
+        escena.setFill(Color.TRANSPARENT);
+        return escena;
+    }
+    
+        /**
+     * Igual que crearEscenaConMarco, pero pensado para ventanas modales
+     * (Comprobante, Editar libro): sin minimizar/maximizar, solo botón de cerrar.
+     */
+    public Scene crearEscenaModal(Parent contenido, Stage stage) {
+        Region borde = new Region();
+        borde.getStyleClass().add("ventana-borde");
+        borde.setMouseTransparent(true);
+
+        Button btnCerrar = new Button("\u2715");
+        btnCerrar.getStyleClass().addAll("ventana-control", "ventana-control-cerrar");
+        btnCerrar.setFocusTraversable(false);
+        btnCerrar.setOnAction(e -> stage.close());
+
+        HBox controles = new HBox(btnCerrar);
+        controles.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        StackPane.setAlignment(controles, Pos.TOP_RIGHT);
+        StackPane.setMargin(controles, new Insets(10, 14, 0, 0));
+
+        StackPane marco = new StackPane(contenido, borde, controles);
+
+        Rectangle recorte = new Rectangle();
+        recorte.setArcWidth(RADIO_VENTANA * 2);
+        recorte.setArcHeight(RADIO_VENTANA * 2);
+        recorte.widthProperty().bind(marco.widthProperty());
+        recorte.heightProperty().bind(marco.heightProperty());
+        marco.setClip(recorte);
+
+        final double[] delta = new double[2];
+        marco.addEventFilter(MouseEvent.MOUSE_PRESSED, e -> {
+            if (esZonaArrastrable(e.getTarget())) {
+                delta[0] = e.getScreenX() - stage.getX();
+                delta[1] = e.getScreenY() - stage.getY();
+            }
+        });
+        marco.addEventFilter(MouseEvent.MOUSE_DRAGGED, e -> {
+            if (esZonaArrastrable(e.getTarget())) {
+                stage.setX(e.getScreenX() - delta[0]);
+                stage.setY(e.getScreenY() - delta[1]);
+            }
+        });
+
         URL css = ViewFactory.class.getResource(RUTA_ESTILOS);
         if (css != null) {
             marco.getStylesheets().add(css.toExternalForm());

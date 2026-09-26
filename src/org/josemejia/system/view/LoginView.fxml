@@ -18,29 +18,20 @@
     <children>
         <HBox prefHeight="560.0" prefWidth="900.0">
             <children>
-                <VBox prefWidth="420.0" spacing="22.0" styleClass="panel-marcar">
+                <VBox prefWidth="420.0" spacing="22.0" styleClass="panel-marca">
                     <padding>
                         <Insets bottom="52.0" left="44.0" right="44.0" top="52.0" />
                     </padding>
                     <children>
-                        <VBox alignment="CENTER_LEFT" prefHeight="514.0" prefWidth="418.0" spacing="22" styleClass="panel-marca">
-                            <padding>
-                                <Insets bottom="52" left="44" right="44" top="52" />
-                            </padding>
-                            <children>
-                                <ImageView fx:id="imgLogo" fitHeight="243.0" fitWidth="399.0" nodeOrientation="INHERIT" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/images/logoblanco.png" />
-                                    </image>
-                                </ImageView>
-                                <Region VBox.vgrow="ALWAYS" />
-                                <Region styleClass="regla-dorada" />
-                                <Label prefHeight="60.0" prefWidth="403.0" styleClass="panel-marca-titulo" text="Sistema de gestión bibliotecaria" wrapText="true" />
-                                <Label prefHeight="10.0" prefWidth="379.0" styleClass="panel-marca-texto" text="Catálogo, préstamos y usuarios de la librería universitaria en un solo lugar." wrapText="true" />
-                                <Region VBox.vgrow="ALWAYS" />
-                                <Label styleClass="panel-marca-cita" text="“Un libro es la llave del conocimiento.”" wrapText="true" />
-                            </children>
-                        </VBox>
+                          <ImageView fx:id="imgLogo" fitHeight="203.0" fitWidth="342.0" nodeOrientation="INHERIT" preserveRatio="true">
+                              <image>
+                                  <Image url="@../resources/images/logoblanco.png" />
+                              </image>
+                          </ImageView>
+                          <Region styleClass="regla-dorada" />
+                          <Label prefHeight="60.0" prefWidth="403.0" styleClass="panel-marca-titulo" text="Sistema de gestión bibliotecaria" wrapText="true" />
+                          <Label prefHeight="10.0" prefWidth="379.0" styleClass="panel-marca-texto" text="Catálogo, préstamos y usuarios de la librería universitaria en un solo lugar." wrapText="true" />
+                          <Label styleClass="panel-marca-cita" text="“Un libro es la llave del conocimiento.”" wrapText="true" />
                     </children>
                 </VBox>
                 <VBox alignment="CENTER" spacing="6.0" styleClass="panel-acceso" stylesheets="@../resources/styles/styles.css" HBox.hgrow="ALWAYS">
