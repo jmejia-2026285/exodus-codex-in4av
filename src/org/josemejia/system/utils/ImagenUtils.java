@@ -32,7 +32,8 @@ public class ImagenUtils {
 
     private static final String CARPETA_PORTADAS
             = System.getProperty("user.home") + File.separator + ".exoduscodex" + File.separator + "portadas";
-
+    private static final String CARPETA_FOTOS_PERSONAL
+            = System.getProperty("user.home") + File.separator + ".exoduscodex" + File.separator + "personal";
     private ImagenUtils() {
     }
 
@@ -66,6 +67,23 @@ public class ImagenUtils {
 
         } catch (IOException e) {
             throw new IllegalStateException("No se pudo guardar la portada seleccionada.", e);
+        }
+    }
+        public static String copiarFotoPersonalAAppData(File archivoOriginal) {
+        try {
+            Path carpetaDestino = Path.of(CARPETA_FOTOS_PERSONAL);
+            Files.createDirectories(carpetaDestino);
+
+            String extension = obtenerExtension(archivoOriginal.getName());
+            String nombreUnico = UUID.randomUUID() + extension;
+            Path destino = carpetaDestino.resolve(nombreUnico);
+
+            Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+
+            return destino.toAbsolutePath().toString();
+
+        } catch (IOException e) {
+            throw new IllegalStateException("No se pudo guardar la fotografía seleccionada.", e);
         }
     }
 

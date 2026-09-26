@@ -48,9 +48,9 @@ public class LibroController {
     @FXML
     private Label lblTotalLibros;
     @FXML
-    private ScrollPane scrollCatalogo;
+    private ScrollPane scrollCatalogo; //
     @FXML
-    private FlowPane panelTarjetas;
+    private FlowPane panelTarjetas; 
     @FXML
     private TextField txtTitulo, txtAutor, txtEditorial, txtAnio, txtIsbn, txtCopias;
     @FXML
@@ -118,8 +118,12 @@ public class LibroController {
         }
     }
 
-    @FXML
+            @FXML
     private void handleGuardar() {
+        if (libroSeleccionado == null) {
+            AlertUtils.mostrarAlertaPersonalizada("Catálogo", "Selecciona un libro para editarlo.", TipoNotificacion.ADVERTENCIA);
+            return;
+        }
         String error = validarFormulario();
         if (error != null) {
             AlertUtils.mostrarAlertaPersonalizada("Datos incompletos", error, TipoNotificacion.ADVERTENCIA);
@@ -127,15 +131,9 @@ public class LibroController {
         }
         try {
             Usuario usuario = SesionManager.getInstanciaSessionManager().getUsuarioActual();
-            Libro libro = construirLibro(libroSeleccionado == null ? new Libro() : libroSeleccionado);
-
-            if (libroSeleccionado == null) {
-                libroService.crear(libro, usuario);
-                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se registró correctamente.", TipoNotificacion.LIBRO_GUARDADO);
-            } else {
-                libroService.actualizar(libro, usuario);
-                AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se actualizó correctamente.", TipoNotificacion.LIBRO_GUARDADO);
-            }
+            Libro libro = construirLibro(libroSeleccionado);
+            libroService.actualizar(libro, usuario);
+            AlertUtils.mostrarAlertaPersonalizada("Catálogo", "El libro se actualizó correctamente.", TipoNotificacion.LIBRO_GUARDADO);
             handleLimpiar();
             cargarCatalogo(libroService.listar());
         } catch (RuntimeException e) {
@@ -259,9 +257,10 @@ public class LibroController {
         actualizarModoFormulario();
     }
 
-    private void actualizarModoFormulario() {
+        private void actualizarModoFormulario() {
         boolean editando = libroSeleccionado != null;
-        btnGuardar.setText(editando ? "Actualizar" : "Guardar");
+        btnGuardar.setText("Actualizar");
+        btnGuardar.setDisable(!editando);
         btnEliminar.setDisable(!editando);
     }
 

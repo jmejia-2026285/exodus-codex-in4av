@@ -9,11 +9,12 @@ public class Usuario {
     private String usuario;
     private String password;
     private String rol;
+    private String foto;
 
     public Usuario() {
     }
 
-    public Usuario(String idUsuario, String nombre, String apellido, String correo, String usuario, String password, String rol) {
+    public Usuario(String idUsuario, String nombre, String apellido, String correo, String usuario, String password, String rol, String foto) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -21,7 +22,10 @@ public class Usuario {
         this.usuario = usuario;
         this.password = password;
         this.rol = rol;
+        this.foto = foto;
     }
+
+   
     
     public boolean esBibliotecarioJefe() {
         return rol != null && rol.trim().equalsIgnoreCase("Bibliotecario Jefe");
@@ -81,6 +85,13 @@ public class Usuario {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+        public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
 }
