@@ -1,28 +1,31 @@
 package org.josemejia.system.controller;
 
+import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.josemejia.system.model.Usuario;
 import org.josemejia.system.service.UsuarioService;
 import org.josemejia.system.utils.AlertUtils;
 import org.josemejia.system.utils.AlertUtils.TipoNotificacion;
 import org.josemejia.system.utils.AnimationUtils;
+import org.josemejia.system.utils.ImagenUtils;
+import org.josemejia.system.utils.SceneManager;
 import org.josemejia.system.utils.SesionManager;
 import org.josemejia.system.utils.ValidationsUtils;
 import org.josemejia.system.utils.ViewFactory;
-
-import java.io.File;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import org.josemejia.system.utils.ImagenUtils;
-import org.josemejia.system.utils.SceneManager;
 
 public class PersonalController {
 
@@ -34,17 +37,9 @@ public class PersonalController {
     private Label lblTotalPersonal;
     @FXML
     private FlowPane panelTarjetas;
-    @FXML
-    private TextField txtNombre, txtApellido, txtCorreo, txtUsuario;
-    @FXML
-    private ImageView imgFotoPreview;
-    @FXML
-    private Button btnSeleccionarFoto, btnGuardar, btnLimpiar;
 
     private final UsuarioService usuarioService = new UsuarioService();
     private final ViewFactory viewFactory = new ViewFactory();
-    private Usuario usuarioSeleccionado;
-    private String rutaFotoActual;
 
     @FXML
     private void initialize() {
@@ -53,17 +48,8 @@ public class PersonalController {
         AnimationUtils.aplicarEfectoHover(btnVerTodos);
         AnimationUtils.aplicarEfectoHover(btnVolver);
         AnimationUtils.aplicarFocoAnimado(txtBuscarId);
-        AnimationUtils.aplicarEfectoHover(btnSeleccionarFoto);
-        AnimationUtils.aplicarEfectoHover(btnGuardar);
-        AnimationUtils.aplicarEfectoHover(btnLimpiar);
-        AnimationUtils.aplicarFocoAnimado(txtNombre);
-        AnimationUtils.aplicarFocoAnimado(txtApellido);
-        AnimationUtils.aplicarFocoAnimado(txtCorreo);
-        AnimationUtils.aplicarFocoAnimado(txtUsuario);
-        ImagenUtils.aplicarEsquinasRedondeadas(imgFotoPreview, 10);
 
         cargarTodos();
-        actualizarModoFormulario();
     }
 
     @FXML
@@ -99,94 +85,6 @@ public class PersonalController {
     private void handleVolver() {
         viewFactory.viewDashboard();
     }
-    
-        @FXML
-    private void handleSeleccionarFoto() {
-        FileChooser selector = new FileChooser();
-        selector.setTitle("Seleccionar fotografía");
-        selector.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg"));
-        File archivo = selector.showOpenDialog(SceneManager.getInstanciaSceneManager().getStagePrincipal());
-        if (archivo != null) {
-            try {
-                rutaFotoActual = ImagenUtils.copiarFotoPersonalAAppData(archivo);
-                imgFotoPreview.setImage(ImagenUtils.cargarPortadaDesdeRuta(rutaFotoActual));
-            } catch (RuntimeException e) {
-                mostrarError(e);
-            }
-        }
-    }
-
-    @FXML
-    private void handleGuardar() {
-        if (usuarioSeleccionado == null) {
-            AlertUtils.mostrarAlertaPersonalizada("Personal", "Selecciona una cuenta para editar.", TipoNotificacion.ADVERTENCIA);
-            return;
-        }
-        String error = validarFormulario();
-        if (error != null) {
-            AlertUtils.mostrarAlertaPersonalizada("Datos incompletos", error, TipoNotificacion.ADVERTENCIA);
-            return;
-        }
-        try {
-            Usuario usuarioActual = SesionManager.getInstanciaSessionManager().getUsuarioActual();
-            usuarioSeleccionado.setNombre(txtNombre.getText().trim());
-            usuarioSeleccionado.setApellido(txtApellido.getText().trim());
-            usuarioSeleccionado.setCorreo(txtCorreo.getText().trim());
-            usuarioSeleccionado.setUsuario(txtUsuario.getText().trim());
-            usuarioSeleccionado.setFoto(rutaFotoActual);
-
-            usuarioService.actualizarBibliotecario(usuarioSeleccionado, usuarioActual);
-            AlertUtils.mostrarAlertaPersonalizada("Personal", "La cuenta se actualizó correctamente.", TipoNotificacion.USUARIO_ACTUALIZADO);
-            handleLimpiar();
-            cargarTodos();
-        } catch (RuntimeException e) {
-            mostrarError(e);
-        }
-    }
-
-    @FXML
-    private void handleLimpiar() {
-        usuarioSeleccionado = null;
-        rutaFotoActual = null;
-        txtNombre.clear();
-        txtApellido.clear();
-        txtCorreo.clear();
-        txtUsuario.clear();
-        imgFotoPreview.setImage(null);
-        actualizarModoFormulario();
-    }
-
-    private void actualizarModoFormulario() {
-        btnGuardar.setDisable(usuarioSeleccionado == null);
-    }
-
-    private String validarFormulario() {
-        if (ValidationsUtils.esCampoVacio(txtNombre.getText())) {
-            return "El nombre es obligatorio.";
-        }
-        if (ValidationsUtils.esCampoVacio(txtApellido.getText())) {
-            return "El apellido es obligatorio.";
-        }
-        String errorCorreo = ValidationsUtils.obtenerErrorCorreo(txtCorreo.getText().trim());
-        if (errorCorreo != null) {
-            return errorCorreo;
-        }
-        if (ValidationsUtils.esCampoVacio(txtUsuario.getText())) {
-            return "El nombre de usuario es obligatorio.";
-        }
-        return null;
-    }
-
-    private void seleccionarUsuario(Usuario usuario) {
-        usuarioSeleccionado = usuario;
-        rutaFotoActual = usuario.getFoto();
-        txtNombre.setText(usuario.getNombre());
-        txtApellido.setText(usuario.getApellido());
-        txtCorreo.setText(usuario.getCorreo());
-        txtUsuario.setText(usuario.getUsuario());
-        imgFotoPreview.setImage(ImagenUtils.cargarPortadaDesdeRuta(usuario.getFoto()));
-        actualizarModoFormulario();
-    }
 
     private void cargarTodos() {
         try {
@@ -202,12 +100,12 @@ public class PersonalController {
         }
     }
 
-        private VBox crearTarjeta(Usuario usuario) {
+    private VBox crearTarjeta(Usuario usuario) {
         ImageView foto = new ImageView(ImagenUtils.cargarPortadaDesdeRuta(usuario.getFoto()));
-        foto.setFitWidth(100);
-        foto.setFitHeight(100);
+        foto.setFitWidth(110);
+        foto.setFitHeight(110);
         foto.getStyleClass().add("libro-tarjeta-imagen");
-        ImagenUtils.aplicarEsquinasRedondeadas(foto, 50);
+        ImagenUtils.aplicarEsquinasRedondeadas(foto, 55);
 
         Label nombre = new Label(usuario.getNombre() + " " + usuario.getApellido());
         nombre.getStyleClass().add("libro-tarjeta-titulo");
@@ -230,7 +128,7 @@ public class PersonalController {
 
         Button btnEditarTarjeta = new Button("Editar");
         btnEditarTarjeta.getStyleClass().add("boton-tarjeta");
-        btnEditarTarjeta.setOnAction(e -> seleccionarUsuario(usuario));
+        btnEditarTarjeta.setOnAction(e -> editarUsuario(usuario));
 
         HBox acciones = new HBox(8, btnEditarTarjeta);
         acciones.setAlignment(Pos.CENTER);
@@ -252,7 +150,31 @@ public class PersonalController {
         return tarjeta;
     }
 
-        private void eliminarBibliotecario(Usuario usuario) {
+    private void editarUsuario(Usuario usuario) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/josemejia/system/view/EditarBibliotecarioView.fxml"));
+            Parent raizEditor = loader.load();
+
+            EditarBibliotecarioController controlador = loader.getController();
+            controlador.setUsuario(usuario);
+            controlador.setAlGuardarOEliminar(this::cargarTodos);
+
+            Stage stageEditor = new Stage(StageStyle.TRANSPARENT);
+            stageEditor.initOwner(SceneManager.getInstanciaSceneManager().getStagePrincipal());
+            stageEditor.initModality(Modality.WINDOW_MODAL);
+            stageEditor.setTitle("Exodus Codex - Editar cuenta");
+            stageEditor.setResizable(false);
+            stageEditor.setScene(viewFactory.crearEscenaModal(raizEditor, stageEditor));
+
+            controlador.setStage(stageEditor);
+
+            stageEditor.showAndWait();
+        } catch (IOException e) {
+            mostrarError(new RuntimeException("No se pudo abrir el editor de cuenta.", e));
+        }
+    }
+
+    private void eliminarBibliotecario(Usuario usuario) {
         boolean confirmado = AlertUtils.mostrarConfirmacion(
                 "Eliminar bibliotecario",
                 "¿Seguro que quieres eliminar a " + usuario.getNombre() + " " + usuario.getApellido() + " del sistema? Esta acción no se puede deshacer.",

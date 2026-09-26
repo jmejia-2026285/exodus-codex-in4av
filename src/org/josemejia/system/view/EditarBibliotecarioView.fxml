@@ -11,58 +11,46 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="raiz" alignment="TOP_CENTER" prefWidth="360.0" spacing="8" styleClass="panel-formulario" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.EditarLibroController">
+<VBox fx:id="raiz" alignment="TOP_CENTER" prefWidth="360.0" spacing="8" styleClass="panel-formulario" stylesheets="@../resources/styles/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemejia.system.controller.EditarBibliotecarioController">
    <padding>
       <Insets bottom="24.0" left="26.0" right="26.0" top="24.0" />
    </padding>
    <children>
-      <Label styleClass="panel-formulario-titulo" text="Editar libro" />
+      <Label styleClass="panel-formulario-titulo" text="Editar cuenta" />
       <Region maxWidth="175.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" styleClass="regla-dorada" />
 
       <ScrollPane fitToWidth="true" styleClass="scroll-formulario" VBox.vgrow="ALWAYS">
          <content>
             <VBox spacing="8">
                <children>
-                  <VBox spacing="3">
-                     <children>
-                        <Label styleClass="campo-etiqueta" text="TÍTULO" />
-                        <TextField fx:id="txtTitulo" styleClass="campo-texto" />
-                     </children>
-                  </VBox>
-                  <VBox spacing="3">
-                     <children>
-                        <Label styleClass="campo-etiqueta" text="AUTOR PRINCIPAL" />
-                        <TextField fx:id="txtAutor" styleClass="campo-texto" />
-                     </children>
-                  </VBox>
-                  <VBox spacing="3">
-                     <children>
-                        <Label styleClass="campo-etiqueta" text="EDITORIAL" />
-                        <TextField fx:id="txtEditorial" styleClass="campo-texto" />
-                     </children>
-                  </VBox>
-                  <VBox spacing="3">
-                     <children>
-                        <Label styleClass="campo-etiqueta" text="AÑO" />
-                        <TextField fx:id="txtAnio" styleClass="campo-texto" />
-                     </children>
-                  </VBox>
-                  <VBox spacing="3">
-                     <children>
-                        <Label styleClass="campo-etiqueta" text="ISBN" />
-                        <TextField fx:id="txtIsbn" styleClass="campo-texto" />
-                     </children>
-                  </VBox>
                   <VBox alignment="CENTER" prefWidth="232.0" spacing="6">
                      <children>
-                        <ImageView fx:id="imgPortadaPreview" fitHeight="200.0" fitWidth="150.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
-                        <Button fx:id="btnSeleccionarPortada" maxWidth="Infinity" onAction="#handleSeleccionarPortada" prefHeight="38.0" prefWidth="251.0" styleClass="boton-secundario" text="Seleccionar portada" />
+                        <ImageView fx:id="imgFotoPreview" fitHeight="180.0" fitWidth="140.0" preserveRatio="false" styleClass="libro-tarjeta-imagen" />
+                        <Button fx:id="btnSeleccionarFoto" maxWidth="Infinity" onAction="#handleSeleccionarFoto" prefHeight="38.0" prefWidth="251.0" styleClass="boton-secundario" text="Seleccionar fotografía" />
                      </children>
                   </VBox>
                   <VBox spacing="3">
                      <children>
-                        <Label styleClass="campo-etiqueta" text="COPIAS" />
-                        <TextField fx:id="txtCopias" styleClass="campo-texto" />
+                        <Label styleClass="campo-etiqueta" text="NOMBRE" />
+                        <TextField fx:id="txtNombre" styleClass="campo-texto" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="3">
+                     <children>
+                        <Label styleClass="campo-etiqueta" text="APELLIDO" />
+                        <TextField fx:id="txtApellido" styleClass="campo-texto" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="3">
+                     <children>
+                        <Label styleClass="campo-etiqueta" text="CORREO" />
+                        <TextField fx:id="txtCorreo" styleClass="campo-texto" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="3">
+                     <children>
+                        <Label styleClass="campo-etiqueta" text="USUARIO" />
+                        <TextField fx:id="txtUsuario" styleClass="campo-texto" />
                      </children>
                   </VBox>
                </children>
@@ -76,11 +64,11 @@
       </ImageView>
 
       <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#handleGuardar" styleClass="boton-primario" text="Guardar cambios" />
-      <HBox spacing="10">
+      <HBox fx:id="filaEliminar" spacing="10">
          <children>
             <ImageView fitHeight="54.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/gif/deleted-100px.gif" />
+                  <Image url="@../resources/images/gif/delete-user.gif" />
                </image>
             </ImageView>
             <Button fx:id="btnEliminar" maxWidth="Infinity" onAction="#handleEliminar" styleClass="boton-peligro" text="Eliminar" HBox.hgrow="ALWAYS" />

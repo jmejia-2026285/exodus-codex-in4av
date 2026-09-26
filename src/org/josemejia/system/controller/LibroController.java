@@ -89,8 +89,8 @@ public class LibroController {
 
     private VBox crearTarjeta(Libro libro) {
         ImageView portada = new ImageView(ImagenUtils.cargarPortadaDesdeRuta(libro.getPortada()));
-        portada.setFitWidth(150);
-        portada.setFitHeight(150);
+        portada.setFitWidth(140);
+        portada.setFitHeight(200);
         portada.getStyleClass().add("libro-tarjeta-imagen");
         ImagenUtils.aplicarEsquinasRedondeadas(portada, 10);
 
