@@ -67,7 +67,7 @@
     <right>
         <ScrollPane fitToWidth="true" prefHeight="501.0" prefWidth="1087.0" styleClass="scroll-formulario" stylesheets="@../resources/styles/Dashboard.css" BorderPane.alignment="CENTER">
 
-            <VBox spacing="26.0" styleClass="dashboard-contenido">
+            <VBox alignment="TOP_RIGHT" spacing="26.0" styleClass="dashboard-contenido">
 
                 <padding>
                     <Insets bottom="48.0" left="52.0" right="52.0" top="48.0" />
@@ -79,14 +79,14 @@
 
                     <Region maxWidth="166.0" minHeight="1.0" prefHeight="1.0" prefWidth="166.0" styleClass="regla-dorada" />
 
-                    <Label styleClass="dashboard-titulo" text="Bienvenido a Exodus Codex" />
+                    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="dashboard-titulo" text="Bienvenido a Exodus Codex" />
 
                 </VBox>
                 <VBox spacing="14.0">
 
                     <Label styleClass="sidebar-seccion" text="ACCESOS RÁPIDOS" />
 
-                    <HBox spacing="16.0">
+                    <HBox alignment="TOP_RIGHT" spacing="16.0">
                         <VBox fx:id="tarjetaAgregarTitulo" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
                             <Label styleClass="tarjeta-accion-titulo" text="Agregar título" />
@@ -104,7 +104,7 @@
                             <Button onAction="#handleRegistrarLibro" styleClass="boton-primario" text="Registrar libro" />
 
                         </VBox>
-                        <VBox fx:id="tarjetaVerCatalogo" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="tarjetaVerCatalogo" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0" styleClass="tarjeta-accion" HBox.hgrow="ALWAYS">
 
                             <Label styleClass="tarjeta-accion-titulo" text="Ver catálogo" />
 

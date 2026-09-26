@@ -1,5 +1,5 @@
 .dashboard-root {
-    -fx-background-color: transparent;
+        -fx-background-color: -fondo;
 }
 
 .dashboard-sidebar {
@@ -139,6 +139,7 @@
     -fx-padding: 20;
     -fx-border-color: #bcac95;
     -fx-border-radius: 14;
+    -fx-max-width: 340;
 }
 
 .tarjeta-accion-titulo {

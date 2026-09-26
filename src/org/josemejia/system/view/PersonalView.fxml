@@ -50,7 +50,7 @@
                <center>
                   <ScrollPane fitToWidth="true" styleClass="scroll-catalogo" BorderPane.alignment="CENTER">
                      <content>
-                        <FlowPane fx:id="panelTarjetas" hgap="18" styleClass="grilla-tarjetas" vgap="18">
+                        <FlowPane fx:id="panelTarjetas" alignment="CENTER" hgap="18" styleClass="grilla-tarjetas" vgap="18">
                            <padding>
                               <Insets bottom="4" left="4" right="18" top="4" />
                            </padding>
